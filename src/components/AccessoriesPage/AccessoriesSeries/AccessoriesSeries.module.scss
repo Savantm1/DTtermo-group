@@ -1,0 +1,163 @@
+@import '../../../variables';
+
+.container {
+  max-width: 1200px;
+}
+
+.title {
+
+  width:100%;
+  height: 54px;
+  font-size: 32px;
+  text-align: center;
+  // background-color: #fff;
+  background-image: url('../../../assets/img/footer-bg.png') ;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 0;
+
+}
+
+.fancoil_block {
+  padding: 15px 0px;
+
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid $grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+
+  .main_series {
+
+    display: flex;
+    width:80%;
+    
+
+    .block_img {
+
+      width:45%;
+      margin-right: 15px;
+
+      .img {
+
+        width: 100%;
+    
+      }
+    }
+
+    .desc_block {
+      display: flex;
+
+  
+  
+      flex-direction: column;
+  
+      .block_title {
+        font-size: 22px;
+        margin-top: 0;
+
+        margin-bottom: 5px;
+      }
+  
+      .block_description {
+        margin:0;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .table {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #dfdfdf;
+      transition: all ease 0.2s;
+
+      padding: 5px 10px;
+      
+      &:nth-child(1) {
+        background-color: #dfdfdf;
+
+        &:hover{
+          background-color: #dfdfdf;
+        }
+
+      }
+
+      &:hover {
+
+        background-color:$greyhover;
+
+        .btn{
+
+          display: block;
+        }
+      }
+
+      .link {
+        text-decoration: none;
+        color: $green;
+        font-weight: 600;
+        width:150px;
+      }
+
+
+      .param {
+        flex-basis: 150px;
+        
+        text-align: center;
+
+        &:nth-child(1) {
+
+
+          
+        }
+      }
+    }
+  }
+
+  .text_block {
+
+    padding: 15px;
+    font-size: 18px;
+
+    .advantages {
+      font-weight: 600;
+
+      .item {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+
+.btn {
+
+
+  cursor:pointer;
+  bottom: -20px;
+  color: #fff;
+  border:none;
+  border-radius: 10px;
+  padding: 5px ;
+  font-weight: 700;
+  background-color: $green;
+  transition: all ease 0.2s;
+
+  &:hover {
+
+    background-color:$greenhover;
+  }
+}

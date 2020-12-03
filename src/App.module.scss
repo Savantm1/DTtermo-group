@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+* {
+  outline: none;
+}
+
+.app {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  height: 100%;
+  background-color: $grey;
+  background-image: url('./assets/img/bg.PNG');
+  background-size: 300px;
+}
+
+//colors
+
+$grey: #7c7c7c;
+$green: #53b36a;

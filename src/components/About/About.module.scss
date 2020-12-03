@@ -1,0 +1,268 @@
+@import "../../variables";
+@import "./Slider/image-gallery.scss";
+
+
+
+.content {
+
+  width:100%;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .block {
+
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+  }
+
+  .title {
+
+    width:100%;
+    height: 54px;
+    font-size: 32px;
+    text-align: center;
+    background-image: url('../../assets/img/footer-bg.png') ;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+  }
+
+  .description {
+
+    font-size: 20px;
+    text-indent:40px;
+
+    .about_img {
+
+      width: 600px;
+      float:right;
+      margin: 5px 10px;
+    }
+  }
+
+  .features {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    flex-wrap: wrap;
+
+    .item {
+      display: flex;
+      width: 290px;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+
+
+      border: 2px solid #53b36a;
+      border-radius: 50px;
+      margin-bottom: 40px;
+      padding: 10px;
+            
+      .features_img {
+        width: 110px;
+        margin-bottom: 20px;
+      }
+
+      .text {
+
+        font-size: 20px;
+        font-weight: bold;
+        color: #53b36a;;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  .certificate {
+
+    width:100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    
+
+    .block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      width: 100%;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+
+      .img {
+
+        width: 400px;
+        cursor: pointer;
+      }
+
+      .right_side {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 700px;
+        width: 100%;
+
+        .title {
+
+          color: #000;
+          margin-left: 0px;
+          margin-top: 0px;
+        }
+        
+        .desc {
+          color: #000;
+          font-size:22px;
+        }
+
+        .btn {
+
+          cursor: pointer;
+          font-family: LytigaPro;
+          text-decoration: none;
+          color:#fff;
+          border: none;
+          border-radius: 10px;
+          padding: 10px 20px;
+          font-size: 16px;
+          
+          text-transform: uppercase;
+          background-color: #53b36a;
+          outline: none;
+          transition: all ease 0.2s;
+      
+      &:hover {
+        background-color:$greenhover;
+      }
+        }
+      }
+
+    }
+  }
+
+  
+
+  .form_section {
+
+    color:#000;
+    width:100%;
+  }
+
+  .sklad {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:center;
+    max-width: 1200px;
+    justify-content: space-between;
+    width:100%;
+    padding-bottom: 20px;
+    font-size: 20px;
+
+    .desc {
+      text-indent:40px;
+    }
+
+    // .arrow_block {
+
+    //   align-self: stretch;
+    //   display: flex;
+    //   align-items: center;
+    //   cursor: pointer;
+
+    //   .arrow {
+
+    //     width:30px;
+    //     padding: 0 10px;
+
+    //   }
+    // }
+
+    // .wrapper {
+      
+    //   width: 960px;
+    //   display: flex;
+    //   height:auto;
+    //   overflow: hidden;
+
+
+    //   // .container {
+
+    //   //   position: relative;
+    //   //   flex-direction: row;
+    //   //   display: flex;
+    //   //   right:0px;
+    //   //   transition: right 0.5s;
+
+
+    //     // .slide {
+    //     //   position: relative;
+    //     //   width: 30%;
+    //     //   height: 300px;
+    //     //   margin-right: 20px;
+    //     //   box-shadow: 9px 9px 13px -5px rgba(0, 0, 0, 0.6);
+
+    //     //   &:first-child {
+    //     //     margin-left: 10px;
+    //     //   }
+  
+    //     //   .img {
+            
+    //     //     width: 300px;
+    //     //   }
+    //     // }
+    //   // }
+
+    
+
+    // }
+
+  }
+}
+
+
+  .sklad_gallery {
+    box-sizing: border-box;
+    width: 100%;
+
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    
+    padding-left: 4%;
+
+    .gallery_img {
+      
+      position: relative;
+      
+      height: 100%;
+      max-height: 290px;
+      max-width: 250px;
+      margin-right:3%;
+      margin-bottom: 3%;
+      cursor: pointer;
+      transition: all ease 0.3s;
+      &:hover {
+        transform: scale(1.05);
+      }
+
+    }
+
+  }
+
+

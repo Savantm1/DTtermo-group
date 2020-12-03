@@ -1,0 +1,176 @@
+@import "../../variables.scss";
+
+.contacts { 
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+
+  
+  .title_block {
+
+    display: flex;
+    flex-direction: flex-start;
+
+    width:100%;
+
+
+    .title {
+      width:100%;
+      height: 54px;
+      font-size: 32px;
+      text-align: center;
+      // background-color: #fff;
+      background-image: url('../../assets/img/footer-bg.png') ;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+    }
+    .logo {
+
+      height: 100px;
+    }
+
+
+  }
+
+  .mail_contact {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    max-width: 1200px;
+    margin-bottom: 40px;
+
+    .item {
+
+      position: relative;
+      width: 20%;
+      border:2px solid $green;
+      
+      -webkit-box-shadow: 10px 10px 33px -17px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 33px -17px rgba(0,0,0,0.75);
+      box-shadow: 10px 10px 33px -17px rgba(0,0,0,0.75);
+
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+      margin: 10px;
+      padding-bottom: 50px;
+      background-color: #fff;
+
+      transition: all ease 0.4s;
+
+      &:hover {
+        -webkit-box-shadow: 2px 8px 48px -10px rgb(130, 130, 130);
+        -moz-box-shadow: 2px 8px 48px -10px rgb(130, 130, 130);
+        box-shadow: 2px 8px 48px -10px rgb(129, 129, 129);
+      
+      }
+
+
+      
+      .contact__title {
+
+        font-size: 20px;
+        margin-top: 12px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .contact__adress {
+
+        cursor: pointer;
+        position: absolute;
+        font-size: 16px;
+
+        font-weight: 500;
+        text-decoration: none;
+        color: $green;
+        padding: 4px 5px;
+        border-radius: 5px;
+        transition: all ease 0.2s;
+        bottom: 10px;
+
+        &:hover {
+
+
+          text-decoration: underline;
+
+          
+        }
+
+      }
+
+      .contact__adress_second {
+        bottom: 35px;
+      }
+
+ 
+
+    }
+  }
+
+  .adress_block {
+    padding-left: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    .adress_item {
+
+      margin-bottom: 20px;
+
+      .item_title {
+
+        font-size: 24px;
+        
+        
+      }
+
+      .item_desc {
+
+        font-size: 18px;
+        margin-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .link {
+        
+        cursor: pointer;
+        color: $green;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        margin-right: 20px;
+        margin-left: 15px;
+
+        &:hover {
+
+          color:$greenhover;
+        }
+        
+      }
+      
+      .icon {
+        transform:translateY(30%);
+        padding:3px;
+        background-color:$green;
+        border-radius: 50%;
+        margin-right: 10px;
+
+      }
+
+
+      
+    }
+  }
+
+
+  
+}

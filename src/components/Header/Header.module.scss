@@ -1,0 +1,96 @@
+@import "../../variables.scss";
+
+.nav {
+
+  width: 100%;
+  background-color:#333;
+  display: flex;
+  justify-content: center;
+
+
+  .list {
+
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    list-style: none;
+    padding: 0 30px;
+    margin: 0;
+    height: 70px;
+    max-width: 1200px;
+    width: 100%;
+
+
+    text-transform: uppercase;
+
+
+    .item {
+
+      box-sizing: border-box;
+      flex-grow: 1;
+      &:nth-child(1){
+        flex-grow: 6;
+      }
+
+
+      .link {
+
+        text-decoration: none;
+        color: #fff;
+        transition: all ease 0.2s;
+
+        &:hover {
+          
+          color:$greenhover;
+        }
+
+        &_active {
+
+          color:$green;
+        }
+      }
+
+      .spec {
+
+        box-sizing: border-box;
+        max-width: 54px;
+        position: relative;
+
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        // justify-content: flex-end;
+        align-items: flex-start;
+        text-decoration: none;
+
+        .count_container {
+
+         border: 1px solid #fff;
+         background-color: #fff;
+         border-radius: 50%;
+         width: 15px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+        }
+        
+        .count {
+
+          color: #000;
+          font-size: 12px;
+          font-weight: 700;
+
+        }
+
+        .shadow {
+          cursor: pointer;
+          z-index: 10;
+          width: 100%;
+          height: 30px;position: absolute;
+        }
+
+      }
+    }
+  }
+}
