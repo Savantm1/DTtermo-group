@@ -2,7 +2,7 @@ import * as axios from "axios";
 
 
 const instance = axios.create({
-  withCredentials: true,
+
   baseURL: "http://testcarrier.dttermo.com/api",
   // headers: {
   //   "API-KEY": "d0449bcb-423d-4e92-808e-977d758ae9ec"
@@ -12,8 +12,8 @@ const instance = axios.create({
 export const API = {
   
   getUsers(name) {
-    debugger;
-   return instance.get(`/carrier`)
+
+   return instance.get(`/fancoil`)
      .then(response => {
         console.log(response)
        return response;

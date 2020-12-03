@@ -76,7 +76,13 @@
 
       .number {
         margin: 0 auto;
+        display: none;
+      }
 
+      .number_input {
+        display:block;
+        width: 15px;
+        margin: 0 auto;
       }
 
       

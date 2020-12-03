@@ -15,6 +15,7 @@ import FancoilModelContainer from './components/FancoilsPage/FancoilModel/Fancoi
 import AccessoriesModelContainer from './components/AccessoriesPage/AccessoriesModel/AccessoriesModelContainer'
 import Specification from './components/Specification/Specification';
 import Modal from './components/Specification/Modal/Modal';
+import SpecificationContainer from './components/Specification/SpecificationContainer';
 
 
 let App = (props) => {
@@ -29,7 +30,7 @@ let App = (props) => {
           <Route path="/accessories" render={() => { return <AccessoriesPage/> }} />
           <Route path="/contacts" render={() => { return <Contacts /> }} />
           <Route path="/models/id" render={() => { return <FancoilModelContainer /> }} />
-          <Route path="/specification" render={() => { return <Specification /> }} />
+        <Route path="/specification" render={() => { return <SpecificationContainer  /> }} />
           <Route path="/modal" render={() => { return <Modal /> }} />
           <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} />
           <Route path="/accessories_series/id" render={() => { return <AccessoriesSeriesContainer /> }} />

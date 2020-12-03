@@ -20,7 +20,7 @@ let FancoilsPage = (props) => {
       <div className={styles.right_side}>
         <img className={styles.fancoil} src={fancoil} alt="image_fancoil"/>
       </div> */}
-      <h2 className={styles.title}>Модели фанкойлов</h2>
+      <h2 className={styles.title}>Типы фанкойлов</h2>
       <div className={styles.cards_block}>
         <CardItem />
         <CardItem />

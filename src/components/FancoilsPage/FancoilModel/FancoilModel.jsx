@@ -17,10 +17,10 @@ import {API} from "../../../api/api";
 let FancoilModel = (props) => {
 
   let AddtoSpec = () => {
-    props.addProduct();
-    cogoToast.success("Добавлено в спецификацию", {
-      position: "top-right",
-    });
+    // props.addProduct();
+    // cogoToast.success("Добавлено в спецификацию", {
+    //   position: "top-right",
+    // });
     
    API.getUsers();
   };
