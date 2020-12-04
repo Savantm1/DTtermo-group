@@ -10,14 +10,11 @@ import AccessoriesRow from "./AccessoriesRow/AccessoriesRow";
 
 let Specification = (props) => {
 
-
-
   let FancoilElements = props.spec.fancoils.map((fancoilElement) => {
     return (
      <FancoilRow art={fancoilElement.art} type={fancoilElement.type} model={fancoilElement.model} kol={fancoilElement.kol}/>
     )
   })
-
 
   let AccessoriesElements = props.spec.accessories.map((accessoriesElement) => {
 

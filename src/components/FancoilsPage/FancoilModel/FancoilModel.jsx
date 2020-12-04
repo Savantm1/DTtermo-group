@@ -22,7 +22,7 @@ let FancoilModel = (props) => {
     //   position: "top-right",
     // });
     
-   API.getUsers();
+   API.getFancoilTypes();
   };
 
   window.scrollTo(0, 0);

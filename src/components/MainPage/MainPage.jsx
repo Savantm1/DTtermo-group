@@ -17,6 +17,7 @@ import certificate from "../../assets/img/certificate.jpg";
 import FsLightbox from "fslightbox-react";
 
 let MainPage = (props) => {
+debugger
   const options = {
     buttons: {
       showAutoplayButton: false,
@@ -27,6 +28,10 @@ let MainPage = (props) => {
   };
 
   const [toggler, setToggler] = useState(false);
+
+  let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
+    return (<CardItem title={element.type} series={element.series} />)
+  })
 
   // let link_block = React.createRef();
   // let accessories_block = React.createRef();
@@ -93,11 +98,7 @@ let MainPage = (props) => {
         <span className={styles.on_order}>Под заказ</span>
       </div>
       <div className={styles.cards_block}>
-        <CardItem active={true} />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        {fancoilTypesElements}
       </div>
       <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
       <div className={styles.accessories_block} id="accessories">

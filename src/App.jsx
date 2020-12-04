@@ -3,7 +3,6 @@ import styles from'./App.module.scss';
 import Footer from './components/Footer/Footer';
 import SimpleReactLightbox from "simple-react-lightbox";
 import { Route } from 'react-router-dom';
-import MainPage from './components/MainPage/MainPage';
 import About from "./components/About/About";
 import Contacts from './components/Contacts/Contacts';
 import FancoilsPage from './components/FancoilsPage/FancoilsPage';
@@ -13,9 +12,9 @@ import FancoilSeriesContainer from './components/FancoilsPage/FancoilsSeries/Fan
 import AccessoriesSeriesContainer from './components/AccessoriesPage/AccessoriesSeries/AccessoriesSeriesContainer';
 import FancoilModelContainer from './components/FancoilsPage/FancoilModel/FancoilModelContainer';
 import AccessoriesModelContainer from './components/AccessoriesPage/AccessoriesModel/AccessoriesModelContainer'
-import Specification from './components/Specification/Specification';
 import Modal from './components/Specification/Modal/Modal';
 import SpecificationContainer from './components/Specification/SpecificationContainer';
+import MainPageContainer from './components/MainPage/MainPageContainer';
 
 
 let App = (props) => {
@@ -24,7 +23,7 @@ let App = (props) => {
     <div className={styles.app}>
       <SimpleReactLightbox>
         <HeaderContainer />
-          <Route path="/" exact render={() => { return <MainPage/>}} />
+          <Route path="/" exact render={() => { return <MainPageContainer/>}} />
           <Route path="/about_us" render={() => { return <About /> }} />
           <Route path="/fancoils" render={() => { return <FancoilsPage /> }} />
           <Route path="/accessories" render={() => { return <AccessoriesPage/> }} />

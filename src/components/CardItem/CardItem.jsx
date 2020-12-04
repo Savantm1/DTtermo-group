@@ -16,10 +16,10 @@ let CardItem = (props) => {
           <img className={styles.card__img} src={card_img} alt="card_img" />
           <div className={styles.desc_container}>
             <h4 className={styles.card__class}>
-              Airovision® - Air handling unit
+              {props.title}
             </h4>
-            <span className={styles.card__model}>39CP</span>
-            <p className={styles.card__feature}>
+            <span className={styles.card__model}>{props.series}</span>
+            {/* <p className={styles.card__feature}>
               <span className={styles.feature__title}>Производительность:</span>
               <span className={styles.feature__desc}>9,50 кВт</span>
             </p>
@@ -31,6 +31,7 @@ let CardItem = (props) => {
               <span className={styles.feature__title}>Размеры (В*Ш*Г):</span>
               <span className={styles.feature__desc}>1430*657*220 мм</span>
             </p>
+             */}
             {/* <NavLink className={styles.card__btn} to="#"> Подробнее</NavLink> */}
           </div>
         </div>
