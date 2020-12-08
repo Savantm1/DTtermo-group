@@ -17,6 +17,63 @@ export const API = {
      .then(response => {
        return response.data.data;
       });
-  }
+  },
+
+  getAccessoriesTypes() {
+
+    return instance.get(`/accessories`)
+      .then(response => {
+        return response.data.data;
+       });
+  },
+  
+  getFancoilModel() {
+
+    return instance.get(`/fancoil_model`)
+      .then(response => {
+        return response.data.data;
+       });
+  },
+  
+  getOtherFancoilModels() {
+
+    return instance.get(`/other_fancoil_model`)
+      .then(response => {
+        return response.data.data;
+       });
+  },
+  
+  getOtherFancoilTypes() {
+
+    return instance.get(`/other_fancoil_types`)
+      .then(response => {
+        return response.data.data;
+       });
+  },
+
+  getAccessoryModel() {
+
+    return instance.get(`/accessory_model`)
+      .then(response => {
+        return response.data.data;
+       });
+   },
+  
+  getOtherAccessoryTypes() {
+
+    return instance.get(`/other_accessory_types`)
+      .then(response => {
+        return response.data.data;
+       });
+  },
+  
+  getOtherAccessoryModels() {
+
+    return instance.get(`/other_accessory_models`)
+      .then(response => {
+        return response.data.data;
+       });
+   },
+  
 
 }

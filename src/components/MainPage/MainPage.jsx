@@ -5,7 +5,7 @@ import styles from "./MainPage.module.scss";
 import Form from "../Form/Form";
 import CardItem from "../CardItem/CardItem";
 import AccessoryItem from "../AccessoryItem/AcessoryItem";
-import BeautySection from "../BeautySection/BeautySection";
+import BeautySection from "./BeautySection/BeautySection";
 import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
@@ -15,9 +15,10 @@ import features_6 from "../../assets/img/features_6.svg";
 import { SRLWrapper } from "simple-react-lightbox";
 import certificate from "../../assets/img/certificate.jpg";
 import FsLightbox from "fslightbox-react";
+import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 
 let MainPage = (props) => {
-debugger
+
   const options = {
     buttons: {
       showAutoplayButton: false,
@@ -29,16 +30,7 @@ debugger
 
   const [toggler, setToggler] = useState(false);
 
-  let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
-    return (<CardItem title={element.type} series={element.series} />)
-  })
-
-  // let link_block = React.createRef();
-  // let accessories_block = React.createRef();
-  // let scrollToAccessories = () => {
-
-  // }
-
+ 
   return (
     <div className={styles.content}>
       <div className={styles.companies_section}>
@@ -91,15 +83,20 @@ debugger
         </a>
       </div>
       <h2 className={styles.title}></h2>
-      <BeautySection />
+
+      <BeautySection
+        data={props.data.fancoilTypes}
+        changeTargetId={props.changeTargetId}
+      />
+
       <h2 className={styles.title}>Типы фанкойлов</h2>
       <div className={styles.subtitle}>
         <span className={styles.in_stock}>В наличии</span>
         <span className={styles.on_order}>Под заказ</span>
       </div>
-      <div className={styles.cards_block}>
-        {fancoilTypesElements}
-      </div>
+
+      <FancoilSectionContainer />
+      
       <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
       <div className={styles.accessories_block} id="accessories">
         <AccessoryItem />
@@ -165,11 +162,11 @@ debugger
               Компания "DTtermo GROUP" является сертифицированным официальным
               дилером продукции Carrier.
             </p>
-            {/* <a className={styles.btn} href="#"> Проверить сертификат</a> */}
+           
           </div>
         </div>
       </section>
-      <Form />
+      {/* <Form /> */}
     </div>
   );
 };

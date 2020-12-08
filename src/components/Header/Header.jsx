@@ -14,9 +14,9 @@ let Header = (props) => {
             <img src={logo} className={styles.logo} alt="logo" />
           </NavLink>
         </li>
-        {/* <li className={styles.item}>
-          <NavLink className={styles.link} to="/main_page">Главная</NavLink>
-        </li> */}
+        <li className={styles.item}>
+          <NavLink className={styles.link} to="/about_us">О компании</NavLink>
+        </li>
         {/* <li className={styles.item}>
           <a className={styles.link} activeClassName={ styles.link_active} href="https://www.dttermo.ru/ru/%d0%be-%d0%bd%d0%b0%d1%81/obscaja-informacija.htm">О компании</a>
         </li> */}

@@ -25,7 +25,7 @@ let AccessoriesPage = (props) => {
         <AccessoryItem />
       </div>
 
-      <Form/>
+      {/* <Form/> */}
     </div>
   )
 }

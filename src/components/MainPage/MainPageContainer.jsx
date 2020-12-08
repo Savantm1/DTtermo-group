@@ -1,4 +1,4 @@
-import { setFancoilTypes } from "../../Redux/MainPageReducer";
+import { setFancoilTypes, changeTargetId } from "../../Redux/MainPageReducer";
 import { connect } from "react-redux";
 import React from 'react';
 import { API } from "../../api/api.js";
@@ -7,30 +7,38 @@ import MainPage from "./MainPage";
 
 class MainPageContainer extends React.Component {
 
+
   componentDidMount() {
 
-    API.getFancoilTypes().then(response => {
-      console.log(response);
-      this.props.setFancoilTypes(response);
-    })
-  }
-
+      API.getFancoilTypes().then(response => {
+        console.log(response);
+        this.props.setFancoilTypes(response, true);
+      });
+    }
+    
   render() {
-    return (
 
-      <MainPage data={this.props} />
+    if (this.props.isLoaded === false) {
 
-    )
+      return (<div>Загрузка...</div>)
+      
+    } else {
+      console.log(this.props.isLoaded)
+
+      return (<MainPage data={this.props} changeTargetId={this.props.changeTargetId}/>)
+    };
+
   }
-
  
 }
 
 let mapStateToProps = (state) => {
   return {
     fancoilTypes: state.MainPage.fancoilTypes,
-    mainAccessoriesTypes: state.MainPage.mainAccessoriesTypes
+    mainAccessoriesTypes: state.MainPage.mainAccessoriesTypes,
+    isLoaded: state.MainPage.isLoaded
+    
   }
 }
 
-export default connect(mapStateToProps, { setFancoilTypes })(MainPageContainer);
+export default connect(mapStateToProps, { setFancoilTypes, changeTargetId })(MainPageContainer);

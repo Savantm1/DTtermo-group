@@ -7,20 +7,23 @@
 }
 .card {
   
-  max-width: 300px;
-
+  max-width: 240px;
+  height: 100%;
 
 
   &__container {
+    height: 100%;
     cursor: pointer;
     // border: 2px solid green;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     box-sizing: border-box;
     position: relative;
     padding:10px 5px;
     padding-bottom: 14px;
+    
     margin: 5px;
     background-color: #fff;
 
