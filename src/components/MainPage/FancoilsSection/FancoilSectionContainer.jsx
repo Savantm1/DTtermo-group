@@ -7,12 +7,13 @@ import FancoilSection from "./FancoilSection";
 class FancoilSectionContainer extends React.Component {
 
   render() {
-
+debugger
       return (< FancoilSection data={this.props} changeTargetId={this.props.changeTargetId}/>)
     };
   }
 
 let mapStateToProps = (state) => {
+  debugger
   return {
     fancoilTypes: state.MainPage.fancoilTypes,
     currentId: state.MainPage.currentId,
@@ -21,4 +22,4 @@ let mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setFancoilTypes })(FancoilSectionContainer);
+export default connect(mapStateToProps, { setFancoilTypes, changeTargetId })(FancoilSectionContainer);

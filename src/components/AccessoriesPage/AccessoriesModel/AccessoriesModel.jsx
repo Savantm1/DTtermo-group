@@ -508,7 +508,7 @@ let FancoilModel = (props) => {
 
       </div>
 
-      <Form />
+      {/* <Form /> */}
     </div>
   );
 };

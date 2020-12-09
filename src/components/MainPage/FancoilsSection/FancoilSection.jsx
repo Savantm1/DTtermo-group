@@ -3,11 +3,12 @@ import CardItem from '../../CardItem/CardItem';
 import styles from "../FancoilsSection/FancoilSection.module.scss";
 
 let FancoilSection = (props) => {
-debugger
+
   let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
+    debugger
     return (
       <CardItem
-        title={element.type}
+        title={element.title}
         series={element.series}
         active={props.data.currentId === element.id}
       />

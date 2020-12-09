@@ -12,17 +12,19 @@ const instance = axios.create({
 export const API = {
 
   getFancoilTypes() {
-
-   return instance.get(`/fancoil`)
-     .then(response => {
+    debugger
+    return instance.get(`/fancoil`).then(response => {
+      debugger
        return response.data.data;
       });
   },
 
   getAccessoriesTypes() {
 
-    return instance.get(`/accessories`)
+    return instance.get(`/accessory`)
       .then(response => {
+        console.log(response)
+
         return response.data.data;
        });
   },

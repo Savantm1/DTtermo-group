@@ -16,6 +16,8 @@ import { SRLWrapper } from "simple-react-lightbox";
 import certificate from "../../assets/img/certificate.jpg";
 import FsLightbox from "fslightbox-react";
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
+import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
+
 
 let MainPage = (props) => {
 
@@ -33,7 +35,7 @@ let MainPage = (props) => {
  
   return (
     <div className={styles.content}>
-      <div className={styles.companies_section}>
+      {/* <div className={styles.companies_section}>
         <a href="https://www.dttermo.ru/ru/%d0%be-%d0%bd%d0%b0%d1%81/obscaja-informacija.htm">
           <div className={styles.company_block}>
             <div className={styles.img_block}>
@@ -82,7 +84,7 @@ let MainPage = (props) => {
           </div>
         </a>
       </div>
-      <h2 className={styles.title}></h2>
+      <h2 className={styles.title}></h2> */}
 
       <BeautySection
         data={props.data.fancoilTypes}
@@ -98,13 +100,15 @@ let MainPage = (props) => {
       <FancoilSectionContainer />
       
       <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
-      <div className={styles.accessories_block} id="accessories">
+      {/* <div className={styles.accessories_block} id="accessories">
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
-      </div>
+      </div> */}
+
+      <AccessoriesSectionContainer/>
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>
         <div className={styles.item}>
@@ -150,22 +154,23 @@ let MainPage = (props) => {
       <section className={styles.certificate}>
         <h3 className={styles.title}>Официальный дилер</h3>
         <div className={styles.block}>
-          <img
+          <div className={styles.right_side}>
+            <p className={styles.desc}>
+              Компания "DTtermo GROUP" является сертифицированным официальным
+              дилером продукции Carrier.
+            </p>
+            <img
             className={styles.img}
             src={certificate}
             alt="certificate"
             onClick={() => setToggler(!toggler)}
           />
           <FsLightbox toggler={toggler} sources={[certificate]} />
-          <div className={styles.right_side}>
-            <p className={styles.desc}>
-              Компания "DTtermo GROUP" является сертифицированным официальным
-              дилером продукции Carrier.
-            </p>
            
           </div>
         </div>
       </section>
+      
       {/* <Form /> */}
     </div>
   );

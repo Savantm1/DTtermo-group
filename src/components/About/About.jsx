@@ -8,7 +8,7 @@ import features_5 from '../../assets/img/features_5.svg';
 import features_6 from '../../assets/img/features_6.svg';
 import certificate from "../../assets/img/certificate.jpg";
 import { SRLWrapper } from "simple-react-lightbox";
-
+import FsLightbox from "fslightbox-react";
 import slide_1 from "../../assets/img/slide_1.jpg";
 import slide_2 from "../../assets/img/slide_2.jpg";
 import slide_3 from "../../assets/img/slide_3.jpg";
@@ -106,20 +106,26 @@ let About = (props) => {
             <p className={styles.text}>Самый большой каталог запасных частей</p>
           </div>
         </section>
-        {/* <section className={styles.certificate}>
+        <section className={styles.certificate}>
         <h3 className={styles.title}>Официальный дилер</h3>
-          <div className={styles.block}>
-
-            <img className={styles.img} src={certificate} alt="certificate" onClick={() => setToggler(!toggler)} />
-              <FsLightbox toggler={toggler} sources={[certificate]}/>
-            <div className={styles.right_side}>
-
-              <p className={styles.desc}>Компания "DTtermo GROUP" является сертифицированным официальным дилером продукции Carrier</p>
-              <a className={styles.btn} href="#"> Проверить сертификат</a>
-            </div>
-          </div>
-        </section> */}
-        <section className={styles.sklad}>
+        < div className={styles.block}>
+            <p className={styles.desc}>
+              Компания "DTtermo GROUP" является сертифицированным официальным
+              дилером продукции Carrier.
+            </p>
+            <img
+            className={styles.img}
+            src={certificate}
+            alt="certificate"
+            onClick={() => setToggler(!toggler)}
+          />
+          <FsLightbox toggler={toggler} sources={[certificate]} />
+           
+          
+        </div>
+      </section>
+      
+      <section className={styles.sklad}>
           <div>
             <h3 className={styles.title}>Наши складские помещения</h3>
             <p className={styles.desc}>На удобно расположенном складе, постоянно в наличии широкий ассортимент фанкойлов, чиллеров, компрессорно-конденсаторных блоков (ККБ), гидромодулей, насосов, накопительных блоков, запорно-регулирующей арматуры, а также запасных частей. DTtermo GROUP гарантирует стабильные поставки, оптимальное ценообразование, мощную техническую и информационную поддержку дилеров.</p>
@@ -163,12 +169,12 @@ let About = (props) => {
         <MyGallery/> */}
           
         </section>
-
+{/* 
         <section className={styles.form_section}>
         <Form />
 
          
-      </section>
+      </section> */}
       
     </div>
   )

@@ -21,9 +21,10 @@ import carrier from "../.././../assets/img/carrier_fancoil1.png";
 import left from "../.././../assets/img/back.svg";
 import right from "../.././../assets/img/next.svg";
 import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
-debugger
+
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
@@ -82,12 +83,13 @@ debugger
   let slideElements = props.data.map((Element) => {
 
     return (
-
       <li className={styles.list_item}>
-      <img className={styles.mark_img} src={carrier} alt="carrier" />
-      <img src={image4} alt="fancoil" />
-      <p>{Element.type}</p>
-    </li>
+        <NavLink to="/models/id">
+          <img className={styles.mark_img} src={carrier} alt="carrier" />
+          <img src={image4} alt="fancoil" />
+          {/* <p>{Element.type}</p> */}
+        </NavLink>
+      </li>
     )
   })
 

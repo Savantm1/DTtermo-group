@@ -15,7 +15,7 @@ import AccessoriesModelContainer from './components/AccessoriesPage/AccessoriesM
 import Modal from './components/Specification/Modal/Modal';
 import SpecificationContainer from './components/Specification/SpecificationContainer';
 import MainPageContainer from './components/MainPage/MainPageContainer';
-
+import ModalScheme from "./components/Contacts/ModalScheme/ModalScheme";
 
 let App = (props) => {
 
@@ -33,7 +33,8 @@ let App = (props) => {
           <Route path="/modal" render={() => { return <Modal /> }} />
           <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} />
           <Route path="/accessories_series/id" render={() => { return <AccessoriesSeriesContainer /> }} />
-          <Route path="/accessories_models/id" render={() => { return <AccessoriesModelContainer /> }} />
+        <Route path="/accessories_models/id" render={() => { return <AccessoriesModelContainer /> }} />
+        <Route path="/scheme" render={() => { return <ModalScheme /> }} />
         <Footer />
       </SimpleReactLightbox>
     </div>

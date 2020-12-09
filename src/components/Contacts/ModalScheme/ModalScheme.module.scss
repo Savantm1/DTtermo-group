@@ -1,0 +1,79 @@
+
+@import "../../../variables.scss";
+
+.modal {
+  position: fixed; 
+  background-color: rgba(117, 117, 117, 1);
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index: 100;
+
+  .title {
+
+margin-bottom: 0;
+
+  }
+
+
+  &_dialog {
+    display: flex;
+    flex-direction: column;
+
+    margin: 50px auto;
+    width: 600px;
+    background-color: #fff;
+  }
+
+  .header { 
+    position: relative;
+    border-bottom: 1px solid rgb(192, 192, 192);
+
+    .close {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 10px;
+      top:10px;
+      cursor: pointer;
+    }
+  }
+
+  .btn {
+
+    position: absolute;
+    left: 10px;
+    top:10px;
+    cursor: pointer;
+    font-family: LytigaPro;
+    box-sizing: border-box;
+    color: #fff;
+    border:none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+
+    text-transform: uppercase;
+    background-color: $green;
+    outline: none;
+    transition: all ease 0.2s;
+    
+    &:hover {
+      background-color:$greenhover;
+    }
+
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .scheme {
+
+      height: 760px;
+      width: 600px;
+    }
+  }
+}

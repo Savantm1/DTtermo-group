@@ -14,18 +14,24 @@ let Footer = () => {
     <div className={styles.container}>
       <div className={styles.block}>
         <ul className={styles.list_left}>
-          <li className={styles.item}>
-            <object className={styles.icon} type="image/svg+xml" data={map} width="25" height="25" >
-            </object>
-            107023 Москва Медовый переулок, д. 5, стр. 1</li>
-          <li className={styles.item}>
+          <a className={styles.link} href="#">
+            <li className={styles.item}>
+              <object className={styles.icon} type="image/svg+xml" data={map} width="25" height="25" >
+              </object>
+              107023 Москва Медовый переулок, д. 5, стр. 1</li>
+          </a>
+          <a className={styles.link} href="tel:84957772399">
+            <li className={styles.item}>
               
             <object className={styles.icon} type="image/svg+xml" data={phone} width="25" height="25" >
             </object>
             +7 (495) 777-23-99</li>
+          </a>
+          <a className={styles.link} href="mailto:carrier@dttermo.ru">
           <li className={styles.item}>
-            <object className={styles.icon} type="image/svg+xml" data={mail} width="25" height="25" >
-            </object>info@dttermo.ru</li>
+            <img className={styles.icon} type="image" src={mail} width="25" height="25" >
+              </img>info@dttermo.ru</li>
+            </a>
         </ul>
         <ul className={styles.list_right}>
 

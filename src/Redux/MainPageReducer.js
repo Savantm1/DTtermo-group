@@ -1,5 +1,5 @@
 const FANCOIL_TYPES = "FANCOIL_TYPES";
-const MAIN_ACCESSORIES_TYPES = "MAIN_ACCESSORIES_TYPES";
+const ACCESSORIES_TYPES = "ACCESSORIES_TYPES";
 const CHANGE_TARGET_ID = "CHANGE_TARGET_ID";
 
 let initialState = {
@@ -18,7 +18,7 @@ let initialState = {
     
   ],
 
-  mainAccessoriesTypes: [
+  accessoriesTypes: [
 
     { title: 'Заголовок аксессуара1', desc: 'Описание аксессуара' },
     { title: 'Заголовок аксессуара2', desc: 'Описание аксессуара' },
@@ -36,13 +36,15 @@ const MainPageReducer = (state = initialState, action) => {
 
     case FANCOIL_TYPES:
       {
-        let stateCopy = { ...state, fancoilTypes:action.fancoilTypes, isLoaded: action.isLoaded };
+        let stateCopy = { ...state, fancoilTypes: action.fancoilTypes, isLoaded: action.isLoaded };
+        debugger
         return stateCopy;
       }
 
-    case MAIN_ACCESSORIES_TYPES:
+    case ACCESSORIES_TYPES:
       {
-        let stateCopy = { ...state };
+        let stateCopy = { ...state, accessoriesTypes: action.accessoriesTypes, isLoaded: action.isLoaded };
+
         return stateCopy;
        }
 
@@ -61,8 +63,8 @@ export const setFancoilTypes = (fancoilTypes,isLoaded) => {
   return { type: FANCOIL_TYPES, fancoilTypes, isLoaded }
 };
 
-export const setMainAccessoriesTypes = (mainAccessories) => {
-  return { type: MAIN_ACCESSORIES_TYPES, mainAccessories }
+export const setAccessoriesTypes = (accessoriesTypes,isLoaded) => {
+  return { type: ACCESSORIES_TYPES, accessoriesTypes,isLoaded }
 };
 
 export const changeTargetId = (currentId, currentLeft) => {
