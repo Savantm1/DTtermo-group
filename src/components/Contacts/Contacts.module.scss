@@ -161,18 +161,7 @@
         
       }
 
-      .scheme_link {
-        cursor: pointer;
-        color:$green;
-        margin-left: 10px;
-        border-bottom: 1px dotted $green;
-        
-        &:hover {
 
-          color:$greenhover;
-          border-bottom: 1px dotted $greenhover;
-        }
-      }
       
       .icon {
         transform:translateY(30%);

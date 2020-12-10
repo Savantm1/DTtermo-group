@@ -20,6 +20,7 @@
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
     "react-yandex-maps": "^4.4.0",
+    "reactjs-popup": "^2.0.4",
     "redux": "^4.0.5",
     "simple-react-lightbox": "^3.3.4-2"
   },

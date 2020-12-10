@@ -3,7 +3,7 @@
 
 .modal {
   position: fixed; 
-  background-color: rgba(117, 117, 117, 1);
+  background-color: rgba(117, 117, 117, 0.5);
   left:0;
   right:0;
   top:0;
@@ -12,8 +12,8 @@
 
   .title {
 
-margin-bottom: 0;
-
+  margin-bottom: 0;
+    text-align: center;
   }
 
 
@@ -76,4 +76,39 @@ margin-bottom: 0;
       width: 600px;
     }
   }
+}
+
+.scheme_link {
+  cursor: pointer;
+  color:$green;
+  margin-left: 10px;
+  border-bottom: 1px dotted $green;
+
+  
+  &:hover {
+
+    color:$greenhover;
+    border-bottom: 1px dotted $greenhover;
+  }
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}
+.modal_dialog {
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }

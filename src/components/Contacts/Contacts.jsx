@@ -12,6 +12,8 @@ import map from "../../assets/img/map.svg";
 import MapsContainer from "../MapsContainer/MapsContainer.jsx";
 import scheme from "../../assets/img/warehouse_route.jpg";
 import { NavLink } from "react-router-dom";
+import ModalScheme from "./ModalScheme/ModalScheme"
+
 
 let Contacts = (props) => {
   return (
@@ -152,7 +154,9 @@ let Contacts = (props) => {
                   height="25"
                 ></object>
                 141730 Лобня, Россия ул. Лейтенанта Бойко, д. 91а.
-            <NavLink className={styles.scheme_link} to="/scheme">Cхема проезда</NavLink></p>
+                <ModalScheme/>
+            </p>
+
               <a className={styles.link} href="tel:+74955777550">
                 <object
                   className={styles.icon}
