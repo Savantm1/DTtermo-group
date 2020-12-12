@@ -4,6 +4,7 @@ import styles from "./CardItem.module.scss";
 import card_img from "../../assets/img/Card_img.jpg";
 
 let CardItem = (props) => {
+  debugger
   let isActive = "";
   if (props.active) {
     isActive += styles.card_active;

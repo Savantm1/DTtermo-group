@@ -8,6 +8,7 @@ let FancoilSection = (props) => {
     debugger
     return (
       <CardItem
+        key = {element.id}
         title={element.title}
         series={element.series}
         active={props.data.currentId === element.id}

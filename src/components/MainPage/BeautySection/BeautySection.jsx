@@ -24,7 +24,6 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
-
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
@@ -36,77 +35,63 @@ let BeautySection = (props) => {
   let maxFancoilNumber = 5;
   let minFancoilNumber = 1;
 
-
   let rightArrowFunc = (e) => {
-    console.log("number до изменения: ", fancoilNumber)
+    console.log("number до изменения: ", fancoilNumber);
     if (current > min) {
-      
       current -= step;
       slider_list.current.style.left = current + "px";
       fancoilNumber++;
-
     } else {
-
       current = max;
       console.log(props.current);
       slider_list.current.style.left = current + "px";
       fancoilNumber = minFancoilNumber;
-
     }
 
     props.changeTargetId(fancoilNumber, current);
-    console.log("текущий шаг: ",current, "текущий айди: ",fancoilNumber);
-
+    console.log("текущий шаг: ", current, "текущий айди: ", fancoilNumber);
   };
 
   let leftArrowFunc = (e) => {
-    
     if (current < max) {
-
       current += step;
       console.log(current);
       slider_list.current.style.left = current + "px";
       fancoilNumber--;
-
     } else {
-
       current = min;
       console.log(current);
       slider_list.current.style.left = current + "px";
       fancoilNumber = maxFancoilNumber;
-
     }
     props.changeTargetId(fancoilNumber, current);
-    console.log("текущий шаг: ",current, "текущий айди: ",fancoilNumber);
+    console.log("текущий шаг: ", current, "текущий айди: ", fancoilNumber);
   };
 
-  let slideElements = props.data.map((Element) => {
-
+  let slideElements = props.data.map((element) => {
     return (
-      <li className={styles.list_item}>
+      <li className={styles.list_item} key={element.id}>
         <NavLink to="/models/id">
           <img className={styles.mark_img} src={carrier} alt="carrier" />
           <img src={image4} alt="fancoil" />
-          {/* <p>{Element.type}</p> */}
+          {/* <p>{element.type}</p> */}
         </NavLink>
       </li>
-    )
-  })
-
-
+    );
+  });
 
   return (
     <ScrollAnimation
       animateIn="fadeIn"
-      delay="20"
-      animateOnce="true"
+      // dely="20"
+      animateOnce={true}
       className={styles.container}
     >
       <div className={styles.container}>
         <div className={styles.row}>
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
@@ -116,7 +101,7 @@ let BeautySection = (props) => {
           </ScrollAnimation>
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={`${styles.mini_block} ${styles.mini_sklad}`}>
@@ -127,7 +112,7 @@ let BeautySection = (props) => {
 
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={styles.long_block}>
@@ -147,7 +132,7 @@ let BeautySection = (props) => {
           </ScrollAnimation>
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <Link to="accessories" smooth={true} offset={-80} duration={500}>
@@ -164,7 +149,7 @@ let BeautySection = (props) => {
           <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -174,7 +159,7 @@ let BeautySection = (props) => {
             </ScrollAnimation>
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -196,9 +181,7 @@ let BeautySection = (props) => {
             </div>
 
             <ul className={styles.slider_list} ref={slider_list}>
-
               {slideElements}
-
             </ul>
 
             <div
@@ -213,7 +196,7 @@ let BeautySection = (props) => {
           <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -224,7 +207,7 @@ let BeautySection = (props) => {
 
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -237,7 +220,7 @@ let BeautySection = (props) => {
           <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -250,7 +233,7 @@ let BeautySection = (props) => {
 
             <ScrollAnimation
               animateIn="flipInY"
-              animateOnce="true"
+              animateOnce={true}
               animateOut="flipOutY"
             >
               <div className={styles.mini_block}>
@@ -266,7 +249,7 @@ let BeautySection = (props) => {
         <div className={styles.row}>
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
@@ -277,7 +260,7 @@ let BeautySection = (props) => {
 
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
@@ -288,7 +271,7 @@ let BeautySection = (props) => {
 
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={`${styles.mini_block} ${styles.cert_block}`}>
@@ -299,7 +282,7 @@ let BeautySection = (props) => {
 
           <ScrollAnimation
             animateIn="flipInY"
-            animateOnce="true"
+            animateOnce={true}
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>

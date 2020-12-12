@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import logo_carrier from "../../assets/img/carrier_fancoil1.png";
-import logo_dttermo_group from "../../assets/img/logo_min.png";
+// import logo_carrier from "../../assets/img/carrier_fancoil1.png";
+// import logo_dttermo_group from "../../assets/img/logo_min.png";
 import styles from "./MainPage.module.scss";
-import Form from "../Form/Form";
-import CardItem from "../CardItem/CardItem";
-import AccessoryItem from "../AccessoryItem/AcessoryItem";
+// import Form from "../Form/Form";
+// import CardItem from "../CardItem/CardItem";
+// import AccessoryItem from "../AccessoryItem/AcessoryItem";
 import BeautySection from "./BeautySection/BeautySection";
 import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
-import features_4 from "../../assets/img/features_4.svg";
+// import features_4 from "../../assets/img/features_4.svg";
 import features_5 from "../../assets/img/features_5.svg";
-import features_6 from "../../assets/img/features_6.svg";
-import { SRLWrapper } from "simple-react-lightbox";
-import certificate from "../../assets/img/certificate.jpg";
-import FsLightbox from "fslightbox-react";
+// import features_6 from "../../assets/img/features_6.svg";
+// import { SRLWrapper } from "simple-react-lightbox";
+// import certificate from "../../assets/img/certificate.jpg";
+// import FsLightbox from "fslightbox-react";
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
 
@@ -100,15 +100,9 @@ let MainPage = (props) => {
       <FancoilSectionContainer />
       
       <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
-      {/* <div className={styles.accessories_block} id="accessories">
-        <AccessoryItem />
-        <AccessoryItem />
-        <AccessoryItem />
-        <AccessoryItem />
-        <AccessoryItem />
-      </div> */}
-
-      <AccessoriesSectionContainer/>
+   
+      <AccessoriesSectionContainer />
+      
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>
         <div className={styles.item}>
@@ -151,7 +145,7 @@ let MainPage = (props) => {
           </div>
         </div>
       </section>
-      <section className={styles.certificate}>
+      {/* <section className={styles.certificate}>
         <h3 className={styles.title}>Официальный дилер</h3>
         <div className={styles.block}>
           <div className={styles.right_side}>
@@ -170,7 +164,7 @@ let MainPage = (props) => {
           </div>
         </div>
       </section>
-      
+       */}
       {/* <Form /> */}
     </div>
   );

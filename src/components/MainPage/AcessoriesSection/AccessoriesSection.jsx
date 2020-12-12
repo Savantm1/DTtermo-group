@@ -8,6 +8,7 @@ let AccessoriesSection = (props) => {
 
     return (
       <AccessoryItem
+        key = {element.id}
         title={element.name}
         desc={element.description}
       />
