@@ -11,31 +11,38 @@
 
       
 
-      .counter {
+      .decrement {
 
-
-        border-radius: 50%;
+        position: absolute;
         width: 25px;
-
         display: none;
-
-        .item_img {
-
-
-        }
-
-
+        left: 0;
+        top: 1px;
       }
 
-      .number {
-        margin: 0 auto;
+      .increment {
+
+        position: absolute;
+        right: 0;
+        top: 1px;
         display: none;
       }
 
       .number_input {
+        box-sizing: border-box;
+        cursor:pointer;
         display:block;
-        width: 15px;
-        margin: 0 auto;
+        min-width: 20px;
+        max-width: 50px;
+        margin: 0 5px;
+        font-size: 16px;
+        text-align: center;
+        border:none;
+
+        &:focus {
+          border: 1px solid $green;
+          border-radius: 2px;
+        }
       }
 
       
@@ -67,8 +74,6 @@
       }
       &:nth-child(1) {
         background-color: #dfdfdf;
-        // border-top-left-radius: 10px;
-        // border-top-right-radius: 10px;
 
         &:hover {
           background-color: #dfdfdf;
@@ -78,7 +83,13 @@
       &:hover {
         background-color: $greyhover;
 
-        .counter {
+        .decrement {
+          display: block;
+          cursor: pointer;
+          z-index: 10;
+        }
+
+        .increment {
           display: block;
           cursor: pointer;
           z-index: 10;
@@ -105,9 +116,20 @@
 
       .param {
 
+        position: relative;
         text-align: center;
         flex-basis: 100px;
         display: flex;
+        justify-content: center;
+
+        &:nth-child(4) { 
+
+          max-width: 100px;
+          display: flex;
+          align-items:center;
+          justify-content: center;
+
+        }
       }
 
       .btn {

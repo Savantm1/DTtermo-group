@@ -37,7 +37,6 @@ const MainPageReducer = (state = initialState, action) => {
     case FANCOIL_TYPES:
       {
         let stateCopy = { ...state, fancoilTypes: action.fancoilTypes, isLoaded: action.isLoaded };
-        debugger
         return stateCopy;
       }
 

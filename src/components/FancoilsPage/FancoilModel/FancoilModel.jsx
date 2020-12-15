@@ -8,8 +8,8 @@ import box from "../../../assets/img/box.svg";
 import term from "../../../assets/img/term.svg";
 import truck from "../../../assets/img/truck.svg";
 import AccessoryItem from "../../AccessoryItem/AcessoryItem";
-import Form from "../../Form/Form";
-import cogoToast from "cogo-toast";
+// import Form from "../../Form/Form";
+// import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
 import CardItem from "../../CardItem/CardItem";
 import {API} from "../../../api/api";
@@ -43,7 +43,8 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                  alt="img"
+                > </object>
                 <p className={styles.item_desc}>
                   Управление с помощью ИК-пульта
                 </p>
@@ -55,7 +56,8 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+
+                > </object>
                 <p className={styles.item_desc}>
                   Контроль температуры воды в трубопроводе
                 </p>
@@ -67,7 +69,7 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Контроль температуры внутри помещения
                 </p>
@@ -154,7 +156,7 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Бесплатная доставка до транспортной компании
                 </p>
@@ -166,7 +168,7 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>3 года гарантии</p>
               </li>
               <li className={styles.advantages_item}>
@@ -176,7 +178,7 @@ let FancoilModel = (props) => {
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>В наличии на складе</p>
               </li>
               <button className={styles.btn} onClick={AddtoSpec}>

@@ -8,7 +8,6 @@ import MainPage from "./MainPage";
 class MainPageContainer extends React.Component {
 
   componentDidMount() {
-    debugger
 
     API.getFancoilTypes().then(response => {
 
@@ -25,12 +24,11 @@ class MainPageContainer extends React.Component {
   render() {
 
     if (this.props.isLoaded === false) {
-      debugger
+
       return (<div>Загрузка...</div>)
       
     } else {
-      console.log(this.props.isLoaded)
-      debugger
+
       return (<MainPage data={this.props} changeTargetId={this.props.changeTargetId} />)
       
     };

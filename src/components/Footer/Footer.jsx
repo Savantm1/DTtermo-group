@@ -6,7 +6,7 @@ import phone from '../../assets/img/phone.svg';
 import fb from '../../assets/img/fb.svg';
 import inst from '../../assets/img/inst.svg';
 import youtube from '../../assets/img/youtube.svg';
-import vk from '../../assets/img/vk.svg';
+// import vk from '../../assets/img/vk.svg';
 import map from '../../assets/img/map.svg';
 
 let Footer = () => {
@@ -36,24 +36,24 @@ let Footer = () => {
         <ul className={styles.list_right}>
 
           <li className={styles.item}>
-            <NavLink to="#" className={styles.social} alt="facebook">
-              <object className={styles.icon} type="image/svg+xml" data={fb} width="30" height="30" >
-              </object>
-            </NavLink>
+            <a href="#" className={styles.social} alt="facebook">
+              <img className={styles.icon}  src={fb} width="30" height="30" >
+              </img>
+            </a>
           </li>
 
           <li className={styles.item}>
-            <NavLink to="#" className={styles.social} alt="youtube">
-              <object className={styles.icon} type="image/svg+xml" data={youtube} width="30" height="30" >
-              </object>
-            </NavLink>
+          <a href="#" className={styles.social} alt="youtube">
+              <img className={styles.icon}  src={youtube} width="30" height="30" >
+              </img>
+            </a>
           </li>
 
           <li className={styles.item}>
-            <NavLink to="#" className={styles.social} alt="instagram">
-              <object className={styles.icon} type="image/svg+xml" data={inst} width="30" height="30" >
-              </object>
-            </NavLink>
+          <a href="#" className={styles.social} alt="instagramm">
+              <img className={styles.icon}  src={inst} width="30" height="30" >
+              </img>
+            </a>
           </li>
           
         </ul>

@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import styles from './FancoilRow.module.scss';
 import cogoToast from "cogo-toast";
 import delete_icon from "../../../assets/img/delete.svg";
 import minus from "../../../assets/img/minus.svg";
 import plus from "../../../assets/img/plus.svg";
 
+
 let FancoilRow = (props) => {
+  debugger
+  let Input = React.createRef();
 
   let DeleteFromSpec = () => {
-
-    props.DeleteProduct();
+    props.DeletePositionFromSpec(props.index,props.tableName);
     cogoToast.success("Удалено из спецификации", {
       position: "top-right",
     });
   };
+
+  let IncrementPosition = () => {
+    props.IncrementPosition(props.index, props.tableName, props.kol);
+  }
+
+  let DecrementPosition = () => {
+    props.DecrementPosition(props.index, props.tableName, props.kol);
+  }
+
+  let ChangeQuantity = () => {
+    props.ChangeQuantity(props.index, props.tableName, Input.current.value);
+  }
+
+  
+
 
   return (
 
@@ -22,29 +39,29 @@ let FancoilRow = (props) => {
       <div className={styles.param}>{props.type} </div>
       <div className={styles.param}>{props.model} </div>
       <div className={styles.param}>
-        <span className={styles.counter}>
-          <object
+        <span className={styles.decrement} onClick={DecrementPosition}>
+          <img
             className={styles.item_img}
-            data={minus}
+            src={minus}
             width="20px"
             height="20px"
-            type="image/svg+xml"
-          ></object>
+          ></img>
         </span>
-          <span className={styles.number}>{props.kol}</span>
-        <input type="text" className={styles.number_input}/>
-        <span className={styles.counter}>
-          <object
+        <input type="text" className={styles.number_input}  value={props.kol}
+         onChange={ChangeQuantity} ref={Input}/>
+        <span className={styles.increment} onClick={IncrementPosition }>
+          <img
             className={styles.item_img}
-            data={plus}
+            src={plus}
             width="20px"
             height="20px"
-            type="image/svg+xml"
-          ></object>
+          ></img>
         </span>
       </div>
       <div className={styles.param}>
-        <a className={styles.btn} onClick={DeleteFromSpec}>
+        <a className={styles.btn}
+          onClick={DeleteFromSpec}
+        >
           <img
             className={styles.delete_img}
             src={delete_icon}

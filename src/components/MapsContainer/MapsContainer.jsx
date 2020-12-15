@@ -1,5 +1,5 @@
 // import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import styles from "./MapsContainer.module.scss";
+// import styles from "./MapsContainer.module.scss";
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import map_mark from "../../assets/img/map_mark.png";
@@ -21,7 +21,7 @@ class MapsContainer extends Component {
       <div style={{ height: '600px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: 'AIzaSyA8avW5eDT9G1JlxT7LKntnWT7jmhNKRk8',
+            key: process.env.REACt_APP_GOOGLE_MAPS_API_KEY,
             language: 'ru',
             region: 'ru',
             libraries: ['places'],

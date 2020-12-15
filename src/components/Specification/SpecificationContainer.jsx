@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Specification from './Specification';
+import { DeletePositionFromSpec,IncrementPosition,DecrementPosition,ChangeQuantity } from "./SpecificationReducer";
 
 let mapStateToProps = (state) => {
 
@@ -8,6 +9,6 @@ let mapStateToProps = (state) => {
   }
 }
 
-const SpecificationContainer = connect(mapStateToProps)(Specification);
+const SpecificationContainer = connect(mapStateToProps,{DeletePositionFromSpec,IncrementPosition,DecrementPosition,ChangeQuantity})(Specification);
 
 export default SpecificationContainer;

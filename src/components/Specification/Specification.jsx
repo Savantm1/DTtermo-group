@@ -7,20 +7,48 @@ import plus from "../../assets/img/plus.svg";
 import { NavLink } from "react-router-dom";
 import FancoilRow from "./FancoilRow/FancoilRow";
 import AccessoriesRow from "./AccessoriesRow/AccessoriesRow";
+import { getElementError } from "@testing-library/react";
+import Form from "../Form/Form";
 
 let Specification = (props) => {
-
-  let FancoilElements = props.spec.fancoils.map((fancoilElement) => {
+  debugger;
+  let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
-     <FancoilRow art={fancoilElement.art} type={fancoilElement.type} model={fancoilElement.model} kol={fancoilElement.kol}/>
-    )
-  })
+      <FancoilRow
+        key={fancoilElement.id}
+        art={fancoilElement.art}
+        type={fancoilElement.type}
+        model={fancoilElement.model}
+        kol={fancoilElement.quantity}
+        index={index}
+        tableName={props.spec.fancoils}
+        DeletePositionFromSpec={props.DeletePositionFromSpec}
+        IncrementPosition={props.IncrementPosition}
+        DecrementPosition={props.DecrementPosition}
+        ChangeQuantity={props.ChangeQuantity}
+      />
+    );
+  });
 
-  let AccessoriesElements = props.spec.accessories.map((accessoriesElement) => {
-
-    return (
-     <AccessoriesRow art={accessoriesElement.art} type={accessoriesElement.type} model={accessoriesElement.model} kol={accessoriesElement.kol}/>
-  )})
+  let AccessoriesElements = props.spec.accessories.map(
+    (accessoriesElement, index) => {
+      return (
+        <AccessoriesRow
+          key={accessoriesElement.id}
+          art={accessoriesElement.art}
+          type={accessoriesElement.type}
+          model={accessoriesElement.model}
+          kol={accessoriesElement.quantity}
+          index={index}
+          tableName={props.spec.accessories}
+          DeletePositionFromSpec={props.DeletePositionFromSpec}
+          IncrementPosition={props.IncrementPosition}
+          DecrementPosition={props.DecrementPosition}
+          ChangeQuantity={props.ChangeQuantity}
+        />
+      );
+    }
+  );
 
   return (
     <div className={styles.container}>
@@ -37,7 +65,6 @@ let Specification = (props) => {
           </div>
 
           {FancoilElements}
-
         </div>
 
         <p className={styles.table_title}>Аксессуары</p>
@@ -49,12 +76,11 @@ let Specification = (props) => {
             <div className={styles.param}>Количество</div>
             <div className={styles.param}></div>
           </div>
-        
+
           {AccessoriesElements}
-          
         </div>
       </div>
-
+{/* 
       <div className={styles.block}>
         <h1 className={styles.title}> Оформление заказа</h1>
         <form className={styles.form} method="POST" id="form">
@@ -97,7 +123,8 @@ let Specification = (props) => {
             </button>
           </NavLink>
         </form>
-      </div>
+      </div> */}
+      <Form/>
     </div>
   );
 };

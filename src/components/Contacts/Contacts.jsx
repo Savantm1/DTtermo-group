@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./Contacts.module.scss";
-import info from "../../assets/img/contacts_1.png";
-import sales from "../../assets/img/shopping-cart.svg";
-import project from "../../assets/img/project.svg";
-import close from "../../assets/img/close.svg";
-import tech from "../../assets/img/contacts_2.svg";
-import logo from "../../assets/img/logo_min.png";
+// import info from "../../assets/img/contacts_1.png";
+// import sales from "../../assets/img/shopping-cart.svg";
+// import project from "../../assets/img/project.svg";
+// import close from "../../assets/img/close.svg";
+// import tech from "../../assets/img/contacts_2.svg";
+// import logo from "../../assets/img/logo_min.png";
 import mail from "../../assets/img/mail_green.svg";
 import phone from "../../assets/img/phone.svg";
 import map from "../../assets/img/map.svg";
 import MapsContainer from "../MapsContainer/MapsContainer.jsx";
-import scheme from "../../assets/img/warehouse_route.jpg";
-import { NavLink } from "react-router-dom";
+// import scheme from "../../assets/img/warehouse_route.jpg";
+// import { NavLink } from "react-router-dom";
 import ModalScheme from "./ModalScheme/ModalScheme"
 
 
@@ -117,7 +117,7 @@ let Contacts = (props) => {
                   data={map}
                   width="25"
                   height="25"
-                ></object>
+                > </object>
                 107023 Москва, Россия Медовый пер., д. 5, стр. 1
               </p>
               <a className={styles.link} href="tel:+74957772399">
@@ -126,8 +126,8 @@ let Contacts = (props) => {
                   type="image/svg+xml"
                   data={phone}
                   width="25"
-                  height="25"
-                ></object>
+                height="25"
+                > </object>
                 +7 (495) 777-23-99
               </a>
               <a className={styles.link} href="mailto:carrier@dttermo.ru">
@@ -137,7 +137,7 @@ let Contacts = (props) => {
                   data={mail}
                   width="25"
                   height="25"
-                ></object>
+                >c</object>
                 carrier@dttermo.ru
               </a>
             
@@ -152,7 +152,7 @@ let Contacts = (props) => {
                   data={map}
                   width="25"
                   height="25"
-                ></object>
+                >c</object>
                 141730 Лобня, Россия ул. Лейтенанта Бойко, д. 91а.
                 <ModalScheme/>
             </p>
@@ -164,7 +164,7 @@ let Contacts = (props) => {
                   data={phone}
                   width="25"
                   height="25"
-                ></object>
+                > </object>
                 + 7 (495) 577-75-50
               </a>
               <a className={styles.link} href="tel:+79261187163">
@@ -174,7 +174,7 @@ let Contacts = (props) => {
                   data={phone}
                   width="25"
                   height="25"
-                ></object>
+                > </object>
                 + 7 (926) 118-71-63
               </a>
 

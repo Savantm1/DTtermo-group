@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ModalScheme.module.scss";
 import closes from "../../../assets/img/close.svg";
 import scheme from "../../../assets/img/warehouse_route.jpg";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import Popup from "reactjs-popup";
 
 const ModalScheme = (props) => (

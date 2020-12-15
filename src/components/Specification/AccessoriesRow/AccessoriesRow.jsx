@@ -7,13 +7,28 @@ import plus from "../../../assets/img/plus.svg";
 
 let AccessoriesRow = (props) => {
 
+  let Input = React.createRef();
+
   let DeleteFromSpec = () => {
 
-    props.DeleteProduct();
+    props.DeletePositionFromSpec(props.index, props.tableName);
     cogoToast.success("Удалено из спецификации", {
       position: "top-right",
     });
   };
+
+  let IncrementPosition = () => {
+    props.IncrementPosition(props.index, props.tableName, props.kol);
+  }
+
+  let DecrementPosition = () => {
+    props.DecrementPosition(props.index, props.tableName, props.kol);
+  }
+
+
+  let ChangeQuantity = () => {
+    props.ChangeQuantity(props.index, props.tableName, Input.current.value);
+  }
 
   return (
 
@@ -22,25 +37,22 @@ let AccessoriesRow = (props) => {
       <div className={styles.param}>{props.type} </div>
       <div className={styles.param}>{props.model} </div>
       <div className={styles.param}>
-        <span className={styles.counter}>
-          <object
+      <span className={styles.decrement} onClick={DecrementPosition}>
+          <img
             className={styles.item_img}
-            data={minus}
+            src={minus}
             width="20px"
             height="20px"
-            type="image/svg+xml"
-          ></object>
+          ></img>
         </span>
-          <span className={styles.number}>{props.kol}</span>
-        <input type="text" className={styles.number_input}/>
-        <span className={styles.counter}>
-          <object
+        <input type="text" className={styles.number_input} onChange={ChangeQuantity} ref={Input} value={props.kol}/>
+        <span className={styles.increment} onClick={IncrementPosition}>
+          <img
             className={styles.item_img}
-            data={plus}
+            src={plus}
             width="20px"
             height="20px"
-            type="image/svg+xml"
-          ></object>
+          ></img>
         </span>
       </div>
       <div className={styles.param}>

@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../assets/img/carrier_fancoil.png';
-import fancoil from "../../assets/img/fancoil_main.png";
+// import logo from '../../assets/img/carrier_fancoil.png';
+// import fancoil from "../../assets/img/fancoil_main.png";
 import styles from "./FancoilsPage.module.scss";
 import FancoilSectionContainer from "../MainPage/FancoilsSection/FancoilSectionContainer";
 
