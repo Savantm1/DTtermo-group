@@ -99,9 +99,9 @@ let MainPage = (props) => {
 
       <FancoilSectionContainer />
       
-      <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
+      <h2 className={styles.title} id="accessories">Основные аксессуары для фанкойлов</h2>
    
-      <AccessoriesSectionContainer id="accessories"/>
+      <AccessoriesSectionContainer />
       
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>
