@@ -21,7 +21,8 @@ class MapsContainer extends Component {
       <div style={{ height: '600px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: process.env.REACt_APP_GOOGLE_MAPS_API_KEY,
+            key: 'AIzaSyA8avW5eDT9G1JlxT7LKntnWT7jmhNKRk8',
+              // process.env.REACt_APP_GOOGLE_MAPS_API_KEY,
             language: 'ru',
             region: 'ru',
             libraries: ['places'],
