@@ -135,7 +135,7 @@ let BeautySection = (props) => {
             animateOnce={true}
             animateOut="flipOutY"
           >
-            <Link to="accessories" smooth={true} offset={-80} duration={500}>
+            <Link to="accessories" smooth={true} offset={-400} duration={500}>
               <div
                 className={`${styles.mini_block} ${styles.mini_green} ${styles.mini_link}`}
               >

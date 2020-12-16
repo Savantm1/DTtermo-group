@@ -9,7 +9,7 @@ import term from "../../../assets/img/term.svg";
 import truck from "../../../assets/img/truck.svg";
 import AccessoryItem from "../../AccessoryItem/AcessoryItem";
 // import Form from "../../Form/Form";
-// import cogoToast from "cogo-toast";
+import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
 import CardItem from "../../CardItem/CardItem";
 import {API} from "../../../api/api";
@@ -17,10 +17,10 @@ import {API} from "../../../api/api";
 let FancoilModel = (props) => {
 
   let AddtoSpec = () => {
-    // props.addProduct();
-    // cogoToast.success("Добавлено в спецификацию", {
-    //   position: "top-right",
-    // });
+    props.addProduct();
+    cogoToast.success("Добавлено в спецификацию", {
+      position: "top-right",
+    });
     
    API.getFancoilTypes();
   };

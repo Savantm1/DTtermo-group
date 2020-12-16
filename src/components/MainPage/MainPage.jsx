@@ -101,7 +101,7 @@ let MainPage = (props) => {
       
       <h2 className={styles.title}>Основные аксессуары для фанкойлов</h2>
    
-      <AccessoriesSectionContainer />
+      <AccessoriesSectionContainer id="accessories"/>
       
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>
@@ -145,6 +145,7 @@ let MainPage = (props) => {
           </div>
         </div>
       </section>
+      
       {/* <section className={styles.certificate}>
         <h3 className={styles.title}>Официальный дилер</h3>
         <div className={styles.block}>
