@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Specification from './Specification';
-import { DeletePositionFromSpec,IncrementPosition,DecrementPosition,ChangeQuantity } from "./SpecificationReducer";
+import { DeletePositionFromSpec,IncrementPosition,DecrementPosition,ChangeQuantity } from "../../Redux/SpecificationReducer";
 
 let mapStateToProps = (state) => {
 

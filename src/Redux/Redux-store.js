@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import SpecificationReducer from '../components/Specification/SpecificationReducer';
+import SpecificationReducer from './SpecificationReducer';
 import MainPageReducer from './MainPageReducer';
 import NavbarReducer from './NavbarReducer';
 

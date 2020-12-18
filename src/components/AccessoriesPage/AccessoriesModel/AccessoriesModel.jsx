@@ -13,11 +13,16 @@ import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
 
 let FancoilModel = (props) => {
+
+  let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
+
   let AddtoSpec = () => {
     props.addProduct();
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });
+
+    props.AddModelToSpec(ModelTestData.id, ModelTestData.art, ModelTestData.type, ModelTestData.model, ModelTestData.quantity);
   };
 
   window.scrollTo(0, 0);

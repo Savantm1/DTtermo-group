@@ -2,6 +2,7 @@ const DELETE_POSITION_FROM_SPEC = "DELETE_POSITION_FROM_SPEC";
 const INCREMENT_POSITION_FROM_SPEC = "INCTREMENT_POSITION_FROM_SPEC";
 const DECREMENT_POSITION_FROM_SPEC = "DECREMENT_POSITION_PROM_SPEC";
 const CHANGE_QUANTITY = "CHANGE_QUANTITY";
+const ADD_MODEL_TO_SPEC= "ADD_MODEL_TO_SPEC";
 
 let initialState = {
 
@@ -71,6 +72,16 @@ const SpecificationReducer = (state = initialState, action) => {
          }
         return stateCopy;
       }
+    case ADD_MODEL_TO_SPEC: 
+      {
+        let stateCopy = { ...state };
+        if (stateCopy.fancoils === action.tableName) {
+          stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+        } else {
+          stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+        }
+
+      }
       
       
 
@@ -96,5 +107,9 @@ export const DecrementPosition = ( position,tableName, quantity) => {
 };
 
 export const ChangeQuantity = (position, tableName, value) => {
-  return { type: CHANGE_QUANTITY, position, tableName, value}
-}
+  return { type: CHANGE_QUANTITY, position, tableName, value }
+};
+
+export const AddModelToSpec = (id, art, series, model, quantity, tableName) => {
+  return { type: ADD_MODEL_TO_SPEC, id, art, series, model, quantity, tableName }
+};

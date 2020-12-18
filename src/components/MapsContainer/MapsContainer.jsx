@@ -7,30 +7,29 @@ import map_mark from "../../assets/img/map_mark.png";
 const AnyReactComponent = ({ text }) => <div><img src={map_mark} alt=""/></div>;
 
 class MapsContainer extends Component {
-  static defaultProps = {
-    center: {
+  constructor() {
+    super();
+    this.bootstrapURLKeys = {
+      key: 'AIzaSyA8avW5eDT9G1JlxT7LKntnWT7jmhNKRk8',
+      // process.env.REACt_APP_GOOGLE_MAPS_API_KEY,
+      language: 'ru',
+      region: 'ru',
+      libraries: ['places']
+    };
+    this.center = {
       lat: 55.7839505,
       lng: 37.7077057
-    },
-    zoom: 17.25
-  };
+    };
 
+    this.zoom = 17.25;
+  }
+  
   render() {
-    return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '600px', width: '100%' }}>
+    return (<div style={{ height: '600px', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{
-            key: 'AIzaSyA8avW5eDT9G1JlxT7LKntnWT7jmhNKRk8',
-              // process.env.REACt_APP_GOOGLE_MAPS_API_KEY,
-            language: 'ru',
-            region: 'ru',
-            libraries: ['places'],
-            
-          }}
-
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          bootstrapURLKeys={this.bootstrapURLKeys}
+          defaultCenter={this.center}
+          defaultZoom={this.zoom}
         >
           <AnyReactComponent
             lat={55.78434}
