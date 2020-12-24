@@ -11,10 +11,13 @@ import AccessoryItem from "../../AccessoryItem/AcessoryItem";
 // import Form from "../../Form/Form";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
-import CardItem from "../../CardItem/CardItem";
+
+// import FancoilSectionContainer from "../../MainPage/FancoilsSection/FancoilSectionContainer";
+import FancoilSection from "../../MainPage/FancoilsSection/FancoilSection";
 
 
 let FancoilModel = (props) => {
+debugger
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
 
   let AddtoSpec = () => {
@@ -28,9 +31,45 @@ let FancoilModel = (props) => {
 
   window.scrollTo(0, 0);
 
+  let advantagesElements = props.data.model[0].fancoil.advantages.map((element) => {
+    return (
+      <li className={styles.text_item}>
+      <span className={styles.item_left}></span>
+      <span className={styles.item_right}>
+          {element}
+      </span>
+    </li>
+    )
+  })
+
+  let ACElements = props.data.model[0].fancoil.AC.map((element) => {
+    return (
+              <li className={styles.text_item}>
+                <span className={styles.item_left}></span>
+                <span className={styles.item_right}>
+                 {element}
+                </span>
+              </li>
+    )
+  })
+
+  let ECElements = props.data.model[0].fancoil.EC.map((element) => {
+    return (
+              <li className={styles.text_item}>
+                <span className={styles.item_left}></span>
+                <span className={styles.item_right}>
+                 {element}
+                </span>
+              </li>
+    )
+  })
+
+
   return (
     <div className={styles.model}>
-      <h2 className={styles.title}>Модель 39CP</h2>
+      <h2 className={styles.title}
+      >{props.data.model[0].name}
+      </h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>
           <img className={styles.card_img} src={card_img} alt="image_fancoil" />
@@ -106,48 +145,48 @@ let FancoilModel = (props) => {
             <ul className={styles.characteristics_list}>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Серия:</span>
-                <span className={styles.item__right_side}>39CP</span>
+                <span className={styles.item__right_side}>{props.data.model[0].fancoil.series}</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Размер (ШхВхГ):</span>
-                <span className={styles.item__right_side}>915×290×230 мм</span>
+                <span className={styles.item__right_side}>{props.data.model[0].size} мм</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
-                  Расход воздуха (выс./сред./низк.):
+                  Расход воздуха :
                 </span>
                 <span className={styles.item__right_side}>
-                  425/360/320 куб. м/ч
+                {props.data.model[0].air_flow} куб. м/ч
                 </span>
               </li>
-              <li className={styles.characteristics_item}>
+              {/* <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Уровень шума:</span>
                 <span className={styles.item__right_side}>30/24/20 дБ</span>
-              </li>
+              </li> */}
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Производительность в режиме охлаждения:
                 </span>
-                <span className={styles.item__right_side}>2,63 кВт</span>
+                <span className={styles.item__right_side}>{props.data.model[0].Q_ice} кВт</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Производительность в режиме обогрева:
                 </span>
-                <span className={styles.item__right_side}>3,35 кВт</span>
+                <span className={styles.item__right_side}>{props.data.model[0].Q_hot} кВт</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Вес внутреннего блока:
                 </span>
-                <span className={styles.item__right_side}>13 кг</span>
+                <span className={styles.item__right_side}>{props.data.model[0].weight} кг</span>
               </li>
-              <li className={styles.characteristics_item}>
+              {/* <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Электропитание:</span>
                 <span className={styles.item__right_side}>
                   220-240/1/50 В/Гц/Ф
                 </span>
-              </li>
+              </li> */}
             </ul>
             <ul className={styles.advantages_list}>
               <li className={styles.advantages_item}>
@@ -194,39 +233,28 @@ let FancoilModel = (props) => {
         <div className={styles.left_side}>
           <div className={styles.text_block}>
             <div className={styles.about_series}>
-              <p className={styles.text_title}>Информация о серии фанкойлов</p>
-              <p className={styles.text_desc}>Канальные средненапорные фанкойлы на 30 Па (T3) и 50 Па (T2) скрытой установки. 2-х рядные теплообменники (K). Дополнительный электронагреватель (E). Двухтрубная система. Использование воды или антифриза. Подача, подмес, фильтрация свежего воздуха.</p>
+              <p className={styles.text_title}> 
+                Информация о серии фанкойлов:
+                {/* {props.data.model.fancoil.type} */}
+              </p>
+              <p className={styles.text_desc}>
+                {props.data.model[0].fancoil.information}
+              </p>
             </div>
             <ul className={styles.text_list}>
               <p className={styles.text_title}>Основные преимущества модели: </p>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Высокий уровень стандартной комплектации: встроенный трехходовой
-                  клапан,плата управления и ИК пульт MD-R51 - стандартно;
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Подключение к системе группового управления XYE (стандартно);
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>Низкий уровень шума</span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Панель имеет изящный дизайн
-                </span>
-              </li>
+            
+              {advantagesElements}
+
             </ul>
 
             <ul className={styles.text_list}>
-              <p className={styles.text_title}>Функциональные характеристики: </p>
-              <li className={styles.text_item}>
+              <p className={styles.text_title}>Два  варианта электродвигателя AC/EC </p>
+              <p className={styles.text_subtitle}>AC:</p>
+                {ACElements}
+              <p className={styles.text_subtitle}>EC:</p>
+                {ECElements}
+              {/* <li className={styles.text_item}>
                 <span className={styles.item_left}></span>
                 <span className={styles.item_right}>
                   Открытая установка на стене +17…+32
@@ -275,7 +303,7 @@ let FancoilModel = (props) => {
                 <span className={styles.item_right}>
                   Подключение к системе группового управления XYE + MD-KJR150A
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -447,10 +475,7 @@ let FancoilModel = (props) => {
         </div>
       </div> */}
       <div className={styles.cards_block}>
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        <FancoilSection data={props.data}/>
       </div>
 
       {/* <Form /> */}

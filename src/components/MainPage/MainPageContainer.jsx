@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import React from 'react';
 import { API } from "../../api/api.js";
 import MainPage from "./MainPage";
+import Preloader from "../Preloader/Preloader";
 
 
 class MainPageContainer extends React.Component {
 
   componentDidMount() {
-
+ 
     API.getFancoilTypes().then(response => {
 
       this.props.setFancoilTypes(response, true);
@@ -18,18 +19,19 @@ class MainPageContainer extends React.Component {
 
       this.props.setAccessoriesTypes(response, true);
 
-      });
+    });
+    
+ 
   }
     
   render() {
 
-    if (this.props.isLoaded === false) {
+    if (!this.props.isLoaded ) {
 
-      return (<div>Загрузка...</div>)
+      return (<Preloader/>)
       
     } else {
-
-      return (<MainPage data={this.props} changeTargetId={this.props.changeTargetId} />)
+      return (<MainPage data={this.props} changeTargetId={this.props.changeTargetId}  />)
       
     };
 

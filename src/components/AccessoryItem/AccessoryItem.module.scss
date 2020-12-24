@@ -7,7 +7,7 @@
 }
 
 .card {
-  max-width: 230px;
+  max-width: 240px;
   height: 100%;
 
   &__container {
@@ -19,17 +19,17 @@
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    padding: 0 10px;
+    padding:10px;
     // padding-bottom: 50px;
-    margin: 10px;
+    margin: 5px;
     background-color: #fff;
 
     border-radius: 10px;
     border: 1px solid rgb(180, 180, 180);
 
-    -webkit-box-shadow: 10px 12px 13px -6px rgb(119, 119, 119);
-    -moz-box-shadow: 10px 12px 13px -6px rgb(119, 119, 119);
-    box-shadow: 10px 12px 13px -6px rgb(119, 119, 119);
+   -webkit-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
+    -moz-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
+    box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
   
     transition: all ease 0.2s;
 
@@ -50,7 +50,7 @@
 
   .desc_block {
 
-    max-width: 150px;
+    max-width: 260px;
 
   }
 
@@ -58,11 +58,12 @@
    color: $green;
    font-size: 18px;
    margin: 10px 0px;
+   text-align: center;
   }
 
   &__description {
 
- font-size: 14px;
+ font-size: 16px;
   }
 
 }

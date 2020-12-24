@@ -11,7 +11,7 @@ import { getElementError } from "@testing-library/react";
 import Form from "../Form/Form";
 
 let Specification = (props) => {
-  debugger;
+
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
       <FancoilRow

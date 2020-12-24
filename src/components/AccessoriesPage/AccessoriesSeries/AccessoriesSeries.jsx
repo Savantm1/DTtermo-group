@@ -7,7 +7,7 @@ import cogoToast from 'cogo-toast';
 
 let AccessoriesSeries = (props) => {
 
-  debugger;
+ 
 
   let AddtoSpec = () => {
 

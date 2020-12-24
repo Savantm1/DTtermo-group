@@ -7,7 +7,7 @@ import plus from "../../../assets/img/plus.svg";
 
 
 let FancoilRow = (props) => {
-  debugger
+ 
   let Input = React.createRef();
 
   let DeleteFromSpec = () => {

@@ -1,21 +1,21 @@
 import React from "react";
 import styles from "./BeautySection.module.scss";
 import ScrollAnimation from "react-animate-on-scroll";
-import eurovent from "../../../assets/img/eurovent.PNG";
-import demo1 from "../../../assets/img/SectionDemo/demo1.svg";
-import demo2 from "../../../assets/img/SectionDemo/boxes.svg";
-import demo3 from "../../../assets/img/SectionDemo/demo3.svg";
-import demo4 from "../../../assets/img/SectionDemo/demo4.svg";
-import demo5 from "../../../assets/img/SectionDemo/display.svg";
-import demo6 from "../../../assets/img/SectionDemo/demo6.svg";
-import demo7 from "../../../assets/img/SectionDemo/demo7.svg";
-import demo8 from "../../../assets/img/SectionDemo/demo8.svg";
-import demo9 from "../../../assets/img/SectionDemo/demo9.svg";
+import eurovent from "../../../assets/img/SectionDemo/evrovent.png";
+import demo1 from "../../../assets/img/SectionDemo/demo1.png";
+import demo2 from "../../../assets/img/SectionDemo/demo2.png";
+import demo3 from "../../../assets/img/SectionDemo/demo3.png";
+import demo4 from "../../../assets/img/SectionDemo/demo4.png";
+import demo5 from "../../../assets/img/SectionDemo/demo5.png";
+import demo6 from "../../../assets/img/SectionDemo/demo6.png";
+import demo7 from "../../../assets/img/SectionDemo/demo7.png";
+import demo8 from "../../../assets/img/SectionDemo/demo8.png";
+import demo9 from "../../../assets/img/SectionDemo/demo9.png";
 import demo10 from "../../../assets/img/SectionDemo/demo10.svg";
 import demo11 from "../../../assets/img/SectionDemo/demo11.svg";
 import demo12 from "../../../assets/img/SectionDemo/demo12.svg";
 import demo13 from "../../../assets/img/SectionDemo/demo13.svg";
-import demo14 from "../../../assets/img/SectionDemo/demo14.svg";
+import demo14 from "../../../assets/img/SectionDemo/demo14.png";
 import image4 from "../../../assets/img/SectionDemo/image4.jpg";
 import carrier from "../.././../assets/img/carrier_fancoil1.png";
 import left from "../.././../assets/img/back.svg";
@@ -24,12 +24,13 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
+
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
-  let min = -1760;
+  let min = -3420;
   let max = 0;
-  let step = 440;
+  let step = 855;
   let fancoilNumber = 1;
   let current = 0;
   let maxFancoilNumber = 5;
@@ -71,9 +72,9 @@ let BeautySection = (props) => {
   let slideElements = props.data.map((element) => {
     return (
       <li className={styles.list_item} key={element.id}>
-        <NavLink to="/models/id">
+        <NavLink className={styles.item_link} to="/models/id">
           <img className={styles.mark_img} src={carrier} alt="carrier" />
-          <img src={image4} alt="fancoil" />
+          <img className={styles.main_img} src={element.images[0].path} alt="fancoil" />
           {/* <p>{element.type}</p> */}
         </NavLink>
       </li>
@@ -89,24 +90,65 @@ let BeautySection = (props) => {
     >
       <div className={styles.container}>
         <div className={styles.row}>
-          <ScrollAnimation
+          {/* // первая строка */}
+        <ScrollAnimation
             animateIn="flipInY"
             animateOnce={true}
             animateOut="flipOutY"
           >
+            <div className={styles.long_block}>
+              <div className={styles.mini_block}>
+                <img src={demo8} alt=""  />
+                <p>
+                  Охлаждение <br/> до <span>8 кWt</span>
+                </p>
+              </div>
+              <div className={styles.mini_block}>
+                <img src={demo4} alt="" />
+                <p>
+                  Нагрев <br/>дo  <span>9 кWt</span>
+                </p>
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          
+          <ScrollAnimation
+            animateIn="flipInY"
+            animateOnce={true}
+            animateOut="flipOutY"
+            className={styles.animate}
+          >
             <div className={styles.mini_block}>
               <img src={demo1} alt="" />
-              <p>Лёгкий монтаж и сервис</p>
+              <p>2х/4х <br/> трубные</p>
             </div>
           </ScrollAnimation>
           <ScrollAnimation
             animateIn="flipInY"
             animateOnce={true}
             animateOut="flipOutY"
+            className={styles.animate}
           >
-            <div className={`${styles.mini_block} ${styles.mini_sklad}`}>
+            <div className={`${styles.mini_block}`}>
               <img src={demo2} alt="" />
-              <p> В наличии на складе </p>
+              <p> Толщина всего <br/> <span>245 мм</span> </p>
+            </div>
+          </ScrollAnimation>
+
+          <ScrollAnimation
+            animateIn="flipInY"
+            animateOnce={true}
+            animateOut="flipOutY"
+            className={styles.animate}
+          >
+            <div className={styles.long_block}>
+
+                <img src={demo3} alt="" />
+                <p>
+                  Вертикальная или горизонтальная <br/> установка
+                </p>
+
             </div>
           </ScrollAnimation>
 
@@ -115,61 +157,18 @@ let BeautySection = (props) => {
             animateOnce={true}
             animateOut="flipOutY"
           >
-            <div className={styles.long_block}>
-              <div className={styles.mini_block}>
-                <img src={demo3} alt="" />
-                <p>
-                  Охлаждение до <span>80 кWt</span>
-                </p>
-              </div>
-              <div className={styles.mini_block}>
-                <img src={demo4} alt="" />
-                <p>
-                  Нагрев дo <br /> <span>90 кW</span>
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation
-            animateIn="flipInY"
-            animateOnce={true}
-            animateOut="flipOutY"
-          >
-            <Link to="accessories" smooth={true} offset={-400} duration={500}>
               <div
-                className={`${styles.mini_block} ${styles.mini_green} ${styles.mini_link}`}
+                className={`${styles.mini_block} `}
               >
                 <img src={demo5} alt="" />
-                <p>Широкий выбор аксессуаров</p>
+                <p>Одни из самых тихих на рынке</p>
               </div>
-            </Link>
           </ScrollAnimation>
         </div>
+
+        {/* вторая строка */}
+
         <div className={styles.row}>
-          <div className={styles.mini_col}>
-            <ScrollAnimation
-              animateIn="flipInY"
-              animateOnce={true}
-              animateOut="flipOutY"
-            >
-              <div className={styles.mini_block}>
-                <img src={demo6} alt="" />
-                <p> Возможность вертикальной и горизонтальной установки</p>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation
-              animateIn="flipInY"
-              animateOnce={true}
-              animateOut="flipOutY"
-            >
-              <div className={styles.mini_block}>
-                <img src={demo7} alt="eco" />
-                <p>
-                  <span>ECO</span>friendly
-                </p>
-              </div>
-            </ScrollAnimation>
-          </div>
 
           <div className={styles.main_block}>
             <div
@@ -193,7 +192,7 @@ let BeautySection = (props) => {
             </div>
           </div>
 
-          <div className={styles.mini_col}>
+          {/* <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
               animateOnce={true}
@@ -217,16 +216,18 @@ let BeautySection = (props) => {
               </div>
             </ScrollAnimation>
           </div>
+           */}
+          
           <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
               animateOnce={true}
               animateOut="flipOutY"
             >
-              <div className={styles.mini_block}>
+              <div className={`${styles.mini_block} ${styles.mini_sklad}`}>
                 <img src={demo10} alt="" />
                 <p>
-                  Толщина всего <span>215 мм</span>
+                  В наличии на складе
                 </p>
               </div>
             </ScrollAnimation>
@@ -236,17 +237,20 @@ let BeautySection = (props) => {
               animateOnce={true}
               animateOut="flipOutY"
             >
-              <div className={styles.mini_block}>
-                <img src={demo11} alt="" />
+              <Link to="accessories" smooth={true} offset={-400} duration={500}>
+                <div className={` ${styles.mini_block} ${styles.mini_green} ${styles.mini_link}`}>
+                <img src={demo11} alt="accessories" />
                 <p>
-                  <span>3</span> <br />
-                  года гарантии
+                  Широкий выбор аксессуаров
                 </p>
-              </div>
+                </div>
+                </Link>
             </ScrollAnimation>
           </div>
         </div>
         <div className={styles.row}>
+          <div className={styles.col}>
+
           <ScrollAnimation
             animateIn="flipInY"
             animateOnce={true}
@@ -254,7 +258,7 @@ let BeautySection = (props) => {
           >
             <div className={styles.mini_block}>
               <img src={demo12} alt="" />
-              <p>Лёгкая смена стороны подключения</p>
+              <p>Высокая надежность</p>
             </div>
           </ScrollAnimation>
 
@@ -264,8 +268,19 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
-              <img src={demo13} alt="" />
-              <p>Высокая надежность</p>
+              <img src={demo9} alt="" />
+              <p><span>ECO</span> <br/> friendly</p>
+            </div>
+            </ScrollAnimation>
+            
+            <ScrollAnimation
+            animateIn="flipInY"
+            animateOnce={true}
+            animateOut="flipOutY"
+          >
+            <div className={styles.mini_block}>
+              <img src={demo7} alt="" />
+              <p>Европейское производство</p>
             </div>
           </ScrollAnimation>
 
@@ -276,7 +291,20 @@ let BeautySection = (props) => {
           >
             <div className={`${styles.mini_block} ${styles.cert_block}`}>
               <img src={eurovent} alt="" />
-              <p>Сертификат Евровент</p>
+              {/* <p>Сертификат Евровент</p> */}
+            </div>
+          </ScrollAnimation>
+          </div>
+        
+
+          <ScrollAnimation
+            animateIn="flipInY"
+            animateOnce={true}
+            animateOut="flipOutY"
+          >
+            <div className={`${styles.mini_block} ${styles.big_block} `}>
+              <img src={demo6} alt="" />
+              <p>Простой монтаж и сервис</p>
             </div>
           </ScrollAnimation>
 
@@ -285,9 +313,9 @@ let BeautySection = (props) => {
             animateOnce={true}
             animateOut="flipOutY"
           >
-            <div className={styles.mini_block}>
+            <div className={`${styles.mini_block} ${styles.big_block} `}>
               <img src={demo14} alt="" />
-              <p>Европейское производство</p>
+              <p>Своевременная доставка</p>
             </div>
           </ScrollAnimation>
         </div>

@@ -2,7 +2,8 @@ import React from 'react';
 // import logo from '../../assets/img/carrier_fancoil.png';
 // import fancoil from "../../assets/img/fancoil_main.png";
 import styles from "./FancoilsPage.module.scss";
-import FancoilSectionContainer from "../MainPage/FancoilsSection/FancoilSectionContainer";
+// import FancoilSectionContainer from "../MainPage/FancoilsSection/FancoilSectionContainer";
+import FancoilSection from '../MainPage/FancoilsSection/FancoilSection';
 
 let FancoilsPage = (props) => {
 
@@ -17,7 +18,7 @@ let FancoilsPage = (props) => {
         <img className={styles.fancoil} src={fancoil} alt="image_fancoil"/>
       </div> */}
       <h2 className={styles.title}>Типы фанкойлов</h2>
-      <FancoilSectionContainer/>
+      <FancoilSection data={props.data}/>
 
       {/* <Form /> */}
 

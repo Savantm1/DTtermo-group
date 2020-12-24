@@ -10,7 +10,7 @@ import cogoToast from 'cogo-toast';
 
 let FancoilSeries = (props) => {
 
-  debugger;
+ 
   let AddtoSpec = () => {
 
     props.addProduct();

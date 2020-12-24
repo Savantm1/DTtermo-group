@@ -10,11 +10,11 @@ let initialState = {
 
   fancoilTypes: [
 
-    {id: "1", title: 'Заголовок', series: "описание" },
-    {id: "2", title: 'Заголовок', series: "описание" },
-    {id: "3", title: 'Заголовок', series: "описание" },
-    {id: "4", title: 'Заголовок', series: "описание" },
-    {id: "5", title: 'Заголовок', series: "описание" },
+    // {id: "1", title: 'Заголовок', series: "описание" },
+    // {id: "2", title: 'Заголовок', series: "описание" },
+    // {id: "3", title: 'Заголовок', series: "описание" },
+    // {id: "4", title: 'Заголовок', series: "описание" },
+    // {id: "5", title: 'Заголовок', series: "описание" },
     
   ],
 

@@ -1,24 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./CardItem.module.scss";
-import card_img from "../../assets/img/Card_img.jpg";
 
 let CardItem = (props) => {
-  debugger
+debugger
   let isActive = "";
   if (props.active) {
     isActive += styles.card_active;
   }
 
   return (
-    <NavLink className={styles.link_item} to="/models/id">
+    <NavLink className={styles.link_item}
+      // onClick={props.getModel(props.key)}
+      to={`/fancoils/${props.series}/models/${props.id}`}>
       <div className={styles.card}>
         <div className={`${styles.card__container} ${isActive}`}>
-          <img className={styles.card__img} src={card_img} alt="card_img" />
+          <img className={styles.card__img} src={props.image[0].path} alt="card_img" />
           <div className={styles.desc_container}>
-            <h4 className={styles.card__class}>
+            {/* <h4 className={styles.card__class}>
               {props.title}
-            </h4>
+            </h4> */}
             <span className={styles.card__model}>{props.series}</span>
             {/* <p className={styles.card__feature}>
               <span className={styles.feature__title}>Производительность:</span>

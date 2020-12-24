@@ -5,7 +5,7 @@ import SimpleReactLightbox from "simple-react-lightbox";
 import { Route } from 'react-router-dom';
 import About from "./components/About/About";
 import Contacts from './components/Contacts/Contacts';
-import FancoilsPage from './components/FancoilsPage/FancoilsPage';
+import FancoilsPageContainer from './components/FancoilsPage/FancoilsPageContainer';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
 import HeaderContainer from './components/Header/HeaderContainer';
 import FancoilSeriesContainer from './components/FancoilsPage/FancoilsSeries/FancoilSeriesContainer';
@@ -25,10 +25,10 @@ let App = (props) => {
         <HeaderContainer />
           <Route path="/" exact render={() => { return <MainPageContainer/>}} />
           <Route path="/about_us" render={() => { return <About /> }} />
-          <Route path="/fancoils" render={() => { return <FancoilsPage /> }} />
-          <Route path="/accessories" render={() => { return <AccessoriesPage/> }} />
+          <Route path="/fancoils" exact render={() => { return <FancoilsPageContainer /> }} />
+          <Route path="/accessories" exact render={() => { return <AccessoriesPage/> }} />
           <Route path="/contacts" render={() => { return <Contacts /> }} />
-          <Route path="/models/id" render={() => { return <FancoilModelContainer /> }} />
+          <Route path="/fancoils/:type?/models/:id?" render={() => { return <FancoilModelContainer /> }} />
         <Route path="/specification" render={() => { return <SpecificationContainer  /> }} />
           <Route path="/modal" render={() => { return <Modal /> }} />
           <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} />
