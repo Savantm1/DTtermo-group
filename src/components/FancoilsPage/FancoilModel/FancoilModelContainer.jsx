@@ -15,7 +15,7 @@ class FancoilModelContainer extends React.Component {
   
     API.getFancoilModel(this.props.match.params.id).then((response) => {
       this.props.SetFancoilModel(response, true);
-      
+      debugger
       API.getFancoilTypes().then(response => {
       this.props.setFancoilTypes(response, true);
     })
@@ -34,12 +34,14 @@ class FancoilModelContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+
   return {
     nav: state.navbar.SpecificationCount,
     spec: state.specification.fancoils,
     isLoaded: state.fancoilModel.isLoaded,
     model: state.fancoilModel.fancoilModel,
     fancoilTypes: state.MainPage.fancoilTypes,
+
   };
 };
 

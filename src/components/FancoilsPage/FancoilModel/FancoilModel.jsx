@@ -14,10 +14,11 @@ import { NavLink } from "react-router-dom";
 
 // import FancoilSectionContainer from "../../MainPage/FancoilsSection/FancoilSectionContainer";
 import FancoilSection from "../../MainPage/FancoilsSection/FancoilSection";
+import Slider from "../../Slider/Slider";
 
 
 let FancoilModel = (props) => {
-debugger
+
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
 
   let AddtoSpec = () => {
@@ -64,6 +65,63 @@ debugger
     )
   })
 
+  let decryption = props.data.model[0].decryption;
+  let index = Object.keys(decryption);
+  console.log('decryption', decryption)
+  console.log('index', index);
+  console.log('index[0]', index[0])
+  console.log('decryption[0]', decryption[0])
+  console.log('Object.keys(decryption[0])', Object.keys(decryption[0]))
+  console.log('key', Object.keys(decryption[0])[0])
+  console.log('value',decryption[0][Object.keys(decryption[0])[0]])
+  // let LeftSideDecryption = index.map(element => {
+  //   return (
+  //     <li className={styles.designation_item}>
+  //       <span className={styles.item_left}> {Object.keys(decryption[element])[0]} </span>
+  //     </li>
+  //   )
+  // })
+
+  // let RightSideDecryption = index.map(element => {
+  //   return (
+  //     <li className={styles.designation_item}>
+  //     <span className={styles.item_left}> {(decryption[element])[0]} </span>
+  //   </li>
+  //   )
+  // })
+  
+  let decryptionElements = index.map(element => {
+
+    let itemObject = decryption[element];
+    let key = (Object.keys(itemObject))[0];
+    let value = itemObject[key];
+ 
+    return (
+      <li className={styles.designation_item}>
+        <span className={styles.item_left}>{key}</span>
+        <span className={styles.item_right}>
+          {` - ${value};`}
+        </span>
+      </li>
+    )
+  });
+
+
+
+
+  // console.log(Object.keys(DecryptionElemsLeft)[0]);
+  // let DecryptionElems = props.data.model[0].decryption.map()
+ 
+
+      
+    //   <li className={styles.designation_item}>
+    //   <span className={styles.item_left}>-</span>
+    //   {/* <span className={styles.item_right}>Фанкойлы DTtermo</span> */}
+    // </li>
+      
+
+  
+  // console.log(Object.keys(DecryptionElems))
 
   return (
     <div className={styles.model}>
@@ -72,7 +130,10 @@ debugger
       </h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>
-          <img className={styles.card_img} src={card_img} alt="image_fancoil" />
+          {/* <img className={styles.card_img} src={card_img} alt="image_fancoil" /> */}
+          <div className={styles.slider}> 
+            <Slider images={props.data.model[0].fancoil.images}/>
+          </div>
           <div className={styles.technologies_block}>
             <span className={styles.block_title}> Основные функции:</span>
             <ul className={styles.list}>
@@ -119,11 +180,8 @@ debugger
 
           <ul className={styles.designation}>
             <p className={styles.designation_title}>Обозначение cерии:</p>
-            <li className={styles.designation_item}>
-              <span className={styles.item_left}>DF -</span>
-              <span className={styles.item_right}>Фанкойлы DTtermo</span>
-            </li>
-            <li className={styles.designation_item}>
+
+            {/* <li className={styles.designation_item}>
               <span className={styles.item_left}>250-600 -</span>
               <span className={styles.item_right}>
                 Холодопроизводительность 2,2-4,05 кВт
@@ -136,7 +194,11 @@ debugger
             <li className={styles.designation_item}>
               <span className={styles.item_left}>B - </span>
               <span className={styles.item_right}>Панель B типа</span>
-            </li>
+            </li> */}
+            {/* {LeftSideDecryption} */}
+            {/* {RightSideDecryption} */}
+
+            {decryptionElements}
           </ul>
         </div>
 

@@ -3,7 +3,9 @@ const SET_FANCOIL_MODEL = "SET_FANCOIL_MODEL";
 
 let initialState = {
   fancoilModel: {
-    fancoil:''
+    fancoil: '',
+    decryption: ''
+      
   },
  isLoaded: false
 }
@@ -18,9 +20,10 @@ const ModelReducer = (state = initialState, action) => {
         let stateCopy = {
           ...state,
           fancoilModel: action.fancoilModel,
+          decryption : action.fancoilModel.decryption,
           isLoaded: action.isLoaded
         };
-        debugger
+ 
         return stateCopy;
       }
 
