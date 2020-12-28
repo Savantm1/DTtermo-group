@@ -3,7 +3,7 @@ import CardItem from '../../CardItem/CardItem';
 import styles from "../FancoilsSection/FancoilSection.module.scss";
 
 let FancoilSection = (props) => {
-debugger
+
   let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
 
 

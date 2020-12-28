@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: LytigaPro;
   src: url('./fonts/Lytiga\Pro/LytigaPro-Regular.otf') ;
@@ -33,4 +35,34 @@ code {
 
 .fslightbox-toolbar-button:nth-child(1) {
   display: none;
+}
+ul { 
+  margin: 0;
+  padding: 0;
+}
+
+.slider-wrapper {
+  width: 350px !important;
+ }
+
+ /* .thumbs-wrapper {
+   margin-top: 0 !important;
+ } */
+ .carousel .thumb.selected, .carousel .thumb {
+  border-radius: 13px;
+ }
+
+ .carousel .thumb.selected, .carousel .thumb:hover {
+  border: 3px solid #53b36a !important ;
+}
+
+.carousel .thumbs-wrapper {
+  margin-bottom: 20px !important;
+  margin-right: 15px !important;
+  margin-left: 0 !important;
+}
+
+.carousel.carousel-slider .control-arrow {
+
+  padding: 25px !important;
 }

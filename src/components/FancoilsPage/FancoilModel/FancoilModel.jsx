@@ -18,7 +18,7 @@ import Slider from "../../Slider/Slider";
 
 
 let FancoilModel = (props) => {
-
+debugger
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
 
   let AddtoSpec = () => {
@@ -67,29 +67,14 @@ let FancoilModel = (props) => {
 
   let decryption = props.data.model[0].decryption;
   let index = Object.keys(decryption);
-  console.log('decryption', decryption)
-  console.log('index', index);
-  console.log('index[0]', index[0])
-  console.log('decryption[0]', decryption[0])
-  console.log('Object.keys(decryption[0])', Object.keys(decryption[0]))
-  console.log('key', Object.keys(decryption[0])[0])
-  console.log('value',decryption[0][Object.keys(decryption[0])[0]])
-  // let LeftSideDecryption = index.map(element => {
-  //   return (
-  //     <li className={styles.designation_item}>
-  //       <span className={styles.item_left}> {Object.keys(decryption[element])[0]} </span>
-  //     </li>
-  //   )
-  // })
-
-  // let RightSideDecryption = index.map(element => {
-  //   return (
-  //     <li className={styles.designation_item}>
-  //     <span className={styles.item_left}> {(decryption[element])[0]} </span>
-  //   </li>
-  //   )
-  // })
-  
+  // console.log('decryption', decryption)
+  // console.log('index', index);
+  // console.log('index[0]', index[0])
+  // console.log('decryption[0]', decryption[0])
+  // console.log('Object.keys(decryption[0])', Object.keys(decryption[0]))
+  // console.log('key', Object.keys(decryption[0])[0])
+  // console.log('value',decryption[0][Object.keys(decryption[0])[0]])
+ 
   let decryptionElements = index.map(element => {
 
     let itemObject = decryption[element];
@@ -106,22 +91,30 @@ let FancoilModel = (props) => {
     )
   });
 
+  let accessoriesElements = props.data.model[0].accessories.map((element) => {
+    return (
+      <AccessoryItem title={element.name} desc={element.description} />
+    )
+  });
 
 
-
-  // console.log(Object.keys(DecryptionElemsLeft)[0]);
-  // let DecryptionElems = props.data.model[0].decryption.map()
- 
-
-      
-    //   <li className={styles.designation_item}>
-    //   <span className={styles.item_left}>-</span>
-    //   {/* <span className={styles.item_right}>Фанкойлы DTtermo</span> */}
-    // </li>
-      
-
-  
-  // console.log(Object.keys(DecryptionElems))
+  let tableElements = props.data.model.map(element => {
+    return(
+      <div className={styles.row}>
+      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.series}/models/${element.fancoil.id}`}>
+        <div className={styles.param}>{element.name}</div>
+      </NavLink>
+        <div className={styles.param}>{element.Q_hot}</div>
+        <div className={styles.param}>{element.Q_ice}</div>
+      <button
+        className={`${styles.btn} ${styles.param}`}
+        onClick={AddtoSpec}
+      >
+        Добавить в спецификацию
+      </button>
+    </div>
+    ) 
+  })
 
   return (
     <div className={styles.model}>
@@ -181,24 +174,8 @@ let FancoilModel = (props) => {
           <ul className={styles.designation}>
             <p className={styles.designation_title}>Обозначение cерии:</p>
 
-            {/* <li className={styles.designation_item}>
-              <span className={styles.item_left}>250-600 -</span>
-              <span className={styles.item_right}>
-                Холодопроизводительность 2,2-4,05 кВт
-              </span>
-            </li>
-            <li className={styles.designation_item}>
-              <span className={styles.item_left}>G - </span>
-              <span className={styles.item_right}>Фанкойлы - настенные</span>
-            </li>
-            <li className={styles.designation_item}>
-              <span className={styles.item_left}>B - </span>
-              <span className={styles.item_right}>Панель B типа</span>
-            </li> */}
-            {/* {LeftSideDecryption} */}
-            {/* {RightSideDecryption} */}
-
             {decryptionElements}
+            
           </ul>
         </div>
 
@@ -296,11 +273,14 @@ let FancoilModel = (props) => {
           <div className={styles.text_block}>
             <div className={styles.about_series}>
               <p className={styles.text_title}> 
+                
                 Информация о серии фанкойлов:
-                {/* {props.data.model.fancoil.type} */}
+
               </p>
               <p className={styles.text_desc}>
+
                 {props.data.model[0].fancoil.information}
+
               </p>
             </div>
             <ul className={styles.text_list}>
@@ -313,59 +293,13 @@ let FancoilModel = (props) => {
             <ul className={styles.text_list}>
               <p className={styles.text_title}>Два  варианта электродвигателя AC/EC </p>
               <p className={styles.text_subtitle}>AC:</p>
+
                 {ACElements}
+              
               <p className={styles.text_subtitle}>EC:</p>
+
                 {ECElements}
-              {/* <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Открытая установка на стене +17…+32
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Контроль температуры воды в трубопроводе +3…+18 и +30…+75
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  2-х рядный теплообменник
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Управление ИК пульт MD-R51 (Стандартно)
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Управление с помощью проводных пультов MD-KJR12B, MD-KJR29B,
-                  MD-KJR90DP (Опция)
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Управление воздушными заслонками
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Подключение к системе центрального управления XYE + MD-CCM03,
-                  MD-CCM30
-                </span>
-              </li>
-              <li className={styles.text_item}>
-                <span className={styles.item_left}></span>
-                <span className={styles.item_right}>
-                  Подключение к системе группового управления XYE + MD-KJR150A
-                </span>
-              </li> */}
+             
             </ul>
           </div>
         </div>
@@ -376,76 +310,19 @@ let FancoilModel = (props) => {
           <div className={styles.table}>
             <div className={styles.row}>
               <div className={styles.param}>Модели</div>
-              <div className={styles.param}>Размер(ШхВхГ), мм</div>
+              <div className={styles.param}>Обогрев, кВт</div>
               <div className={styles.param}>
-                Производительность в режиме охлаждения, кВт
+                Охлаждение, кВт
               </div>
               {/* <div className={styles.param}>
                 Производительность в режиме обогрева, кВт
               </div> */}
               {/* <div className={styles.param}>Рекоменд. розничная цена</div> */}
               <div className={styles.param}></div>
-            </div>
-            <div className={styles.row}>
-              <NavLink className={styles.link} to="/models/id">
-                <div className={styles.param}>DF-250GB</div>
-              </NavLink>
-              <div className={styles.param}>915×290×230</div>
-              <div className={styles.param}>2,63</div>
-              {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
-              <button
-                className={`${styles.btn} ${styles.param}`}
-                onClick={AddtoSpec}
-              >
-                Добавить в спецификацию
-              </button>
-            </div>
-            <div className={styles.row}>
-              <NavLink className={styles.link} to="/models/id">
-                <div className={styles.param}>DF-250GB</div>
-              </NavLink>
-              <div className={styles.param}>915×290×230</div>
-              <div className={styles.param}>2,63</div>
-              {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
-              <button
-                className={`${styles.btn} ${styles.param}`}
-                onClick={AddtoSpec}
-              >
-                Добавить в спецификацию
-              </button>
-            </div>
-            <div className={styles.row}>
-              <NavLink className={styles.link} to="/models/id">
-                <div className={styles.param}>DF-250GB</div>
-              </NavLink>
-              <div className={styles.param}>915×290×230</div>
-              <div className={styles.param}>2,63</div>
-              {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
-              <button
-                className={`${styles.btn} ${styles.param}`}
-                onClick={AddtoSpec}
-              >
-                Добавить в спецификацию
-              </button>
-            </div>
-            <div className={styles.row}>
-              <NavLink className={styles.link} to="/models/id">
-                <div className={styles.param}>DF-250GB</div>
-              </NavLink>
-              <div className={styles.param}>915×290×230</div>
-              <div className={styles.param}>2,63</div>
-              {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
-              <button
-                className={`${styles.btn} ${styles.param}`}
-                onClick={AddtoSpec}
-              >
-                Добавить в спецификацию
-              </button>
-            </div>
+              </div>
+              
+              {tableElements}
+           
           </div>
         </div>
       </div>
@@ -453,10 +330,9 @@ let FancoilModel = (props) => {
       
       <h2 className={styles.title}> Подходящие аксессуары</h2>
       <div className={styles.accessories}>
-        <AccessoryItem />
-        <AccessoryItem />
-        <AccessoryItem />
-        <AccessoryItem />
+
+        {accessoriesElements}
+
       </div>
 
       <h2 className={styles.title}> Другие типы фанкойлов</h2>
