@@ -18,7 +18,9 @@ import Slider from "../../Slider/Slider";
 
 
 let FancoilModel = (props) => {
-debugger
+  
+
+
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
 
   let AddtoSpec = () => {
@@ -31,8 +33,9 @@ debugger
   };
 
   window.scrollTo(0, 0);
+  let currentModel = props.data.currentModel;
 
-  let advantagesElements = props.data.model[0].fancoil.advantages.map((element) => {
+  let advantagesElements = currentModel.fancoil.advantages.map((element) => {
     return (
       <li className={styles.text_item}>
       <span className={styles.item_left}></span>
@@ -43,7 +46,7 @@ debugger
     )
   })
 
-  let ACElements = props.data.model[0].fancoil.AC.map((element) => {
+  let ACElements = currentModel.fancoil.AC.map((element) => {
     return (
               <li className={styles.text_item}>
                 <span className={styles.item_left}></span>
@@ -54,7 +57,7 @@ debugger
     )
   })
 
-  let ECElements = props.data.model[0].fancoil.EC.map((element) => {
+  let ECElements = currentModel.fancoil.EC.map((element) => {
     return (
               <li className={styles.text_item}>
                 <span className={styles.item_left}></span>
@@ -65,8 +68,10 @@ debugger
     )
   })
 
-  let decryption = props.data.model[0].decryption;
+  let decryption = currentModel.decryption;
   let index = Object.keys(decryption);
+
+
   // console.log('decryption', decryption)
   // console.log('index', index);
   // console.log('index[0]', index[0])
@@ -91,17 +96,20 @@ debugger
     )
   });
 
-  let accessoriesElements = props.data.model[0].accessories.map((element) => {
+  let accessoriesElements = currentModel.accessories.map((element) => {
     return (
       <AccessoryItem title={element.name} desc={element.description} />
     )
   });
+  if (!props.data.models) {
+   alert('данных нет' )
+ }
 
-
-  let tableElements = props.data.model.map(element => {
+  let tableElements = props.data.models.map(element => {
+    
     return(
       <div className={styles.row}>
-      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.series}/models/${element.fancoil.id}`}>
+      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.series}/models/${element.id}`}>
         <div className={styles.param}>{element.name}</div>
       </NavLink>
         <div className={styles.param}>{element.Q_hot}</div>
@@ -119,13 +127,13 @@ debugger
   return (
     <div className={styles.model}>
       <h2 className={styles.title}
-      >{props.data.model[0].name}
+      >{currentModel.name}
       </h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>
           {/* <img className={styles.card_img} src={card_img} alt="image_fancoil" /> */}
           <div className={styles.slider}> 
-            <Slider images={props.data.model[0].fancoil.images}/>
+            <Slider images={currentModel.fancoil.images}/>
           </div>
           <div className={styles.technologies_block}>
             <span className={styles.block_title}> Основные функции:</span>
@@ -184,18 +192,18 @@ debugger
             <ul className={styles.characteristics_list}>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Серия:</span>
-                <span className={styles.item__right_side}>{props.data.model[0].fancoil.series}</span>
+                <span className={styles.item__right_side}>{currentModel.fancoil.series}</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Размер (ШхВхГ):</span>
-                <span className={styles.item__right_side}>{props.data.model[0].size} мм</span>
+                <span className={styles.item__right_side}>{currentModel.size} мм</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Расход воздуха :
                 </span>
                 <span className={styles.item__right_side}>
-                {props.data.model[0].air_flow} куб. м/ч
+                {currentModel.air_flow} куб. м/ч
                 </span>
               </li>
               {/* <li className={styles.characteristics_item}>
@@ -206,19 +214,19 @@ debugger
                 <span className={styles.item__left_side}>
                   Производительность в режиме охлаждения:
                 </span>
-                <span className={styles.item__right_side}>{props.data.model[0].Q_ice} кВт</span>
+                <span className={styles.item__right_side}>{currentModel.Q_ice} кВт</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Производительность в режиме обогрева:
                 </span>
-                <span className={styles.item__right_side}>{props.data.model[0].Q_hot} кВт</span>
+                <span className={styles.item__right_side}>{currentModel.Q_hot} кВт</span>
               </li>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>
                   Вес внутреннего блока:
                 </span>
-                <span className={styles.item__right_side}>{props.data.model[0].weight} кг</span>
+                <span className={styles.item__right_side}>{currentModel.weight} кг</span>
               </li>
               {/* <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Электропитание:</span>
@@ -279,7 +287,7 @@ debugger
               </p>
               <p className={styles.text_desc}>
 
-                {props.data.model[0].fancoil.information}
+                {currentModel.fancoil.information}
 
               </p>
             </div>
@@ -336,85 +344,10 @@ debugger
       </div>
 
       <h2 className={styles.title}> Другие типы фанкойлов</h2>
-      {/* <div className={styles.table_block}>
-        <div className={styles.table}>
-          <div className={styles.row}>
-            <div className={styles.param}>Модели</div>
-            <div className={styles.param}>Размер(ШхВхГ), мм</div>
-            <div className={styles.param}>
-              Производительность в режиме охлаждения, кВт
-            </div>
-            <div className={styles.param}>
-              Производительность в режиме обогрева, кВт
-            </div>
-            <div className={styles.param}>Рекоменд. розничная цена</div>
-            <div className={styles.param}></div>
-          </div>
-          <div className={styles.row}>
-            <NavLink className={styles.link} to="/models/id">
-              <div className={styles.param}>DF-250GB</div>
-            </NavLink>
-            <div className={styles.param}>915×290×230</div>
-            <div className={styles.param}>2,63</div>
-            <div className={styles.param}>3,36</div>
-            <div className={styles.param}>По запросу</div>
-            <button
-              className={`${styles.btn} ${styles.param}`}
-              onClick={AddtoSpec}
-            >
-              Добавить в спецификацию
-            </button>
-          </div>
-          <div className={styles.row}>
-            <NavLink className={styles.link} to="/models/id">
-              <div className={styles.param}>DF-250GB</div>
-            </NavLink>
-            <div className={styles.param}>915×290×230</div>
-            <div className={styles.param}>2,63</div>
-            <div className={styles.param}>3,36</div>
-            <div className={styles.param}>По запросу</div>
-            <button
-              className={`${styles.btn} ${styles.param}`}
-              onClick={AddtoSpec}
-            >
-              Добавить в спецификацию
-            </button>
-          </div>
-          <div className={styles.row}>
-            <NavLink className={styles.link} to="/models/id">
-              <div className={styles.param}>DF-250GB</div>
-            </NavLink>
-            <div className={styles.param}>915×290×230</div>
-            <div className={styles.param}>2,63</div>
-            <div className={styles.param}>3,36</div>
-            <div className={styles.param}>По запросу</div>
-            <button
-              className={`${styles.btn} ${styles.param}`}
-              onClick={AddtoSpec}
-            >
-              Добавить в спецификацию
-            </button>
-          </div>
-          <div className={styles.row}>
-            <NavLink className={styles.link} to="/models/id">
-              <div className={styles.param}>DF-250GB</div>
-            </NavLink>
-            <div className={styles.param}>915×290×230</div>
-            <div className={styles.param}>2,63</div>
-            <div className={styles.param}>3,36</div>
-            <div className={styles.param}>По запросу</div>
-            <button
-              className={`${styles.btn} ${styles.param}`}
-              onClick={AddtoSpec}
-            >
-              Добавить в спецификацию
-            </button>
-          </div>
-        </div>
-      </div> */}
+    
       <div className={styles.cards_block}>
         <FancoilSection data={props.data}/>
-      </div>
+      </div> 
 
       {/* <Form /> */}
     </div>

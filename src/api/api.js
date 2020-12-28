@@ -27,30 +27,23 @@ export const API = {
        });
   },
   
-  getFancoilModel(id) {
+  getFancoilModels(TypeId) {
 
-    return instance.get(`fancoils/${id}/models`)
+    return instance.get(`fancoils/${TypeId}/models`)
       .then(response => {
         return response.data.data;
        });
   },
   
-  getOtherFancoilModels() {
-
-    return instance.get(`/other_fancoil_model`)
-      .then(response => {
-        return response.data.data;
-       });
+  getFancoilModel(TypeId, modelId) {
+    return instance.get(`fancoils/${TypeId}/models/${modelId}`)
+    .then(response => {
+      return response.data.data;
+     });
   },
   
-  getOtherFancoilTypes() {
 
-    return instance.get(`/other_fancoil_types`)
-      .then(response => {
-        return response.data.data;
-       });
-  },
-
+  
   getAccessoryModel() {
 
     return instance.get(`/accessory_model`)
