@@ -5,12 +5,10 @@ const CHANGE_QUANTITY = "CHANGE_QUANTITY";
 const ADD_MODEL_TO_SPEC= "ADD_MODEL_TO_SPEC";
 
 let initialState = {
-
+  tableName: 'fancoilsTable',
+  
   fancoils: [
-  { id: "1", art: "123", type: "Канальный", model: "32C1",quantity: '4' },
-  { id: "2", art: "213", type: "Канальный", model: "32C1", quantity: "0983" },
-  { id: "3", art: "122133", type: "Канальный", model: "32C1", quantity: "2" },
-  { id: "4", art: "113", type: "Канальный", model: "32C1", quantity: "1" },
+
   ],
 
   accessories: [
@@ -29,7 +27,7 @@ const SpecificationReducer = (state = initialState, action) => {
     case DELETE_POSITION_FROM_SPEC:
       {
         let stateCopy = { ...state };
-        if (stateCopy.fancoils === action.tableName) {
+        if (stateCopy.tableName === action.tableName) {
           stateCopy.fancoils.splice(action.position, 1);
  
         } else {
@@ -41,8 +39,8 @@ const SpecificationReducer = (state = initialState, action) => {
       case INCREMENT_POSITION_FROM_SPEC:
         {
         let stateCopy = { ...state };
-        console.log(stateCopy.fancoils[action.position].quantity);
-        if (stateCopy.fancoils === action.tableName) {
+
+        if (stateCopy.tableName === action.tableName) {
           stateCopy.fancoils[action.position].quantity++;
         } else {
           stateCopy.accessories[action.position].quantity++;
@@ -54,10 +52,20 @@ const SpecificationReducer = (state = initialState, action) => {
         {
           let stateCopy = { ...state };
           console.log(stateCopy.fancoils[action.position].quantity);
-          if (stateCopy.fancoils === action.tableName) {
+        if (stateCopy.tableName === action.tableName) {
+          if (stateCopy.fancoils[action.position].quantity <= 1) {
+            stateCopy.fancoils[action.position].quantity = 1;
+          } else { 
             stateCopy.fancoils[action.position].quantity--;
-          } else {
-            stateCopy.accessories[action.position].quantity--;
+          }
+           
+        } else {
+            if (stateCopy.accessories[action.position].quantity <= 1) {
+              stateCopy.accessories[action.position].quantity = 1;
+            } else {
+                stateCopy.accessories[action.position].quantity--;
+            }
+            
            }
             return stateCopy;
       }
@@ -65,7 +73,7 @@ const SpecificationReducer = (state = initialState, action) => {
     case CHANGE_QUANTITY:
       {
         let stateCopy = { ...state };
-        if (stateCopy.fancoils === action.tableName) {
+        if (stateCopy.tableName === action.tableName) {
           stateCopy.fancoils[action.position].quantity = action.value;
         } else {
           stateCopy.accessories[action.position].quantity = action.value;
@@ -73,14 +81,71 @@ const SpecificationReducer = (state = initialState, action) => {
         return stateCopy;
       }
     case ADD_MODEL_TO_SPEC: 
-      {
+      {debugger
         let stateCopy = { ...state };
-        if (stateCopy.fancoils === action.tableName) {
-          stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+
+        if (stateCopy.tableName === action.tableName) {
+
+          if (stateCopy.fancoils.length === 0) {
+            stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+          } else {
+
+            for (let i = 0; i < stateCopy.fancoils.length; i++){
+              if (stateCopy.fancoils[i].model === action.model) {
+                debugger
+                stateCopy.fancoils[i].quantity++;
+                return stateCopy;
+                
+              } else {
+                continue
+              }
+              
+            }
+
+            for (let i = 0; i < stateCopy.fancoils.length; i++){
+              if (stateCopy.fancoils[i].model !== action.model) {
+                stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+                debugger
+                return stateCopy;
+              } else {
+                debugger
+                return stateCopy;
+              }
+              
+            }
+
+
+            // stateCopy.fancoils.map(element => {
+
+            //   if (element.model === action.model) {
+            //     debugger
+            //     element.quantity++;
+            //     return stateCopy;
+            //   } else {
+            //     stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+            //     return stateCopy;
+
+            //   }
+            // })
+
+            
+          }
+
+          
         } else {
-          stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+          stateCopy.accessories.map(element => {
+            if (element.name === action.model) {
+              stateCopy.accessories[element].quantity++;
+              debugger
+            } else {
+              stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+              debugger
+            }
+          })
+
         }
 
+        return stateCopy;
       }
       
       

@@ -13,10 +13,8 @@ let AccessoriesPage = (props) => {
   return (
     <div className={styles.content}>
       <h2 className={styles.title}>Аксессуары для фанкойлов</h2>
-      <div className={styles.accessories_block}>
 
-        <AccessoriesSectionContainer/>
-      </div>
+        <AccessoriesSectionContainer data={props.data} />
 
       {/* <Form/> */}
     </div>

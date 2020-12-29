@@ -33,12 +33,12 @@ class FancoilsPageContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-  
+
   return {
 
     fancoilTypes: state.MainPage.fancoilTypes,
     isLoaded: state.MainPage.isLoaded
-    
+
   }
 };
 

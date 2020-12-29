@@ -17,9 +17,23 @@ import features_5 from "../../assets/img/features_5.svg";
 // import FsLightbox from "fslightbox-react";
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
+import AccessoryItem from "../AccessoryItem/AcessoryItem";
+
+
 
 
 let MainPage = (props) => {
+debugger
+
+  let AccessoriesPopularElements = props.data.accessoriesTypes.map(element => {
+    if (element.popular) {
+      return (<AccessoryItem
+        key={element.id}
+        title={element.name}
+        image={element.images[0].path}
+      />)
+    }
+  });
 
   const options = {
     buttons: {
@@ -101,7 +115,8 @@ let MainPage = (props) => {
       
       <h2 className={styles.title} id="accessories">Основные аксессуары для фанкойлов</h2>
    
-      <AccessoriesSectionContainer />
+      {/* <AccessoriesSectionContainer /> */}
+      {AccessoriesPopularElements}
       
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>

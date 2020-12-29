@@ -14,29 +14,60 @@ class FancoilModelContainer extends React.Component {
   
   componentDidMount() {
     debugger
-    console.log(this.props)
-   
+    console.log('ComponentDidMount')
       API.getFancoilModels(this.props.match.params.id).then((response) => {
-        this.props.SetFancoilModels(response,true);
+        this.props.SetFancoilModels(response, true);
+        console.log('ComponentDidMount - MODELS')
       });
     
       API.getFancoilTypes().then(response => {
-        this.props.setFancoilTypes(response,true);
+        this.props.setFancoilTypes(response);
+        console.log('ComponentDidMount -TYPES')
       });
     
-    API.getFancoilModel(this.props.match.params.id,this.props.match.params.id ).then(response => {
+    API.getFancoilModel(this.props.match.params.type, this.props.match.params.id).then(response => {
+      
       this.props.SetFancoilModel(response, true);
+      console.log('ComponentDidMount - MODEL')
+      console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
       })
   }
 
+  componentDidUpdate(prevProps) {
+    // Популярный пример (не забудьте сравнить пропсы):
+    debugger
+    if ((this.props.match.params.id !== prevProps.match.params.id) || (this.props.match.params.type !== prevProps.match.params.type)) {
+
+      API.getFancoilModel(this.props.match.params.type, this.props.match.params.id).then(response => {
+      
+        this.props.SetFancoilModel(response, true);
+        console.log('ComponentDidUPDATE - MODEL')
+        console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
+      })
+      
+      API.getFancoilModels(this.props.match.params.type).then((response) => {
+        debugger
+        this.props.SetFancoilModels(response, true);
+        console.log('ComponentDidUPDATE - MODELS')
+        console.log(response)
+      });
+    }
+  }
+
+
 
   render() {
-    if (!this.props.isLoaded) {
-
-      return <Preloader />;
-    } else {
+    if (this.props.isLoaded1 && this.props.isLoaded2) {
+      console.log('ComponentRender')
+      debugger
+      return <FancoilModel data={this.props} />;
       
-      return <FancoilModel data={this.props }/>;
+    } else {
+    
+      console.log('PreloaderRender')
+      return <Preloader />;
+
+   
     }
   }
 }
@@ -46,7 +77,8 @@ let mapStateToProps = (state) => {
   return {
     nav: state.navbar.SpecificationCount,
     spec: state.specification.fancoils,
-    isLoaded: state.fancoilModel.isLoaded,
+    isLoaded1: state.fancoilModel.isLoaded1,
+    isLoaded2: state.fancoilModel.isLoaded2,
     models: state.fancoilModel.fancoilModels,
     fancoilTypes: state.MainPage.fancoilTypes,
     currentModel: state.fancoilModel.currentModel

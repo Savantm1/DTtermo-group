@@ -1,16 +1,17 @@
 import React from 'react'
 import AccessoryItem from '../../AccessoryItem/AcessoryItem';
-import styles from "../FancoilsSection/FancoilSection.module.scss";
+import styles from "./AccessoriesSection.module.scss";
 
 let AccessoriesSection = (props) => {
-
+debugger
   let AccessoriesTypesElements = props.data.accessoriesTypes.map((element) => {
 
     return (
       <AccessoryItem
         key = {element.id}
         title={element.name}
-        desc={element.description}
+        image={element.images[0].path}
+        // desc={element.description}
       />
     );
   });

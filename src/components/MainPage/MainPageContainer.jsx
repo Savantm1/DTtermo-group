@@ -9,7 +9,7 @@ import Preloader from "../Preloader/Preloader";
 class MainPageContainer extends React.Component {
 
   componentDidMount() {
- 
+ console.log('ComponentDidMount')
     API.getFancoilTypes().then(response => {
 
       this.props.setFancoilTypes(response, true);
@@ -27,10 +27,11 @@ class MainPageContainer extends React.Component {
   render() {
 
     if (!this.props.isLoaded ) {
-
+      console.log('RenderPreloader')
       return (<Preloader/>)
       
     } else {
+      console.log('RenderComponent')
       return (<MainPage data={this.props} changeTargetId={this.props.changeTargetId}  />)
       
     };

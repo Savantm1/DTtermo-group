@@ -80,51 +80,7 @@ let Specification = (props) => {
           {AccessoriesElements}
         </div>
       </div>
-{/* 
-      <div className={styles.block}>
-        <h1 className={styles.title}> Оформление заказа</h1>
-        <form className={styles.form} method="POST" id="form">
-          <div className={styles.row}>
-            <input type="text" placeholder="Имя"></input>
-          </div>
-          <div className={styles.row}>
-            <input type="text" placeholder="Email"></input>
-          </div>
-          <div className={styles.row}>
-            <input type="text" placeholder="Телефон"></input>
-          </div>
-          <div className={styles.row}>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Введите Ваше сообщение"
-            ></textarea>
-          </div>
-          <div className={styles.row}>
-            <p className={styles.text}>Приватность:</p>
-
-            <input
-              type="checkbox"
-              className={styles.checkbox}
-              name="agree"
-              id="checkbox"
-            />
-            <label for="checkbox">
-              Я даю свое согласие на обработку моих персональных данных, в
-              соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О
-              персональных данных» *
-            </label>
-          </div>
-          <NavLink to="/modal">
-            <button className={styles.btn} type="submit">
-              Отправить
-            </button>
-          </NavLink>
-        </form>
-      </div> */}
-      <Form/>
+      <Form tablesData={props.spec}/>
     </div>
   );
 };

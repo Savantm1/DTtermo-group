@@ -30,12 +30,15 @@ export const API = {
   getFancoilModels(TypeId) {
 
     return instance.get(`fancoils/${TypeId}/models`)
+      
       .then(response => {
+        debugger
         return response.data.data;
        });
   },
   
   getFancoilModel(TypeId, modelId) {
+    
     return instance.get(`fancoils/${TypeId}/models/${modelId}`)
     .then(response => {
       return response.data.data;
@@ -44,29 +47,24 @@ export const API = {
   
 
   
-  getAccessoryModel() {
+  getAccessoriesModels(TypeId) {
 
-    return instance.get(`/accessory_model`)
+    return instance.get(`accessories/${TypeId}/models`)
+      
       .then(response => {
-        return response.data.data;
-       });
-   },
-  
-  getOtherAccessoryTypes() {
-
-    return instance.get(`/other_accessory_types`)
-      .then(response => {
+        debugger
         return response.data.data;
        });
   },
   
-  getOtherAccessoryModels() {
-
-    return instance.get(`/other_accessory_models`)
-      .then(response => {
-        return response.data.data;
-       });
-   },
+  getAccessoriesModel(TypeId, modelId) {
+    
+    return instance.get(`accessories/${TypeId}/models/${modelId}`)
+    .then(response => {
+      return response.data.data;
+     });
+  },
+ 
   
 
 }

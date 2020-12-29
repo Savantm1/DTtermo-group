@@ -6,11 +6,11 @@ import { Route } from 'react-router-dom';
 import About from "./components/About/About";
 import Contacts from './components/Contacts/Contacts';
 import FancoilsPageContainer from './components/FancoilsPage/FancoilsPageContainer';
-import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
+import AccessoriesPageContainer from './components/AccessoriesPage/AccessoriesPageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import FancoilSeriesContainer from './components/FancoilsPage/FancoilsSeries/FancoilSeriesContainer';
 import AccessoriesSeriesContainer from './components/AccessoriesPage/AccessoriesSeries/AccessoriesSeriesContainer';
-import FancoilModelContainer from './components/FancoilsPage/FancoilModel/FancoilModelContainer';
+import WithUrlDataContainerComponent from './components/FancoilsPage/FancoilModel/FancoilModelContainer';
 import AccessoriesModelContainer from './components/AccessoriesPage/AccessoriesModel/AccessoriesModelContainer'
 import Modal from './components/Specification/Modal/Modal';
 import SpecificationContainer from './components/Specification/SpecificationContainer';
@@ -26,14 +26,14 @@ let App = (props) => {
           <Route path="/" exact render={() => { return <MainPageContainer/>}} />
           <Route path="/about_us" render={() => { return <About /> }} />
           <Route path="/fancoils" exact render={() => { return <FancoilsPageContainer /> }} />
-          <Route path="/accessories" exact render={() => { return <AccessoriesPage/> }} />
+          <Route path="/accessories" exact render={() => { return <AccessoriesPageContainer/> }} />
           <Route path="/contacts" render={() => { return <Contacts /> }} />
-          <Route path="/fancoils/:type?/models/:id?" render={() => { return <FancoilModelContainer /> }} />
+          <Route path="/fancoils/:type?/models/:id?" render={() => { return <WithUrlDataContainerComponent /> }} />
         <Route path="/specification" render={() => { return <SpecificationContainer  /> }} />
           <Route path="/modal" render={() => { return <Modal /> }} />
-          <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} />
-          <Route path="/accessories_series/id" render={() => { return <AccessoriesSeriesContainer /> }} />
-        <Route path="/accessories_models/id" render={() => { return <AccessoriesModelContainer /> }} />
+          {/* <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} /> */}
+          {/* <Route path="/accessories_series/id" render={() => { return <AccessoriesSeriesContainer /> }} /> */}
+        <Route path="/accessories/:type?/models/:id?" render={() => { return <AccessoriesModelContainer /> }} />
         <Route path="/scheme" render={() => { return <ModalScheme /> }} />
         <Footer />
       </SimpleReactLightbox>

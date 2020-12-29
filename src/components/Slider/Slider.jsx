@@ -6,9 +6,9 @@ import { Carousel } from 'react-responsive-carousel';
 
 class Slider extends Component {
 
-   SlidesList = this.props.images.map(slide => {
+   SlidesList = this.props.images.map((slide,index) => {
     return (
-      <div>
+      <div key={index}>
         <img src={slide.path}  />
       </div>
     )

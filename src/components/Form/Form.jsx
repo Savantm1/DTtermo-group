@@ -14,6 +14,13 @@ class Form extends React.Component {
       message: "",
     };
 
+  
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://testcarrier.dttermo.com/api/feedback');
+    xhr.responseType = 'json';
+ 
+
     this.PrivateValue = React.createRef();
 
     this.NameChange = this.NameChange.bind(this);
@@ -24,6 +31,11 @@ class Form extends React.Component {
 
     this.Submit = this.Submit.bind(this);
   }
+
+  // componentDidMount() {
+
+
+  // }
 
   NameChange(event) {
     this.setState({ name: event.target.value });
@@ -45,7 +57,11 @@ class Form extends React.Component {
   }
 
   Submit(event) {
-    event.preventDefault();
+
+   
+
+   
+    // event.preventDefault();
     if (
       this.state.name.length > 2 &&
       this.state.company.length > 2 &&
@@ -53,6 +69,8 @@ class Form extends React.Component {
       this.state.message.length > 2 &&
       this.PrivateValue.current.checked === true
     ) {
+      this.xhr.send(this.formData);
+      console.log(this.formData)
       console.log(
         this.state.name,
         this.state.email,
@@ -80,15 +98,29 @@ class Form extends React.Component {
     }
   }
 
+  
+
   render() {
+    const formData = new FormData();
+    let tables = this.props.tablesData;
+    var object = {
+      aasd: 'asda',
+      zxcxzc: 'dasfa'
+    };
+    
+        formData.append("tables", { tables });
+        formData.append("tables", 'aasdadada');
+        debugger
+
     return (
       <div className={styles.block}>
         <h1 className={styles.title}> Оформление заказа</h1>
         <form
           className={styles.form}
-          method="POST"
+          // action="http://testcarrier.dttermo.com/api/feedback"
+          // method="POST"
           id="form"
-          onSubmit={this.handleSubmit}
+          // onSubmit={this.handleSubmit}
         >
           <div className={styles.row}>
             <input type="radio" id={styles.delivery} name="delivery" value="Доставка" />
@@ -108,6 +140,7 @@ class Form extends React.Component {
             <input
               type="text"
               placeholder="Имя"
+              name="name"
               value={this.state.name}
               required
               onChange={this.NameChange}
@@ -116,6 +149,7 @@ class Form extends React.Component {
           <div className={styles.row}>
             <input
               type="text"
+              name="company"
               placeholder="Компания"
               value={this.state.company}
               required
@@ -125,6 +159,7 @@ class Form extends React.Component {
           <div className={styles.row}>
             <input
               type="email"
+              name="mail"
               placeholder="Email"
               value={this.state.email}
               required
@@ -134,6 +169,7 @@ class Form extends React.Component {
           <div className={styles.row}>
             <input
               type="phone"
+              name="phone"
               placeholder="Телефон"
               value={this.state.phone}
               onChange={this.PhoneChange}
@@ -148,6 +184,7 @@ class Form extends React.Component {
               rows="10"
               value={this.state.message}
               onChange={this.MessageChange}
+              name="message"
               placeholder="Введите Ваше сообщение"
             ></textarea>
           </div>
@@ -158,7 +195,7 @@ class Form extends React.Component {
               type="checkbox"
               className={styles.checkbox}
               ref={this.PrivateValue}
-              name="agree"
+              name="agree_privacy"
               id="checkbox"
             />
             <label for="checkbox">
@@ -167,11 +204,13 @@ class Form extends React.Component {
               персональных данных» *
             </label>
           </div>
-          <NavLink to="/modal">
-          <button className={styles.btn} type="submit" onClick={this.Submit}>
+          {/* <NavLink to="/modal"> */}
+            <button className={styles.btn} type="submit"
+              onClick={this.Submit}
+            >
             Отправить
           </button>
-          </NavLink>
+          {/* </NavLink> */}
 
         </form>
       </div>

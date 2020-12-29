@@ -9,11 +9,11 @@ import features_6 from "../../assets/img/features_6.svg";
 import certificate from "../../assets/img/certificate.jpg";
 import { SRLWrapper } from "simple-react-lightbox";
 import FsLightbox from "fslightbox-react";
-import slide_1 from "../../assets/img/slide_1.jpg";
-import slide_2 from "../../assets/img/slide_2.jpg";
-import slide_3 from "../../assets/img/slide_3.jpg";
-import slide_4 from "../../assets/img/slide_4.jpg";
-import slide_5 from "../../assets/img/slide_5.jpg";
+import slide_1 from "../../assets/img/Production/proizvodstvo-1.jpg";
+import slide_2 from "../../assets/img/Production/proizvodstvo-2.jpg";
+import slide_3 from "../../assets/img/Production/proizvodstvo-3.jpg";
+import slide_4 from "../../assets/img/Production/proizvodstvo-4.jpg";
+import slide_5 from "../../assets/img/Production/proizvodstvo-5.jpg";
 
 import about from "../../assets/img/about.jpg";
 import Form from "../Form/Form";

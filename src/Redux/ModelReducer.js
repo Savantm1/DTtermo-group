@@ -6,7 +6,15 @@ let initialState = {
   fancoilModels: {
    
   },
- isLoaded: false
+  isLoaded1: false,
+  isLoaded2: false,
+  
+  currentModel: {
+    id: '1',
+  },
+
+  currentType: '1'
+
 }
 
 const ModelReducer = (state = initialState, action) => {
@@ -20,7 +28,7 @@ const ModelReducer = (state = initialState, action) => {
           ...state,
           fancoilModels: action.fancoilModels,
           decryption : action.fancoilModels.decryption,
-          isLoaded: action.isLoaded
+          isLoaded1: action.isLoaded
         };
 
         return stateCopy;
@@ -33,9 +41,9 @@ const ModelReducer = (state = initialState, action) => {
           ...state,
           currentModel: action.fancoilModel,
           decryption : action.fancoilModel.decryption,
-          isLoaded: action.isLoaded
+          isLoaded2: action.isLoaded
         };
- 
+        console.log('currentModel',stateCopy.currentModel.id);
         return stateCopy;
       }
 

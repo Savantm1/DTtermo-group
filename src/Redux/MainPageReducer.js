@@ -20,11 +20,11 @@ let initialState = {
 
   accessoriesTypes: [
 
-    {id: "1", title: 'Заголовок аксессуара1', desc: 'Описание аксессуара' },
-    {id: "2", title: 'Заголовок аксессуара2', desc: 'Описание аксессуара' },
-    {id: "3", title: 'Заголовок аксессуара3', desc: 'Описание аксессуара' },
-    {id: "4", title: 'Заголовок аксессуара4', desc: 'Описание аксессуара' },
-    {id: "5", title: 'Заголовок аксессуара5', desc: 'Описание аксессуара' }
+    { id: "1", title: 'Заголовок аксессуара1', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
+    {id: "2", title: 'Заголовок аксессуара2', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
+    {id: "3", title: 'Заголовок аксессуара3', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
+    {id: "4", title: 'Заголовок аксессуара4', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
+    {id: "5", title: 'Заголовок аксессуара5', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] }
     
   ]
 }

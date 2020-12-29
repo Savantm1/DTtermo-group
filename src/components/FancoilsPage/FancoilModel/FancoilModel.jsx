@@ -20,24 +20,31 @@ import Slider from "../../Slider/Slider";
 let FancoilModel = (props) => {
   
 
-
-  let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
+  let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '1' };
+  let tableName = 'fancoilsTable';
+  let currentModel = props.data.currentModel;
 
   let AddtoSpec = () => {
-    props.addProduct();
+    props.data.addProduct();
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });
-
-    props.AddModelToSpec(ModelTestData.id, ModelTestData.art, ModelTestData.type, ModelTestData.model, ModelTestData.quantity, props.spec)
+  
+    props.data.AddModelToSpec(
+      currentModel.id,
+      ModelTestData.art,
+      currentModel.fancoil.type,
+      currentModel.name,
+      ModelTestData.quantity,
+      tableName
+    )
   };
 
   window.scrollTo(0, 0);
-  let currentModel = props.data.currentModel;
 
-  let advantagesElements = currentModel.fancoil.advantages.map((element) => {
+  let advantagesElements = currentModel.fancoil.advantages.map((element,index) => {
     return (
-      <li className={styles.text_item}>
+      <li key={index} className={styles.text_item}>
       <span className={styles.item_left}></span>
       <span className={styles.item_right}>
           {element}
@@ -46,9 +53,9 @@ let FancoilModel = (props) => {
     )
   })
 
-  let ACElements = currentModel.fancoil.AC.map((element) => {
+  let ACElements = currentModel.fancoil.AC.map((element,index) => {
     return (
-              <li className={styles.text_item}>
+      <li key={index} className={styles.text_item}>
                 <span className={styles.item_left}></span>
                 <span className={styles.item_right}>
                  {element}
@@ -57,9 +64,9 @@ let FancoilModel = (props) => {
     )
   })
 
-  let ECElements = currentModel.fancoil.EC.map((element) => {
+  let ECElements = currentModel.fancoil.EC.map((element,index) => {
     return (
-              <li className={styles.text_item}>
+              <li key={index} className={styles.text_item}>
                 <span className={styles.item_left}></span>
                 <span className={styles.item_right}>
                  {element}
@@ -80,14 +87,14 @@ let FancoilModel = (props) => {
   // console.log('key', Object.keys(decryption[0])[0])
   // console.log('value',decryption[0][Object.keys(decryption[0])[0]])
  
-  let decryptionElements = index.map(element => {
+  let decryptionElements = index.map((element,index) => {
 
     let itemObject = decryption[element];
     let key = (Object.keys(itemObject))[0];
     let value = itemObject[key];
  
     return (
-      <li className={styles.designation_item}>
+      <li key={index} className={styles.designation_item}>
         <span className={styles.item_left}>{key}</span>
         <span className={styles.item_right}>
           {` - ${value};`}
@@ -96,20 +103,17 @@ let FancoilModel = (props) => {
     )
   });
 
-  let accessoriesElements = currentModel.accessories.map((element) => {
+  let accessoriesElements = currentModel.accessories.map((element,index) => {
     return (
-      <AccessoryItem title={element.name} desc={element.description} />
+      <AccessoryItem key={ index } title={element.name} desc={element.description} />
     )
   });
-  if (!props.data.models) {
-   alert('данных нет' )
- }
-
-  let tableElements = props.data.models.map(element => {
+ 
+  let tableElements = props.data.models.map((element,index) => {
     
     return(
-      <div className={styles.row}>
-      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.series}/models/${element.id}`}>
+      <div key={index} className={styles.row}>
+      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.id}/models/${element.id}`}>
         <div className={styles.param}>{element.name}</div>
       </NavLink>
         <div className={styles.param}>{element.Q_hot}</div>
@@ -131,7 +135,7 @@ let FancoilModel = (props) => {
       </h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>
-          {/* <img className={styles.card_img} src={card_img} alt="image_fancoil" /> */}
+
           <div className={styles.slider}> 
             <Slider images={currentModel.fancoil.images}/>
           </div>

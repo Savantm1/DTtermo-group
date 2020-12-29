@@ -12,7 +12,7 @@ import Form from "../../Form/Form";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
 
-let FancoilModel = (props) => {
+let AccessoriesModel = (props) => {
 
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
 
@@ -518,4 +518,4 @@ let FancoilModel = (props) => {
   );
 };
 
-export default FancoilModel;
+export default AccessoriesModel;
