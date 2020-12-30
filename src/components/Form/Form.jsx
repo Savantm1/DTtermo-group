@@ -2,6 +2,7 @@ import styles from "./Form.module.scss";
 import React, { createRef } from "react";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
+import { API } from "../../api/api";
 
 class Form extends React.Component {
   constructor(props) {
@@ -16,9 +17,9 @@ class Form extends React.Component {
 
   
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://testcarrier.dttermo.com/api/feedback');
-    xhr.responseType = 'json';
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'http://testcarrier.dttermo.com/api/feedback');
+    // xhr.responseType = 'json';
  
 
     this.PrivateValue = React.createRef();
@@ -32,10 +33,6 @@ class Form extends React.Component {
     this.Submit = this.Submit.bind(this);
   }
 
-  // componentDidMount() {
-
-
-  // }
 
   NameChange(event) {
     this.setState({ name: event.target.value });
@@ -58,8 +55,9 @@ class Form extends React.Component {
 
   Submit(event) {
 
-   
-
+    let FancoilTable = this.props.tablesData.fancoils;
+    let AccessoriesTable = this.props.tablesData.accessories;
+    let IdentificationData = this.state;
    
     // event.preventDefault();
     if (
@@ -69,8 +67,7 @@ class Form extends React.Component {
       this.state.message.length > 2 &&
       this.PrivateValue.current.checked === true
     ) {
-      this.xhr.send(this.formData);
-      console.log(this.formData)
+      API.PostSpecification({IdentificationData , FancoilTable, AccessoriesTable });
       console.log(
         this.state.name,
         this.state.email,
@@ -101,16 +98,8 @@ class Form extends React.Component {
   
 
   render() {
-    const formData = new FormData();
-    let tables = this.props.tablesData;
-    var object = {
-      aasd: 'asda',
-      zxcxzc: 'dasfa'
-    };
-    
-        formData.append("tables", { tables });
-        formData.append("tables", 'aasdadada');
-        debugger
+
+debugger
 
     return (
       <div className={styles.block}>
@@ -204,13 +193,13 @@ class Form extends React.Component {
               персональных данных» *
             </label>
           </div>
-          {/* <NavLink to="/modal"> */}
+          <NavLink to="/modal">
             <button className={styles.btn} type="submit"
               onClick={this.Submit}
             >
             Отправить
           </button>
-          {/* </NavLink> */}
+          </NavLink>
 
         </form>
       </div>

@@ -67,4 +67,10 @@ export const API = {
  
   
 
+  PostSpecification(data) {
+    instance.post(`/feedback`,{data})
+  }
+
 }
+
+

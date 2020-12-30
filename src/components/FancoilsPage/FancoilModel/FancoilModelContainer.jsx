@@ -28,28 +28,25 @@ class FancoilModelContainer extends React.Component {
     API.getFancoilModel(this.props.match.params.type, this.props.match.params.id).then(response => {
       
       this.props.SetFancoilModel(response, true);
-      console.log('ComponentDidMount - MODEL')
-      console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
+
       })
   }
 
   componentDidUpdate(prevProps) {
-    // Популярный пример (не забудьте сравнить пропсы):
+
     debugger
     if ((this.props.match.params.id !== prevProps.match.params.id) || (this.props.match.params.type !== prevProps.match.params.type)) {
 
       API.getFancoilModel(this.props.match.params.type, this.props.match.params.id).then(response => {
       
         this.props.SetFancoilModel(response, true);
-        console.log('ComponentDidUPDATE - MODEL')
-        console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
+
       })
       
       API.getFancoilModels(this.props.match.params.type).then((response) => {
         debugger
         this.props.SetFancoilModels(response, true);
-        console.log('ComponentDidUPDATE - MODELS')
-        console.log(response)
+
       });
     }
   }

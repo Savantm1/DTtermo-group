@@ -12,6 +12,7 @@ import Form from "../Form/Form";
 
 let Specification = (props) => {
 
+  
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
       <FancoilRow
