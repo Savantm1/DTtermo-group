@@ -6,7 +6,7 @@ import phone from '../../assets/img/phone.svg';
 import fb from '../../assets/img/fb.svg';
 import inst from '../../assets/img/inst.svg';
 import youtube from '../../assets/img/youtube.svg';
-// import vk from '../../assets/img/vk.svg';
+
 import map from '../../assets/img/map.svg';
 
 let Footer = () => {

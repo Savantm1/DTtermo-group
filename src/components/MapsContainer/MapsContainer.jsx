@@ -17,8 +17,8 @@ class MapsContainer extends Component {
       libraries: ['places']
     };
     this.center = {
-      lat: 55.7839505,
-      lng: 37.7077057
+      lat: 55.7847499,
+      lng: 37.7082
     };
 
     this.zoom = 17.25;
@@ -32,8 +32,8 @@ class MapsContainer extends Component {
           defaultZoom={this.zoom}
         >
           <AnyReactComponent
-            lat={55.78434}
-            lng={37.71040}
+            lat={55.7847499}
+            lng={37.7082}
           />
         </GoogleMapReact>
       </div>
