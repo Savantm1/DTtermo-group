@@ -10,7 +10,7 @@ import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
 // import features_4 from "../../assets/img/features_4.svg";
-import features_5 from "../../assets/img/features_5.svg";
+import features_5 from "../../assets/img/features_5.png";
 // import features_6 from "../../assets/img/features_6.svg";
 // import { SRLWrapper } from "simple-react-lightbox";
 // import certificate from "../../assets/img/certificate.jpg";
@@ -18,12 +18,12 @@ import features_5 from "../../assets/img/features_5.svg";
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
 import AccessoryItem from "../AccessoryItem/AcessoryItem";
-
+import {Helmet} from "react-helmet";
 
 
 
 let MainPage = (props) => {
-debugger
+
 
   let AccessoriesPopularElements = props.data.accessoriesTypes.map(element => {
     if (element.popular) {
@@ -99,6 +99,11 @@ debugger
         </a>
       </div>
       <h2 className={styles.title}></h2> */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
 
       <BeautySection
         data={props.data.fancoilTypes}
@@ -114,28 +119,29 @@ debugger
       <FancoilSectionContainer />
       
       <h2 className={styles.title} id="accessories">Основные аксессуары для фанкойлов</h2>
-   
-      {/* <AccessoriesSectionContainer /> */}
-      {AccessoriesPopularElements}
       
+      <div className={styles.cards_block}>
+        {AccessoriesPopularElements}
+      </div>
+
       <section className={styles.features}>
         <h2 className={styles.title}>Основные преимущества</h2>
         <div className={styles.item}>
           <img className={styles.features_img} src={features_1} alt="" />
           <p className={styles.text}>Комплексные поставки инженерных систем</p>
           <div className={styles.hover_block}>
-            <p>- 
+            <p>
               ОВК и ВК оборудование и материалы ведущих мировых производителей.
             </p>
-            <p>- Своевременная доставка силами собственного автопарка.⠀</p>
+            <p> Своевременная доставка силами собственного автопарка.⠀</p>
           </div>
         </div>
         <div className={styles.item}>
           <img className={styles.features_img} src={features_2} alt="" />
           <p className={styles.text}>Наличие на складе</p>
           <div className={styles.hover_block}>
-            <p>- Собственный склад в г. Лобня площадью 5000 м2.</p>
-            <p>- Всегда поддерживается запас ходовых позиций .</p>
+            <p> Собственный склад в г. Лобня площадью 5000 м2.</p>
+            <p> Всегда поддерживается запас ходовых позиций .</p>
           </div>
         </div>
         <div className={styles.item}>
@@ -144,44 +150,22 @@ debugger
             Tехническая поддержка и профессиональный подбор
           </p>
           <div className={styles.hover_block}>
-            <p>- Индивидуальный подход к каждому Клиенту.</p>
+            <p> Индивидуальный подход к каждому Клиенту.</p>
             <p>
-              - Подбор оборудования и материалов в соответствии с требованиями
+               Подбор оборудования и материалов в соответствии с требованиями
               проекта.⠀
             </p>
           </div>
         </div>
         <div className={styles.item}>
           <img className={styles.features_img} src={features_5} alt="" />
-          <p className={styles.text}>Сервисные услуги</p>
+          <p className={styles.text}>Сервисное обслуживание</p>
           <div className={styles.hover_block}>
-            <p>- Гарантийное и техническое обслуживание оборудования.</p>
-            <p>- Пусконаладочные работы систем ОВК и ВК.</p>
+            <p> Гарантийное и техническое обслуживание оборудования.</p>
+            <p> Пусконаладочные работы систем ОВК и ВК.</p>
           </div>
         </div>
       </section>
-      
-      {/* <section className={styles.certificate}>
-        <h3 className={styles.title}>Официальный дилер</h3>
-        <div className={styles.block}>
-          <div className={styles.right_side}>
-            <p className={styles.desc}>
-              Компания "DTtermo GROUP" является сертифицированным официальным
-              дилером продукции Carrier.
-            </p>
-            <img
-            className={styles.img}
-            src={certificate}
-            alt="certificate"
-            onClick={() => setToggler(!toggler)}
-          />
-          <FsLightbox toggler={toggler} sources={[certificate]} />
-           
-          </div>
-        </div>
-      </section>
-       */}
-      {/* <Form /> */}
     </div>
   );
 };

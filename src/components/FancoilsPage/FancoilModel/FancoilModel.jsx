@@ -15,6 +15,7 @@ import { NavLink } from "react-router-dom";
 // import FancoilSectionContainer from "../../MainPage/FancoilsSection/FancoilSectionContainer";
 import FancoilSection from "../../MainPage/FancoilsSection/FancoilSection";
 import Slider from "../../Slider/Slider";
+import { Helmet } from "react-helmet";
 
 
 let FancoilModel = (props) => {
@@ -130,6 +131,12 @@ let FancoilModel = (props) => {
 
   return (
     <div className={styles.model}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - модель {currentModel.name}</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+
       <h2 className={styles.title}
       >{currentModel.name}
       </h2>

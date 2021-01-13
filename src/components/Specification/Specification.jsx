@@ -9,6 +9,7 @@ import FancoilRow from "./FancoilRow/FancoilRow";
 import AccessoriesRow from "./AccessoriesRow/AccessoriesRow";
 import { getElementError } from "@testing-library/react";
 import Form from "../Form/Form";
+import { Helmet } from "react-helmet";
 
 let Specification = (props) => {
 
@@ -53,6 +54,12 @@ let Specification = (props) => {
 
   return (
     <div className={styles.container}>
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - Спецификация</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <h2 className={styles.title}>Спецификация</h2>
       <div className={styles.table_block}>
         <p className={styles.table_title}>Фанкойлы</p>

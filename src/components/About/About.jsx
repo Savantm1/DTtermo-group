@@ -4,7 +4,7 @@ import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
 import features_4 from "../../assets/img/features_4.svg";
-import features_5 from "../../assets/img/features_5.svg";
+import features_5 from "../../assets/img/features_5.png";
 import features_6 from "../../assets/img/features_6.svg";
 import certificate from "../../assets/img/certificate.jpg";
 import { SRLWrapper } from "simple-react-lightbox";
@@ -14,11 +14,12 @@ import slide_2 from "../../assets/img/Production/proizvodstvo-2.jpg";
 import slide_3 from "../../assets/img/Production/proizvodstvo-3.jpg";
 import slide_4 from "../../assets/img/Production/proizvodstvo-4.jpg";
 import slide_5 from "../../assets/img/Production/proizvodstvo-5.jpg";
-
-import about from "../../assets/img/about.jpg";
+import slide_6 from "../../assets/img/Production/2352.PNG";
+import about from "../../assets/img/about.PNG";
 import Form from "../Form/Form";
 import MyGallery from "./Slider/Slider";
 import LightboxGallery from "../LightboxGallery/LighboxGallery";
+import { Helmet } from "react-helmet";
 
 let About = (props) => {
   const options = {
@@ -64,23 +65,30 @@ let About = (props) => {
 
   return (
     <div className={styles.content}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - О компании</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <section className={styles.block}>
         <h2 className={styles.title}>О компании</h2>
         <p className={styles.description}>
           Компания ДТ ТЕРМО ГРУПП основана в 2001 году, на протяжении всего
           времени она занимает лидирующие позиции, как поставщик оборудования и
-          материалов для систем ОВК и ВК на Российском рынке и в странах СНГ.
+          материалов для систем ОВК и ВК на Российском рынке и в странах СНГ.<br/>
           <img className={styles.about_img} src={about} alt="DTtermo" />
           Мы всегда идем в ногу со временем, анализируем ситуацию на рынке и
           модернизируем свои внутренние рабочие процессы, исходя из потребностей
           покупателей на текущий момент. Мы постоянно проводим мониторинг нового
           и уже существующего оборудования и материалов для того, чтобы
           предоставить нашим клиентам наиболее обширную линейку только
-          качественной продукции в различной ценовой категории. Создание
-          выгодных условий для наших клиентов, построение долгосрочных
+          качественной продукции в различной ценовой категории. <br/>
+
+          Создание   выгодных условий для наших клиентов, построение долгосрочных
           партнерских отношений, постоянное повышение качества сервиса и
           обслуживания – это те принципы, на которых строится развитие нашей
-          компании. За долгое время работы мы накопили бесценный опыт. Высокое
+          компании. <br/>
+          За долгое время работы мы накопили бесценный опыт. Высокое
           качество, надежность и эффективность предлагаемых нами технических
           решений были подтверждены в условиях реальной эксплуатации на тысячах
           объектов по всей России, среди которых типовые объекты (торговые
@@ -136,11 +144,10 @@ let About = (props) => {
       </section>
 
       <section className={styles.certificate}>
-        <h3 className={styles.title}>Официальный дилер</h3>
+        <h3 className={styles.title}>Официальный дистрибьютор</h3>
         <div className={styles.block}>
           <p className={styles.desc}>
-            Компания "DTtermo GROUP" является сертифицированным официальным
-            дилером продукции Carrier.
+          Более 20 лет DT Termo Group является официальным дистрибьютором и надежным партнером компании-производителя Carrier – мирового лидера в области высокотехнологичных систем отопления, кондиционирования и охлаждения.
           </p>
           <img
             className={styles.img}
@@ -154,14 +161,9 @@ let About = (props) => {
 
       <section className={styles.sklad}>
         <div>
-          <h3 className={styles.title}>Наши складские помещения</h3>
+          <h3 className={styles.title}>Склад и логистика</h3>
           <p className={styles.desc}>
-            На удобно расположенном складе, постоянно в наличии широкий
-            ассортимент фанкойлов, чиллеров, компрессорно-конденсаторных блоков
-            (ККБ), гидромодулей, насосов, накопительных блоков,
-            запорно-регулирующей арматуры, а также запасных частей. DTtermo
-            GROUP гарантирует стабильные поставки, оптимальное ценообразование,
-            мощную техническую и информационную поддержку дилеров.
+          Склад компании общей площадью 5000 кв. м. позволяет всегда поддерживать необходимый запас ходовых позиций оборудования и материалов ОВК и ВК. Благодаря слаженной работе отделов продаж, снабжения, склада, системе контроля местонахождения груза, а также наличию собственного автопарка и штата опытных водителей, мы можем гарантировать своим клиентам четкое соблюдение сроков поставки.
           </p>
         </div>
 
@@ -172,6 +174,7 @@ let About = (props) => {
             <img className={styles.gallery_img} src={slide_3} alt="" />
             <img className={styles.gallery_img} src={slide_4} alt="" />
             <img className={styles.gallery_img} src={slide_5} alt="" />
+            <img className={styles.gallery_img} src={slide_6} alt="" />
           </section>
         </SRLWrapper>
         {/* <div className={`${styles.arrow_block} ${styles.arr_left}`} onClick={clickLeft}>

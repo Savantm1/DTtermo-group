@@ -8,17 +8,32 @@
     width: 100%;
   }
 
-
   width:100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   
+  @include desktop() {
+    max-width: 80%;
+    min-width: 960px;
+    margin: 0 auto;
+  }
+
+  @include laptops() {
+
+    min-width: 720px;
+    margin: 0 auto;
+  }
+
+  @include tablets() {
+
+   display: none;
+  }
+  
   .row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 
     .long_block {
       
@@ -30,7 +45,16 @@
       height: 160px;
       width:330px;
 
-      
+      @include desktop() {
+
+        height: 130px;
+        width:264px;
+      }
+
+      @include laptops() {
+        height: 96px;
+        width:198px;
+      }
 
 
       .mini_block {
@@ -38,7 +62,6 @@
         border-radius:0;
         margin-bottom: 0;
       }
-
 
 
     }
@@ -66,10 +89,35 @@
   background-color: #fff;
 
   
+  @include desktop() {
+
+    height: 130px;
+    width:130px;
+  }
+
+  
+  @include laptops() {
+
+    height: 96px;
+    width:96px;
+  }
+
+  
+  
   &> p {
     margin: 0;
     font-size: 18px;
     padding: 0;
+
+    @include desktop() {
+      font-size: 16px;
+    }
+
+    
+    @include laptops() {
+
+      font-size: 12px;
+    }
   }
 
   &>p>span {
@@ -77,16 +125,32 @@
     font-size: 24px;
     color: $green;
 
+    @include desktop() {
+      font-size: 20px;
+    }
+
+    @include laptops() {
+
+      font-size: 16px;
+    }
+
   }
 
   &>img {
-
     width: 80px;
-
     margin:0 auto;
 
-  }
+    @include desktop() {
+      width: 60px
+    }
 
+    
+    @include laptops() {
+
+      width: 40px;
+    }
+
+  }
 
 }
 
@@ -100,11 +164,34 @@
 
  p {
   font-size: 24px ;
+
+  @include desktop() {
+    font-size: 20px;
+  }
+
+  
+  @include laptops() {
+
+    font-size: 18px;
  }
+
+}
 
  img {
   width: 180px;
   margin-left: 65px;
+
+  @include desktop() {
+    width: 144px;
+    margin-left: 52px;
+  }
+
+  
+  @include laptops() {
+
+    width: 108px;
+    margin-left: 40px ;
+  }
 }
 
 
@@ -115,10 +202,29 @@
   background-color: rgb(225, 255, 177);
   p {
     font-size: 24px ;
+
+    @include desktop() {
+      font-size: 20px;
+    }
+
+    @include laptops() {
+      font-size: 18px;
+    }
+    
    }
 
    img {
      width: 150px;
+
+     @include desktop() {
+      width: 120px;
+    }
+
+    @include laptops() {
+      width: 90px;
+    }
+
+
    }
 }
 .mini_link {
@@ -132,6 +238,16 @@
   .mini_block {
     width: 320px;
     height: 320px;
+
+    @include desktop() {
+      width: 256px;
+      height: 256px;
+    }
+
+    @include laptops() {
+      width: 192px;
+      height: 192px;
+    }
 
   }
   
@@ -153,6 +269,16 @@
   margin-bottom: 10px;
   background-color: #fff;
   transition: all ease 0.2s;
+
+  @include desktop() {
+    width: 688px;
+    margin-left: 0;
+  }
+
+  @include laptops() {
+    width: 512px;
+    margin-left: 0;
+  }
 
   .arrow_left {
 
@@ -200,6 +326,16 @@
     width: 4275px;
     transition: all ease 0.3s;
 
+    @include desktop() {
+      width: 3420px;
+
+    }
+
+    @include laptops() {
+      width: 2564px;
+      margin-left: 0;
+    }
+
     .main_img {
       width: 80%;
     }
@@ -213,6 +349,14 @@
       justify-content: space-around;
       width:855px;
 
+      @include desktop() {
+        width: 684px;
+      }
+
+      @include laptops() {
+        width: 512px;
+      }
+
       .item_link {
         display: flex;
         justify-content: center;
@@ -223,6 +367,14 @@
         font-size: 30px;
         font-weight: 600;
         text-align: center;
+
+        @include desktop() {
+          font-size: 26px;
+        }
+
+        @include laptops() {
+          font-size: 22px;
+        }
       }
     }
   }
@@ -230,10 +382,26 @@
   .mark_img {
 
     position: absolute;
-    width: 100px;
+    width: 170px;
     top: 10px;
     right: 10px;
     z-index: 5;
+
+    @include desktop() {
+      width: 136px;
+    }
+
+    @include laptops() {
+      width: 102px;
+    }
+  }
+
+  .model_name {
+    position: absolute;
+    left: 15px;
+    bottom: 0px;
+    color:rgb(136, 136, 136);
+    font-size: 20px;
   }
   
 
@@ -242,6 +410,17 @@
     .cert_block {
       width: 520px;
       height: 150px;
+
+      @include desktop() {
+        width:416px;
+        height: 120px;
+      }
+
+      @include laptops() {
+        width:312px;
+        height: 90px;
+      }
+
       img {
         width: 100%;
       }
@@ -259,12 +438,40 @@
 .big_block {
   width: 320px !important;
   height: 320px !important;
+
+  @include desktop() {
+    width: 256px !important;
+    height: 256px !important;
+  }
+
+  @include laptops() {
+    width: 192px !important;
+    height: 192px !important;
+  }
   img {
     width: 170px !important;
     height: 170px !important;
+
+    @include desktop() {
+      width: 136px !important;
+      height: 136px !important;
+    }
+
+    @include laptops() {
+      width: 102px !important;
+      height: 102px !important;
+    }
   }
    p{
      font-size: 24px !important;
+
+     @include desktop() {
+      font-size: 20px !important;
+    }
+
+    @include laptops() {
+      font-size: 16px !important;
+    }
     }
 }
 
@@ -273,18 +480,47 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 520px;
+
+  @include desktop() {
+    width: 416px;
+  }
+
+  @include laptops() {
+    width: 312px;
+  }
 }
 
 
 .row:first-child .animate .mini_block img{
   // border: 2px solid red;
   width: 140px;
+
+  @include desktop() {
+
+    width: 100px;
+  }
+
+  @include laptops() {
+
+    width: 80px;
+  }
 }
 
 .row:first-child .animate:nth-child(3) .mini_block img{
 
   height: 90px;
   width: 50px;
+
+  @include desktop() {
+    height: 50px;
+    width: 40px;
+  }
+
+  @include laptops() {
+
+    width: 26px;
+    height: 36px;
+  }
   
 }
 
@@ -296,11 +532,34 @@ justify-content: center;
 align-items: center;
 text-align: center;
 padding: 10px 0;
+font-size: 18px;
+
+@include desktop() {
+  font-size: 16px;
+}
+
+@include laptops() {
+  font-size: 14px;
+}
+
+
   img {
     height: 95px;
     width: 100px;
+
+    @include desktop() {
+      height: 60px;
+      width: 75px;
+    }
+
+    @include laptops() {
+      height: 36px;
+      width: 52px;
+    }
   }
-  font-size: 18px;
+
   p {
     margin: 0  }
 }
+
+

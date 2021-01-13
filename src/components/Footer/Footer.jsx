@@ -30,7 +30,7 @@ let Footer = () => {
           <a className={styles.link} href="mailto:carrier@dttermo.ru">
           <li className={styles.item}>
             <img className={styles.icon} type="image" src={mail} width="25" height="25" >
-              </img>info@dttermo.ru</li>
+              </img>carrier@dttermo.ru</li>
             </a>
         </ul>
         <ul className={styles.list_right}>

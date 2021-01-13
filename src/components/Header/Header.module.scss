@@ -1,7 +1,17 @@
 @import "../../variables.scss";
 
-.nav {
+.hamburger_container {
+display: none;
 
+@include tablets() {
+
+  display: block;
+
+}
+}
+
+.nav {
+  position: relative;
   width: 100%;
   background-color:#333;
   display: flex;
@@ -20,17 +30,59 @@
     height: 70px;
     max-width: 1200px;
     width: 100%;
-
-
     text-transform: uppercase;
+
+    @include desktop() {
+      padding: 0px 60px;
+    }
+
+    @include laptops() {
+      width:90%;
+      padding: 0px;
+    }
+
+    @include tablets() {
+
+      width: 95%;
+      display:none;
+    }
+
+    .item_hide {
+      
+      @include tablets() {
+
+        display: none;
+
+      }
+    }
+
 
 
     .item {
 
       box-sizing: border-box;
       flex-grow: 1;
+
+
       &:nth-child(1){
         flex-grow: 6;
+
+        @include laptops() {
+          flex-grow: 3;
+        }
+
+        @include tablets() {
+          flex-grow: 14;
+        }
+
+        img {
+
+          @include laptops() {
+            width: 180px;
+          }
+        }
+
+
       }
 
 
@@ -92,5 +144,81 @@
 
       }
     }
+  }
+}
+
+
+.mobile_menu {
+
+  position: fixed;
+  z-index: 100;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:#333;
+  overflow: hidden;
+  height: 100%;
+
+  display: none;
+
+
+}
+
+
+
+
+.mobile_list_one {
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  list-style: none;
+  padding: 0 30px;
+  margin: 0;
+  height: 70px;
+  max-width: 1200px;
+  width: 100%;
+  text-transform: uppercase;
+  z-index: 110;
+
+  @include desktop() {
+
+    display: none;
+  }
+
+  @include laptops() {
+    display: none;
+  }
+
+  @include tablets() {
+    display: flex;
+    
+  }
+
+  .item:nth-child(1) {
+    @include tablets() {
+      flex-grow: 0.6;
+    }
+  }
+
+}
+
+
+.mobile_list_two {
+
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+  height: 60%;
+
+  .link {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
   }
 }

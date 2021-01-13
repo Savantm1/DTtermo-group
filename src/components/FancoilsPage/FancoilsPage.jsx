@@ -4,23 +4,20 @@ import React from 'react';
 import styles from "./FancoilsPage.module.scss";
 // import FancoilSectionContainer from "../MainPage/FancoilsSection/FancoilSectionContainer";
 import FancoilSection from '../MainPage/FancoilsSection/FancoilSection';
+import { Helmet } from 'react-helmet';
 
 let FancoilsPage = (props) => {
-
+debugger
   return (
     <div className={styles.content}>
-      {/* <div className={styles.left_side}>
-        <h1 className={styles.title}>Фанкойлы</h1>
-        <img className={styles.img} src={logo} alt="logo" />
-        <p className={styles.description}>Всегда в наличии на складе в Москве канальные и кассетные вентиляторные доводчики от официального дилера мирового лидера в области высокотехнологичных систем отопления, кондиционирования и охлаждения — Carrier.</p>
-      </div>
-      <div className={styles.right_side}>
-        <img className={styles.fancoil} src={fancoil} alt="image_fancoil"/>
-      </div> */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - Оборудование</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+
       <h2 className={styles.title}>Типы фанкойлов</h2>
       <FancoilSection data={props.data}/>
-
-      {/* <Form /> */}
 
     </div>
   )

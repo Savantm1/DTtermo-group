@@ -17,10 +17,12 @@ import SpecificationContainer from './components/Specification/SpecificationCont
 import MainPageContainer from './components/MainPage/MainPageContainer';
 import ModalScheme from "./components/Contacts/ModalScheme/ModalScheme";
 
+
 let App = (props) => {
 
   return (
     <div className={styles.app}>
+
       <SimpleReactLightbox>
         <HeaderContainer />
           <Route path="/" exact render={() => { return <MainPageContainer/>}} />

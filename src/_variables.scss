@@ -2,3 +2,43 @@ $grey: #e2e2e2;
 $greyhover:#f1f1f1;
 $green: #53b36a;
 $greenhover:#1a9135;
+
+$tablets: 768px;
+$phones: 480px;
+$iphone: 320px;
+
+@mixin desktop() {
+  @media screen and (max-width:1440px) {
+    @content;
+
+  }
+}
+
+@mixin laptops() {
+  @media screen and (max-width:1024px) {
+    @content;
+
+  }
+}
+
+@mixin tablets() {
+  @media screen and (max-width:768px) {
+    @content;
+
+  }
+}
+
+@mixin phones() {
+  @media screen and (max-width:480px) {
+    @content;
+
+  }
+}
+
+
+@mixin minPhone() {
+  @media screen and (max-width:380px) {
+    @content;
+
+  }
+}

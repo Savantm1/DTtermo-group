@@ -13,11 +13,17 @@ import MapsContainer from "../MapsContainer/MapsContainer.jsx";
 // import scheme from "../../assets/img/warehouse_route.jpg";
 // import { NavLink } from "react-router-dom";
 import ModalScheme from "./ModalScheme/ModalScheme"
+import { Helmet } from "react-helmet";
 
 
 let Contacts = (props) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - Контактная информация</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <section className={styles.contacts}>
         <div className={styles.title_block}>
           <h2 className={styles.title}>Контактная информация</h2>
@@ -109,7 +115,7 @@ let Contacts = (props) => {
         <div className={styles.adress_block}>
           < div className={styles.adress_item}>
 
-              <span className={styles.item_title}>Главный офис</span>
+              <span className={styles.item_title}>Офис:</span>
               <p className={styles.item_desc}>
                 <object
                   className={styles.icon}
@@ -130,6 +136,7 @@ let Contacts = (props) => {
                 > </object>
                 +7 (495) 777-23-99
               </a>
+
               <a className={styles.link} href="mailto:carrier@dttermo.ru">
                 <object
                   className={styles.icon_mail}
@@ -144,7 +151,7 @@ let Contacts = (props) => {
           </div>
           <div className={styles.adress_item}>
 
-              <span className={styles.item_title}>Наш склад</span>
+              <span className={styles.item_title}>Cклад:</span>
               <p className={styles.item_desc}>
                 <object
                   className={styles.icon}

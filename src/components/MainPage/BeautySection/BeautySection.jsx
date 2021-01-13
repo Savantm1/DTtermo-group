@@ -76,7 +76,7 @@ let BeautySection = (props) => {
         <NavLink className={styles.item_link} to={`/fancoils/${element.id}/models/${element.firstModelId}`}>
           <img className={styles.mark_img} src={carrier} alt="carrier" />
           <img className={styles.main_img} src={element.images[0].path} alt="fancoil" />
-          {/* <p>{element.type}</p> */}
+          <p className={styles.model_name}>{element.series}</p>
         </NavLink>
       </li>
     );
@@ -228,7 +228,7 @@ let BeautySection = (props) => {
               <div className={`${styles.mini_block} ${styles.mini_sklad}`}>
                 <img src={demo10} alt="" />
                 <p>
-                  В наличии на складе
+                  В наличии <br/> на складе
                 </p>
               </div>
             </ScrollAnimation>
@@ -316,7 +316,7 @@ let BeautySection = (props) => {
           >
             <div className={`${styles.mini_block} ${styles.big_block} `}>
               <img src={demo14} alt="" />
-              <p>Своевременная доставка</p>
+              <p>Своевременная <br/> доставка</p>
             </div>
           </ScrollAnimation>
         </div>

@@ -8,9 +8,9 @@ import box from "../../../assets/img/box.svg";
 import term from "../../../assets/img/term.svg";
 import truck from "../../../assets/img/truck.svg";
 import AccessoryItem from "../../AccessoryItem/AcessoryItem";
-import Form from "../../Form/Form";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 let AccessoriesModel = (props) => {
 
@@ -29,6 +29,12 @@ let AccessoriesModel = (props) => {
 
   return (
     <div className={styles.model}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DTtermo group - модель { }</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+
       <h2 className={styles.title}>Модель пульт 213CF-243K</h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>

@@ -23,6 +23,15 @@
   background-color: $grey;
   background-image: url('./assets/img/bg.PNG');
   background-size: 300px;
+
+  @include desktop() {
+    font-size: 14px;
+  }
+
+  @include laptops() {
+    font-size: 13px;
+  }
+
 }
 
 //colors
