@@ -19,7 +19,7 @@ import { Helmet } from "react-helmet";
 
 
 let FancoilModel = (props) => {
-  
+  debugger
 
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '1' };
   let tableName = 'fancoilsTable';
@@ -106,7 +106,7 @@ let FancoilModel = (props) => {
 
   let accessoriesElements = currentModel.accessories.map((element,index) => {
     return (
-      <AccessoryItem key={ index } title={element.name} desc={element.description} />
+      <AccessoryItem key={ index } title={element.name} desc={element.decryption} image={element.images[0].path} />
     )
   });
  
@@ -114,7 +114,7 @@ let FancoilModel = (props) => {
     
     return(
       <div key={index} className={styles.row}>
-      <NavLink className={styles.link} to={`/fancoils/${element.fancoil.id}/models/${element.id}`}>
+      <NavLink className={styles.link} to={`/fancoils/${props.data.match.params.type}/models/${element.name}`}>
         <div className={styles.param}>{element.name}</div>
       </NavLink>
         <div className={styles.param}>{element.Q_hot}</div>

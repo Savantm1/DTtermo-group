@@ -3,9 +3,9 @@ import CardItem from '../../CardItem/CardItem';
 import styles from "../FancoilsSection/FancoilSection.module.scss";
 
 let FancoilSection = (props) => {
-
+  debugger
   let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
-    console.log('firstModelId', element.firsModelId)
+
 
     return (
       <CardItem
@@ -15,7 +15,7 @@ let FancoilSection = (props) => {
         series={element.series}
         active={props.data.currentId === element.id}
         image={element.images}
-        firstModelId={element.firstModelId}
+        firstModelName={element.firstModelName}
       />
     );
   });

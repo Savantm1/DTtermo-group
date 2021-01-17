@@ -12,7 +12,7 @@ import Form from "../Form/Form";
 import { Helmet } from "react-helmet";
 
 let Specification = (props) => {
-
+debugger
   
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
@@ -23,7 +23,7 @@ let Specification = (props) => {
         model={fancoilElement.model}
         kol={fancoilElement.quantity}
         index={index}
-        tableName={props.spec.fancoils}
+        tableName={props.spec.tableName}
         DeletePositionFromSpec={props.DeletePositionFromSpec}
         IncrementPosition={props.IncrementPosition}
         DecrementPosition={props.DecrementPosition}
@@ -78,7 +78,7 @@ let Specification = (props) => {
         <p className={styles.table_title}>Аксессуары</p>
         <div className={styles.table}>
           <div className={styles.row}>
-            <div className={styles.param}>Артикул </div>
+            <div className={styles.param}>Артикул</div>
             <div className={styles.param}>Тип </div>
             <div className={styles.param}>Модель</div>
             <div className={styles.param}>Количество</div>
@@ -88,7 +88,7 @@ let Specification = (props) => {
           {AccessoriesElements}
         </div>
       </div>
-      <Form tablesData={props.spec}/>
+      <Form tablesData={props.spec} DeleteAll={props.DeleteAll}/>
     </div>
   );
 };

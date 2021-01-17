@@ -2,7 +2,8 @@ const DELETE_POSITION_FROM_SPEC = "DELETE_POSITION_FROM_SPEC";
 const INCREMENT_POSITION_FROM_SPEC = "INCTREMENT_POSITION_FROM_SPEC";
 const DECREMENT_POSITION_FROM_SPEC = "DECREMENT_POSITION_PROM_SPEC";
 const CHANGE_QUANTITY = "CHANGE_QUANTITY";
-const ADD_MODEL_TO_SPEC= "ADD_MODEL_TO_SPEC";
+const ADD_MODEL_TO_SPEC = "ADD_MODEL_TO_SPEC";
+const DELETE_ALL = "DELETE_ALL";
 
 let initialState = {
   tableName: 'fancoilsTable',
@@ -36,7 +37,19 @@ const SpecificationReducer = (state = initialState, action) => {
         return stateCopy;
       }
 
-      case INCREMENT_POSITION_FROM_SPEC:
+    case DELETE_ALL:
+      debugger
+      {
+        let stateCopy = {
+          fancoils: [],
+          accessories: []
+        };
+
+        return stateCopy;
+      }
+
+    case INCREMENT_POSITION_FROM_SPEC:
+    debugger
         {
         let stateCopy = { ...state };
 
@@ -48,10 +61,11 @@ const SpecificationReducer = (state = initialState, action) => {
           return stateCopy;
       }
       
-      case DECREMENT_POSITION_FROM_SPEC:
+    case DECREMENT_POSITION_FROM_SPEC:
+      debugger
         {
           let stateCopy = { ...state };
-          console.log(stateCopy.fancoils[action.position].quantity);
+          // console.log(stateCopy.fancoils[action.position].quantity);
         if (stateCopy.tableName === action.tableName) {
           if (stateCopy.fancoils[action.position].quantity <= 1) {
             stateCopy.fancoils[action.position].quantity = 1;
@@ -81,7 +95,7 @@ const SpecificationReducer = (state = initialState, action) => {
         return stateCopy;
       }
     case ADD_MODEL_TO_SPEC: 
-      {debugger
+      {
         let stateCopy = { ...state };
 
         if (stateCopy.tableName === action.tableName) {
@@ -92,7 +106,7 @@ const SpecificationReducer = (state = initialState, action) => {
 
             for (let i = 0; i < stateCopy.fancoils.length; i++){
               if (stateCopy.fancoils[i].model === action.model) {
-                debugger
+
                 stateCopy.fancoils[i].quantity++;
                 return stateCopy;
                 
@@ -105,10 +119,10 @@ const SpecificationReducer = (state = initialState, action) => {
             for (let i = 0; i < stateCopy.fancoils.length; i++){
               if (stateCopy.fancoils[i].model !== action.model) {
                 stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
-                debugger
+
                 return stateCopy;
               } else {
-                debugger
+
                 return stateCopy;
               }
               
@@ -136,10 +150,10 @@ const SpecificationReducer = (state = initialState, action) => {
           stateCopy.accessories.map(element => {
             if (element.name === action.model) {
               stateCopy.accessories[element].quantity++;
-              debugger
+
             } else {
               stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
-              debugger
+
             }
           })
 
@@ -177,4 +191,9 @@ export const ChangeQuantity = (position, tableName, value) => {
 
 export const AddModelToSpec = (id, art, series, model, quantity, tableName) => {
   return { type: ADD_MODEL_TO_SPEC, id, art, series, model, quantity, tableName }
+};
+
+export const DeleteAll = () => {
+
+  return { type: DELETE_ALL }
 };

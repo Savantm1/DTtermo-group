@@ -4,7 +4,8 @@ const CHANGE_TARGET_ID = "CHANGE_TARGET_ID";
 
 let initialState = {
 
-  currentId: 1,
+  // currentId: 1,
+  // currentType:1,
   currentLeft: 0,
   isLoaded: false,
 

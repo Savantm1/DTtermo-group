@@ -5,134 +5,134 @@ import { NavLink } from "react-router-dom";
 import { API } from "../../api/api";
 
 class Form extends React.Component {
+
   constructor(props) {
+    debugger
     super(props);
     this.state = {
+      adress: "",
       name: "",
       company: "",
       email: "",
       phone: "",
       message: "",
+      submitDisable: "disabled",
+      PrivacyChecked: "false",
+      deliveryChecked: "false",
     };
 
-  
-
-    // const xhr = new XMLHttpRequest();
-    // xhr.open('POST', 'http://testcarrier.dttermo.com/api/feedback');
-    // xhr.responseType = 'json';
- 
-
+    this.Delivery = React.createRef();
+    this.DeliveryWithAdress = React.createRef();
     this.PrivateValue = React.createRef();
-
-    this.NameChange = this.NameChange.bind(this);
-    this.CompanyChange = this.CompanyChange.bind(this);
-    this.EmailChange = this.EmailChange.bind(this);
-    this.PhoneChange = this.PhoneChange.bind(this);
-    this.MessageChange = this.MessageChange.bind(this);
-
+    this.InputChange = this.InputChange.bind(this);
     this.Submit = this.Submit.bind(this);
+
   }
 
+  InputChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
+    this.setState({ checked: this.PrivateValue.current.checked });
 
-  NameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  CompanyChange(event) {
-    this.setState({ company: event.target.value });
-  }
-
-  EmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-  PhoneChange(event) {
-    this.setState({ phone: event.target.value });
-  }
-
-  MessageChange(event) {
-    this.setState({ message: event.target.value });
-  }
-
-  Submit(event) {
-
-    let FancoilTable = this.props.tablesData.fancoils;
-    let AccessoriesTable = this.props.tablesData.accessories;
-    let IdentificationData = this.state;
-   
-    // event.preventDefault();
-    if (
-      this.state.name.length > 2 &&
-      this.state.company.length > 2 &&
-      this.state.email.length > 2 &&
-      this.state.message.length > 2 &&
-      this.PrivateValue.current.checked === true
+    if ((this.state.name.length > 1) &&
+        (this.state.phone.length > 1) &&
+        (this.PrivateValue.current.checked == true) &&
+        (this.Delivery.current.checked == true) ||
+        (this.DeliveryWithAdress.current.checked == true && this.state.adress.length > 5)
     ) {
-      API.PostSpecification({IdentificationData , FancoilTable, AccessoriesTable });
-      console.log(
-        this.state.name,
-        this.state.email,
-        this.state.phone,
-        this.state.message
-      );
-      this.setState({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-      this.PrivateValue.current.checked = false;
-      cogoToast.success("Спасибо. Ваш вопрос передан в службу поддержки.", {
-        position: "top-right",
-      });
+
+      this.setState({ submitDisable: "" });
     } else {
-      cogoToast.error(
-        "Для рассмотрения Вашего вопроса необходимо заполнить все поля.",
-        {
-          position: "top-right",
-        }
-      );
+
+      this.setState({ submitDisable: "disabled" });
     }
   }
 
-  
+  Submit() {
+    let FancoilsTable = this.props.tablesData.fancoils;
+    let AccessoriesTable = this.props.tablesData.accessories;
+    let IdentificationData = this.state;
+
+    API.PostSpecification({
+      IdentificationData,
+      FancoilsTable,
+      AccessoriesTable,
+    });
+    console.log(
+      this.state.name,
+      this.state.email,
+      this.state.phone,
+      this.state.message,
+      this.state.adress
+    );
+    this.setState({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      message: "",
+      adress: "",
+      PrivacyChecked: false,
+    });
+    this.PrivateValue.current.checked = false;
+    this.DeliveryWithAdress.current.checked = false;
+    this.Delivery.current.checked = false;
+    // cogoToast.success("Спасибо. Ваш вопрос передан в службу поддержки.", {
+    //   position: "top-right",
+    // });
+    this.props.DeleteAll();
+  }
 
   render() {
-
-debugger
-
+    
     return (
       <div className={styles.block}>
         <h1 className={styles.title}> Оформление заказа</h1>
-        <form
-          className={styles.form}
-          // action="http://testcarrier.dttermo.com/api/feedback"
-          // method="POST"
-          id="form"
-          // onSubmit={this.handleSubmit}
-        >
+        <form className={styles.form} id="form">
           <div className={styles.row}>
-            <input type="radio" id={styles.delivery} name="delivery" value="Доставка" />
+            <input
+              type="radio"
+              id={styles.delivery}
+              name="delivery"
+              value="Доставка"
+              onChange={this.InputChange}
+              ref={this.DeliveryWithAdress}
+            />
             <label htmlFor={styles.delivery} className={styles.radio}>
               Доставка
             </label>
-            <input className={styles.show_input} type="text" placeholder="Введите адрес доставки"/>
+            <input
+              className={styles.show_input}
+              type="text"
+              name="adress"
+              onChange={this.InputChange}
+              value={this.state.adress}
+              placeholder="Введите адрес доставки"
+            />
           </div>
           <div className={styles.row}>
-            <input type="radio" id="pickup" value="Самовывоз" name="delivery" />
+            <input
+              type="radio"
+              id="pickup"
+              value="Самовывоз"
+              name="delivery"
+              onChange={this.InputChange}
+              ref={this.Delivery}
+
+            />
             <label htmlFor="pickup" className={styles.radio}>
               Самовывоз
             </label>
           </div>
-         
+
           <div className={styles.row}>
             <input
               type="text"
-              placeholder="Имя"
+              placeholder="Имя*"
               name="name"
               value={this.state.name}
-              required
-              onChange={this.NameChange}
+              onChange={this.InputChange}
             ></input>
           </div>
           <div className={styles.row}>
@@ -141,27 +141,26 @@ debugger
               name="company"
               placeholder="Компания"
               value={this.state.company}
-              required
-              onChange={this.CompanyChange}
+              onChange={this.InputChange}
             ></input>
           </div>
           <div className={styles.row}>
             <input
               type="email"
-              name="mail"
+              name="email"
               placeholder="Email"
               value={this.state.email}
-              required
-              onChange={this.EmailChange}
+              onChange={this.InputChange}
             ></input>
           </div>
           <div className={styles.row}>
             <input
               type="phone"
               name="phone"
-              placeholder="Телефон"
+              placeholder="Телефон*"
+              // pattern="[^([9]{1}[0-9]{9})?$]"
               value={this.state.phone}
-              onChange={this.PhoneChange}
+              onChange={this.InputChange}
             ></input>
           </div>
           <div className={styles.row}>
@@ -172,7 +171,7 @@ debugger
               cols="30"
               rows="10"
               value={this.state.message}
-              onChange={this.MessageChange}
+              onChange={this.InputChange}
               name="message"
               placeholder="Введите Ваше сообщение"
             ></textarea>
@@ -186,6 +185,7 @@ debugger
               ref={this.PrivateValue}
               name="agree_privacy"
               id="checkbox"
+              onChange={this.InputChange}
             />
             <label for="checkbox">
               Я даю свое согласие на обработку моих персональных данных, в
@@ -194,13 +194,15 @@ debugger
             </label>
           </div>
           <NavLink to="/modal">
-            <button className={styles.btn} type="submit"
-              onClick={this.Submit}
-            >
+          <button
+            className={styles.btn}
+            type="submit"
+            onClick={this.Submit}
+            disabled={this.state.submitDisable}
+          >
             Отправить
           </button>
           </NavLink>
-
         </form>
       </div>
     );

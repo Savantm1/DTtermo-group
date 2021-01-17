@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./CardItem.module.scss";
 
 let CardItem = (props) => {
-
+debugger
   let isActive = "";
   if (props.active) {
     isActive += styles.card_active;
@@ -12,7 +12,7 @@ let CardItem = (props) => {
   return (
     <NavLink className={styles.link_item}
       // onClick={props.getModel(props.key)}
-      to={`/fancoils/${props.id}/models/${props.firstModelId}`}>
+      to={`/fancoils/${props.series}/models/${props.firstModelName}`}>
       <div className={styles.card}>
         <div className={`${styles.card__container} ${isActive}`}>
           <img className={styles.card__img} src={props.image[0].path} alt="card_img" />

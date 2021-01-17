@@ -9,12 +9,9 @@ import BeautySection from "./BeautySection/BeautySection";
 import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
-// import features_4 from "../../assets/img/features_4.svg";
+
 import features_5 from "../../assets/img/features_5.png";
-// import features_6 from "../../assets/img/features_6.svg";
-// import { SRLWrapper } from "simple-react-lightbox";
-// import certificate from "../../assets/img/certificate.jpg";
-// import FsLightbox from "fslightbox-react";
+
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
 import AccessoryItem from "../AccessoryItem/AcessoryItem";
@@ -24,7 +21,7 @@ import {Helmet} from "react-helmet";
 
 let MainPage = (props) => {
 
-
+  
   let AccessoriesPopularElements = props.data.accessoriesTypes.map(element => {
     if (element.popular) {
       return (<AccessoryItem
@@ -106,6 +103,7 @@ let MainPage = (props) => {
       </Helmet>
 
       <BeautySection
+        size={props.sliderSize}
         data={props.data.fancoilTypes}
         changeTargetId={props.changeTargetId}
       />

@@ -14,6 +14,7 @@ class FancoilModelContainer extends React.Component {
   
   componentDidMount() {
     debugger
+    let propses = this.props;
     console.log('ComponentDidMount')
       API.getFancoilModels(this.props.match.params.type).then((response) => {
         this.props.SetFancoilModels(response, true);

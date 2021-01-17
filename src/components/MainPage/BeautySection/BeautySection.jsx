@@ -24,10 +24,13 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
-
+  debugger
+  console.log(props.size)
+  // let slide = React.createRef();
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
+  console.log(slider_list)
   let min = -3420;
   let max = 0;
   let step = 855;
@@ -73,7 +76,7 @@ let BeautySection = (props) => {
    
     return (
       <li className={styles.list_item} key={element.id}>
-        <NavLink className={styles.item_link} to={`/fancoils/${element.id}/models/${element.firstModelId}`}>
+        <NavLink className={styles.item_link} to={`/fancoils/${element.series}/models/${element.firstModelName}`}>
           <img className={styles.mark_img} src={carrier} alt="carrier" />
           <img className={styles.main_img} src={element.images[0].path} alt="fancoil" />
           <p className={styles.model_name}>{element.series}</p>
@@ -180,7 +183,7 @@ let BeautySection = (props) => {
               <img src={left} alt="arrow_left" />
             </div>
 
-            <ul className={styles.slider_list} ref={slider_list}>
+            <ul className={styles.slider_list} ref={props.size}>
               {slideElements}
             </ul>
 
