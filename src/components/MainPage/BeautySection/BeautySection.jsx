@@ -24,52 +24,57 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
-  debugger
-  console.log(props.size)
-  // let slide = React.createRef();
+
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
-  console.log(slider_list)
-  let min = -3420;
+    
   let max = 0;
-  let step = 855;
   let fancoilNumber = 1;
-  let current = 0;
+  let currentItem = 0;
   let maxFancoilNumber = 5;
   let minFancoilNumber = 1;
 
   let rightArrowFunc = (e) => {
+    let list_width = slider_list.current.clientWidth;
+    let step = Math.round(list_width / 5);
+    let min = -(list_width - step);
+    console.log( min, step)
     console.log("number до изменения: ", fancoilNumber);
-    if (current > min) {
-      current -= step;
-      slider_list.current.style.left = current + "px";
+    if (currentItem > min) {
+      currentItem -= step;
+      slider_list.current.style.left = currentItem + "px";
       fancoilNumber++;
     } else {
-      current = max;
+      currentItem = max;
       console.log(props.current);
-      slider_list.current.style.left = current + "px";
+      slider_list.current.style.left = currentItem + "px";
       fancoilNumber = minFancoilNumber;
     }
 
-    props.changeTargetId(fancoilNumber, current);
-    console.log("текущий шаг: ", current, "текущий айди: ", fancoilNumber);
+    props.changeTargetId(fancoilNumber, currentItem);
+    console.log("текущий шаг: ", currentItem, "текущий айди: ", fancoilNumber);
   };
 
   let leftArrowFunc = (e) => {
-    if (current < max) {
-      current += step;
-      console.log(current);
-      slider_list.current.style.left = current + "px";
+
+    let list_width = slider_list.current.clientWidth;
+    let step = Math.round(list_width / 5);
+    let min = -(list_width - step);
+
+    if (currentItem < max) {
+      currentItem += step;
+      console.log(currentItem);
+      slider_list.current.style.left = currentItem + "px";
       fancoilNumber--;
     } else {
-      current = min;
-      console.log(current);
-      slider_list.current.style.left = current + "px";
+      currentItem = min;
+      console.log(currentItem);
+      slider_list.current.style.left = currentItem + "px";
       fancoilNumber = maxFancoilNumber;
     }
-    props.changeTargetId(fancoilNumber, current);
-    console.log("текущий шаг: ", current, "текущий айди: ", fancoilNumber);
+    props.changeTargetId(fancoilNumber, currentItem);
+    console.log("текущий шаг: ", currentItem, "текущий айди: ", fancoilNumber);
   };
 
   let slideElements = props.data.map((element) => {
@@ -183,7 +188,9 @@ let BeautySection = (props) => {
               <img src={left} alt="arrow_left" />
             </div>
 
-            <ul className={styles.slider_list} ref={props.size}>
+            <ul className={styles.slider_list} ref={slider_list}
+              // style={{ width: '3420px' }}
+            >
               {slideElements}
             </ul>
 
