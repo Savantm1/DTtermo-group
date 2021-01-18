@@ -11,7 +11,7 @@ class AccessoriesPageContainer extends React.Component {
 
     API.getAccessoriesTypes().then(response => {
 
-      debugger
+      
       this.props.setAccessoriesTypes(response, true);
     });
   };

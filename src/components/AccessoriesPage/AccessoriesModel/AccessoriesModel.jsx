@@ -13,17 +13,27 @@ import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 let AccessoriesModel = (props) => {
-
-  let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '666' };
-
+debugger
+  let ModelTestData = {  quantity: '1', series: "series", tableName: 'accessoriesTable' };
+  let modelData = props.data.currentModel;
   let AddtoSpec = () => {
-    props.addProduct();
+    props.data.addProduct();
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });
-
-    props.AddModelToSpec(ModelTestData.id, ModelTestData.art, ModelTestData.type, ModelTestData.model, ModelTestData.quantity);
+debugger
+    props.data.AddModelToSpec(modelData.id, modelData.code, ModelTestData.series, modelData.name, ModelTestData.quantity, ModelTestData.tableName);
   };
+
+  let AccessoriesElements = props.data.models.map(element => {
+    return (
+      <AccessoryItem
+        key = {element.id}
+        title={element.name}
+        image={element.images[0].path}
+      />
+    )
+  })
 
   window.scrollTo(0, 0);
 
@@ -35,13 +45,13 @@ let AccessoriesModel = (props) => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
 
-      <h2 className={styles.title}>Модель пульт 213CF-243K</h2>
+      <h2 className={styles.title}>{props.data.currentModel.name}</h2>
       <div className={styles.model_container}>
         <div className={styles.left_side}>
           <img
             className={styles.card_img}
-            src="https://images.ru.prom.st/295229443_pult-upravleniya-konditsionerom.jpg"
-            alt="image_fancoil"
+            src={props.data.currentModel.images[0].path}
+            alt="accessory_image"
           />
           <div className={styles.technologies_block}>
             <span className={styles.block_title}> Основные функции:</span>
@@ -85,6 +95,7 @@ let AccessoriesModel = (props) => {
             </ul>
           </div>
 
+{/* 
           <ul className={styles.designation}>
             <p className={styles.designation_title}>Обозначение cерии:</p>
             <li className={styles.designation_item}>
@@ -105,12 +116,14 @@ let AccessoriesModel = (props) => {
               <span className={styles.item_left}>B - </span>
               <span className={styles.item_right}>Панель B типа</span>
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className={styles.right_side}>
           <div className={styles.characteristics_block}>
-            <ul className={styles.characteristics_list}>
+          <span className={styles.text_title}> Описание модели</span>
+            <p className={styles.text_desc}>{props.data.currentModel.description}</p>
+            {/* <ul className={styles.characteristics_list}>
               <li className={styles.characteristics_item}>
                 <span className={styles.item__left_side}>Серия:</span>
                 <span className={styles.item__right_side}>39CP</span>
@@ -156,6 +169,7 @@ let AccessoriesModel = (props) => {
                 </span>
               </li>
             </ul>
+             */}
             <ul className={styles.advantages_list}>
               <li className={styles.advantages_item}>
                 <object
@@ -194,11 +208,13 @@ let AccessoriesModel = (props) => {
               </button>
             </ul>
           </div>
+        
         </div>
       </div>
 
       <div className={styles.info_block}>
-        <div className={styles.left_side}>
+  
+        {/* <div className={styles.left_side}>
           <div className={styles.text_block}>
             <div className={styles.about_series}>
               <p className={styles.text_title}>Информация о серии пультов:</p>
@@ -295,22 +311,22 @@ let AccessoriesModel = (props) => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
-        <div className={styles.right_side}>
-          <h2 className={styles.text_title}> Другие модели этой серии</h2>
-          <div className={styles.table_block}>
-            <div className={styles.table}>
-              <div className={styles.row}>
+        {/* <div className={styles.right_side}> */}
+          {/* <h2 className={styles.text_title}> Другие модели этой серии</h2> */}
+          {/* <div className={styles.table_block}> */}
+            {/* <div className={styles.table}> */}
+              {/* <div className={styles.row}>
                 <div className={styles.param}>Модели</div>
                 <div className={styles.param}>Размер(ШхВхГ), мм</div>
                 <div className={styles.param}>
                   Производительность в режиме охлаждения, кВт
                 </div>
-                {/* <div className={styles.param}>
+                <div className={styles.param}>
                 Производительность в режиме обогрева, кВт
-              </div> */}
-                {/* <div className={styles.param}>Рекоменд. розничная цена</div> */}
+              </div>
+                <div className={styles.param}>Рекоменд. розничная цена</div>
                 <div className={styles.param}></div>
               </div>
               <div className={styles.row}>
@@ -319,8 +335,8 @@ let AccessoriesModel = (props) => {
                 </NavLink>
                 <div className={styles.param}>915×290×230</div>
                 <div className={styles.param}>2,63</div>
-                {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
+                <div className={styles.param}>3,36</div>
+              <div className={styles.param}>По запросу</div>
                 <button
                   className={`${styles.btn} ${styles.param}`}
                   onClick={AddtoSpec}
@@ -334,8 +350,24 @@ let AccessoriesModel = (props) => {
                 </NavLink>
                 <div className={styles.param}>915×290×230</div>
                 <div className={styles.param}>2,63</div>
-                {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
+                <div className={styles.param}>3,36</div>
+              <div className={styles.param}>По запросу</div>
+                <button
+                  className={`${styles.btn} ${styles.param}`}
+                  onClick={AddtoSpec}
+                >
+                  Добавить в спецификацию
+                </button>
+              </div>
+               */}
+              {/* <div className={styles.row}>
+                <NavLink className={styles.link} to="/models/id">
+                  <div className={styles.param}>DF-250GB</div>
+                </NavLink>
+                <div className={styles.param}>915×290×230</div>
+                <div className={styles.param}>2,63</div>
+                <div className={styles.param}>3,36</div>
+              <div className={styles.param}>По запросу</div>
                 <button
                   className={`${styles.btn} ${styles.param}`}
                   onClick={AddtoSpec}
@@ -349,8 +381,8 @@ let AccessoriesModel = (props) => {
                 </NavLink>
                 <div className={styles.param}>915×290×230</div>
                 <div className={styles.param}>2,63</div>
-                {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
+                <div className={styles.param}>3,36</div>
+              <div className={styles.param}>По запросу</div>
                 <button
                   className={`${styles.btn} ${styles.param}`}
                   onClick={AddtoSpec}
@@ -358,28 +390,17 @@ let AccessoriesModel = (props) => {
                   Добавить в спецификацию
                 </button>
               </div>
-              <div className={styles.row}>
-                <NavLink className={styles.link} to="/models/id">
-                  <div className={styles.param}>DF-250GB</div>
-                </NavLink>
-                <div className={styles.param}>915×290×230</div>
-                <div className={styles.param}>2,63</div>
-                {/* <div className={styles.param}>3,36</div>
-              <div className={styles.param}>По запросу</div> */}
-                <button
-                  className={`${styles.btn} ${styles.param}`}
-                  onClick={AddtoSpec}
-                >
-                  Добавить в спецификацию
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+             */}
+            {/* </div> */}
+          {/* </div> */}
+        {/* </div> */}
       </div>
-
-      <h2 className={styles.title}> Подходит под следующие модели фанкойлов</h2>
-
+      <h2 className={styles.title}> Другие типы аксессуаров</h2>
+        <div className={styles.accessories_block}>
+          {AccessoriesElements}
+        </div>   
+      {/* <h2 className={styles.title}> Подходит под следующие модели фанкойлов</h2> */}
+{/* 
       <div className={styles.table_block}>
         <div className={styles.table}>
           <div className={styles.row}>
@@ -455,9 +476,9 @@ let AccessoriesModel = (props) => {
             </button>
           </div>
         </div>
-      </div>
-
-      <h2 className={styles.title}> Другие типы аксессуаров</h2>
+      </div> */}
+{/* 
+      <h2 className={styles.title}> Другие типы аксессуаров</h2> */}
       {/* <div className={styles.table_block}>
         <div className={styles.table}>
           <div className={styles.row}>
@@ -510,14 +531,14 @@ let AccessoriesModel = (props) => {
           </div>
         </div>
       </div> */}
-      <div className={styles.accessories_block}>
+      {/* <div className={styles.accessories_block}>
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
         <AccessoryItem />
 
-      </div>
+      </div> */}
 
       {/* <Form /> */}
     </div>

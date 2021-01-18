@@ -81,7 +81,7 @@ let BeautySection = (props) => {
    
     return (
       <li className={styles.list_item} key={element.id}>
-        <NavLink className={styles.item_link} to={`/fancoils/${element.series}/models/${element.firstModelName}`}>
+        <NavLink className={styles.item_link} to={element.id <=3 ? `/fancoils/${element.series}/models/${element.firstModelName}` : `/order`}>
           <img className={styles.mark_img} src={carrier} alt="carrier" />
           <img className={styles.main_img} src={element.images[0].path} alt="fancoil" />
           <p className={styles.model_name}>{element.series}</p>

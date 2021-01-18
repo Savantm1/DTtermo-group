@@ -20,7 +20,7 @@ export const API = {
   },
 
   getAccessoriesTypes() {
-
+debugger
     return instance.get(`/accessories`)
       .then(response => {
         return response.data.data;
@@ -47,9 +47,9 @@ export const API = {
   
 
   
-  getAccessoriesModels(TypeId) {
+  getAccessoriesModels(Type) {
 
-    return instance.get(`accessories/${TypeId}/models`)
+    return instance.get(`accessories/${Type}`)
       
       .then(response => {
         debugger
@@ -57,9 +57,9 @@ export const API = {
        });
   },
   
-  getAccessoriesModel(TypeId, modelId) {
+  getAccessoriesModel(Type) {
     
-    return instance.get(`accessories/${TypeId}/models/${modelId}`)
+    return instance.get(`accessories/${Type}`)
     .then(response => {
       return response.data.data;
      });

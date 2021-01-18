@@ -16,6 +16,7 @@ import Modal from './components/Specification/Modal/Modal';
 import SpecificationContainer from './components/Specification/SpecificationContainer';
 import MainPageContainer from './components/MainPage/MainPageContainer';
 import ModalScheme from "./components/Contacts/ModalScheme/ModalScheme";
+import MadeToOrderFancoil from './components/MadeToOrderFancoil/MadeToOrderFancoil';
 
 
 let App = (props) => {
@@ -28,14 +29,15 @@ let App = (props) => {
           <Route path="/" exact render={() => { return <MainPageContainer/>}} />
           <Route path="/about_us" render={() => { return <About /> }} />
           <Route path="/fancoils" exact render={() => { return <FancoilsPageContainer /> }} />
-          <Route path="/accessories" exact render={() => { return <AccessoriesPageContainer/> }} />
+          <Route path="/accessories/:id" exact  render={() => { return <AccessoriesModelContainer /> }} />
+          <Route path="/accessories/" exact render={() => { return <AccessoriesPageContainer/> }} />
           <Route path="/contacts" render={() => { return <Contacts /> }} />
           <Route path="/fancoils/:type?/models/:id?" render={() => { return <WithUrlDataContainerComponent /> }} />
-        <Route path="/specification" render={() => { return <SpecificationContainer  /> }} />
+          <Route path="/specification" render={() => { return <SpecificationContainer  /> }} />
           <Route path="/modal" render={() => { return <Modal /> }} />
+          <Route path="/order" render={()=> {return <MadeToOrderFancoil/>}} />
           {/* <Route path="/series/id" render={() => { return <FancoilSeriesContainer /> }} /> */}
           {/* <Route path="/accessories_series/id" render={() => { return <AccessoriesSeriesContainer /> }} /> */}
-        <Route path="/accessories/:type?/models/:id?" render={() => { return <AccessoriesModelContainer /> }} />
         <Route path="/scheme" render={() => { return <ModalScheme /> }} />
         <Footer />
       </SimpleReactLightbox>

@@ -13,39 +13,42 @@ class AccessoriesModelContainer extends React.Component {
 
   
   componentDidMount() {
-    debugger
+  debugger
     console.log('ComponentDidMount')
-      API.getAccessoriesModels(this.props.match.params.id).then((response) => {
+      API.getAccessoriesTypes().then((response) => {
         this.props.SetAccessoriesModels(response, true);
         console.log('ComponentDidMount - MODELS')
       });
     
-      API.getAccessoriesTypes().then(response => {
-        this.props.setAccessoriesTypes(response);
-        console.log('ComponentDidMount -TYPES')
-      });
+      // API.getAccessoriesTypes().then(response => {
+      //   this.props.setAccessoriesTypes(response, true);
+      //   console.log('ComponentDidMount -TYPES')
+      // });
     
-    API.getAccessoriesModel(this.props.match.params.type, this.props.match.params.id).then(response => {
-      
+    API.getAccessoriesModel(this.props.match.params.id).then(response => {
+    
       this.props.SetAccessoriesModel(response, true);
       console.log('ComponentDidMount - MODEL')
-      console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
+      // console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
       })
   }
 
   componentDidUpdate(prevProps) {
     // Популярный пример (не забудьте сравнить пропсы):
-    debugger
-    if ((this.props.match.params.id !== prevProps.match.params.id) || (this.props.match.params.type !== prevProps.match.params.type)) {
+   
+    if ((this.props.match.params.id !== prevProps.match.params.id)
+      // || (this.props.match.params.type !== prevProps.match.params.type)
+    )
+    {
 
-      API.getAccessoriesModel(this.props.match.params.type, this.props.match.params.id).then(response => {
-      
+      API.getAccessoriesModel(this.props.match.params.id).then(response => {
+     
         this.props.SetAccessoriesModel(response, true);
         console.log('ComponentDidUPDATE - MODEL')
-        console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
+        // console.log('Type - ',this.props.match.params.type, 'model - ',this.props.match.params.id)
       })
       
-      API.getAccessoriesModels(this.props.match.params.type).then((response) => {
+      API.getAccessoriesTypes().then((response) => {
         debugger
         this.props.SetAccessoriesModels(response, true);
         console.log('ComponentDidUPDATE - MODELS')
@@ -57,13 +60,14 @@ class AccessoriesModelContainer extends React.Component {
 
 
   render() {
+    
     if (this.props.isLoaded1 && this.props.isLoaded2) {
       console.log('ComponentRender')
-      debugger
+
       return <AccessoriesModel data={this.props} />;
       
     } else {
-    
+      
       console.log('PreloaderRender')
       return <Preloader />;
 
@@ -73,13 +77,13 @@ class AccessoriesModelContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-
+debugger
   return {
     nav: state.navbar.SpecificationCount,
     spec: state.specification.accessories,
     isLoaded1: state.accessoriesModel.isLoaded1,
     isLoaded2: state.accessoriesModel.isLoaded2,
-    models: state.accessoriesModel.accessories,
+    models: state.accessoriesModel.accessoriesModels,
     fancoilTypes: state.MainPage.accessoriesTypes,
     currentModel: state.accessoriesModel.currentModel
   };

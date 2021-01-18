@@ -16,6 +16,7 @@ import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
 import AccessoryItem from "../AccessoryItem/AcessoryItem";
 import {Helmet} from "react-helmet";
+import CardItem from "../CardItem/CardItem";
 
 
 
@@ -115,6 +116,7 @@ let MainPage = (props) => {
       </div>
 
       <FancoilSectionContainer />
+
       
       <h2 className={styles.title} id="accessories">Основные аксессуары для фанкойлов</h2>
       

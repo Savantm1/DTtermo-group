@@ -8,7 +8,7 @@ let AccessoryItem = (props) => {
   window.scrollTo(0,0);
 
   return (
-    <NavLink className={styles.link} to={`/accessories/${props.id}/models/${props.firstModelId}`}>
+    <NavLink className={styles.link} to={`/accessories/${props.title}`}>
       <div className={styles.card}>
         <div className={styles.card__container}>
           <img className={styles.card__img} src={props.image} alt="img" />

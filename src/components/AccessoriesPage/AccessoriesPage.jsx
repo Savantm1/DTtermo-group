@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 
 
 let AccessoriesPage = (props) => {
-
+  
   window.scrollTo(0,0);
 
 

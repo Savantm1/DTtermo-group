@@ -18,15 +18,18 @@ let FancoilRow = (props) => {
   };
 
   let IncrementPosition = () => {
+    props.addProduct();
     props.IncrementPosition(props.index, props.tableName, props.kol);
   }
 
   let DecrementPosition = () => {
+    props.DeleteProduct();
     props.DecrementPosition(props.index, props.tableName, props.kol);
   }
 
   let ChangeQuantity = () => {
     props.ChangeQuantity(props.index, props.tableName, Input.current.value);
+    props.ChangeProduct(10,Input.current.value-10)
   }
 
   

@@ -12,7 +12,7 @@ debugger
   return (
     <NavLink className={styles.link_item}
       // onClick={props.getModel(props.key)}
-      to={`/fancoils/${props.series}/models/${props.firstModelName}`}>
+      to={ props.id <=3 ? `/fancoils/${props.series}/models/${props.firstModelName}` : `/order`}>
       <div className={styles.card}>
         <div className={`${styles.card__container} ${isActive}`}>
           <img className={styles.card__img} src={props.image[0].path} alt="card_img" />

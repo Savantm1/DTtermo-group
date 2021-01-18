@@ -13,10 +13,10 @@ let initialState = {
   ],
 
   accessories: [
-    { id: "5", art: "123", type: "Пульт", model: "32C31",quantity: '4' },
-    { id: "6", art: "213", type: "Индикатор", model: "321C1", quantity: "2" },
-    { id: "7",art: "122133", type: "Дисплей", model: "32ыC1", quantity: "2" },
-    { id: "8",art: "113", type: "Контроллер", model: "32Cч1", quantity: "1" },
+    // { id: "5", art: "123", type: "Пульт", model: "32C31",quantity: '4' },
+    // { id: "6", art: "213", type: "Индикатор", model: "321C1", quantity: "2" },
+    // { id: "7",art: "122133", type: "Дисплей", model: "32ыC1", quantity: "2" },
+    // { id: "8",art: "113", type: "Контроллер", model: "32Cч1", quantity: "1" },
     ],
 
 }
@@ -95,28 +95,28 @@ const SpecificationReducer = (state = initialState, action) => {
         return stateCopy;
       }
     case ADD_MODEL_TO_SPEC: 
-      {
+      {debugger
         let stateCopy = { ...state };
 
-        if (stateCopy.tableName === action.tableName) {
+        if (action.tableName == 'fancoilsTable') {
 
           if (stateCopy.fancoils.length === 0) {
             stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
           } else {
 
-            for (let i = 0; i < stateCopy.fancoils.length; i++){
+            for (let i = 0; i < stateCopy.fancoils.length; i++) {
               if (stateCopy.fancoils[i].model === action.model) {
 
                 stateCopy.fancoils[i].quantity++;
                 return stateCopy;
-                
+                        
               } else {
-                continue
+                continue;
               }
-              
+                      
             }
 
-            for (let i = 0; i < stateCopy.fancoils.length; i++){
+            for (let i = 0; i < stateCopy.fancoils.length; i++) {
               if (stateCopy.fancoils[i].model !== action.model) {
                 stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
 
@@ -125,44 +125,41 @@ const SpecificationReducer = (state = initialState, action) => {
 
                 return stateCopy;
               }
-              
             }
-
-
-            // stateCopy.fancoils.map(element => {
-
-            //   if (element.model === action.model) {
-            //     debugger
-            //     element.quantity++;
-            //     return stateCopy;
-            //   } else {
-            //     stateCopy.fancoils.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
-            //     return stateCopy;
-
-            //   }
-            // })
-
-            
+      
           }
 
           
-        } else {
-          stateCopy.accessories.map(element => {
-            if (element.name === action.model) {
-              stateCopy.accessories[element].quantity++;
+        } else if (action.tableName == "accessoriesTable") {
+          if (stateCopy.accessories.length === 0) {
+            stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+          } else {
 
-            } else {
-              stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
+            for (let i = 0; i < stateCopy.accessories.length; i++) {
+              if (stateCopy.accessories[i].model === action.model) {
 
+                stateCopy.accessories[i].quantity++;
+                return stateCopy;
+                    
+              } else {
+                continue;
+              }
             }
-          })
+              
+            for (let i = 0; i < stateCopy.accessories.length; i++) {
+              if (stateCopy.accessories[i].model !== action.model) {
+                stateCopy.accessories.push({ id: action.id, art: action.art, type: action.series, model: action.model, quantity: action.quantity });
 
+                return stateCopy;
+              } else {
+
+                return stateCopy;
+              }
+            }
+      
+          }
         }
-
-        return stateCopy;
-      }
-      
-      
+        }
 
     default:
    

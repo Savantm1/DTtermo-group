@@ -11,6 +11,7 @@ debugger
         key = {element.id}
         title={element.name}
         image={element.images[0].path}
+        
         // desc={element.description}
       />
     );

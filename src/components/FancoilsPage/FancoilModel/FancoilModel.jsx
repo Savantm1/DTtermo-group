@@ -41,6 +41,24 @@ let FancoilModel = (props) => {
     )
   };
 
+  // let AddtoSpecFromTable = (id,art,type,name,quantity,tableName) => {
+  //   props.data.addProduct();
+  //   cogoToast.success("Добавлено в спецификацию", {
+  //     position: "top-right",
+  //   });
+  
+  //   props.data.AddModelToSpec(
+  //     id,
+  //     art,
+  //     type,
+  //     name,
+  //     quantity,
+  //     tableName
+  //   )
+  // };
+
+
+
   window.scrollTo(0, 0);
 
   let advantagesElements = currentModel.fancoil.advantages.map((element,index) => {
@@ -111,7 +129,7 @@ let FancoilModel = (props) => {
   });
  
   let tableElements = props.data.models.map((element,index) => {
-    
+    debugger
     return(
       <div key={index} className={styles.row}>
       <NavLink className={styles.link} to={`/fancoils/${props.data.match.params.type}/models/${element.name}`}>
@@ -121,7 +139,24 @@ let FancoilModel = (props) => {
         <div className={styles.param}>{element.Q_ice}</div>
       <button
         className={`${styles.btn} ${styles.param}`}
-        onClick={AddtoSpec}
+          onClick={
+            () => {
+              props.data.addProduct();
+              cogoToast.success("Добавлено в спецификацию", {
+                position: "top-right",
+              });
+            
+              props.data.AddModelToSpec(
+                element.id,
+                ModelTestData.art,
+                element.fancoil.type,
+                element.name,
+                ModelTestData.quantity,
+                tableName
+              )
+            }
+            
+          }
       >
         Добавить в спецификацию
       </button>

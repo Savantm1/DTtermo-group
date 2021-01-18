@@ -23,7 +23,7 @@ const AccessoriesModelReducer = (state = initialState, action) => {
 
     case SET_ACCESSORIES_MODELS:
       {
-       
+       debugger
         let stateCopy = {
           ...state,
           accessoriesModels: action.accessoriesModels,

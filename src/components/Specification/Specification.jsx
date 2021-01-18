@@ -12,7 +12,7 @@ import Form from "../Form/Form";
 import { Helmet } from "react-helmet";
 
 let Specification = (props) => {
-debugger
+
   
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
@@ -28,6 +28,9 @@ debugger
         IncrementPosition={props.IncrementPosition}
         DecrementPosition={props.DecrementPosition}
         ChangeQuantity={props.ChangeQuantity}
+        addProduct={props.addProduct}
+        DeleteProduct={props.DeleteProduct}
+        ChangeProduct={props.ChangeProduct}
       />
     );
   });
@@ -47,6 +50,9 @@ debugger
           IncrementPosition={props.IncrementPosition}
           DecrementPosition={props.DecrementPosition}
           ChangeQuantity={props.ChangeQuantity}
+          addProduct={props.addProduct}
+          DeleteProduct={props.DeleteProduct}
+          ChangeProduct={props.ChangeProduct}
         />
       );
     }

@@ -4,20 +4,34 @@ import styles from "../FancoilsSection/FancoilSection.module.scss";
 
 let FancoilSection = (props) => {
   debugger
-  let fancoilTypesElements = props.data.fancoilTypes.map((element) => {
+  let fancoilTypesElements = props.data.fancoilTypes.map((element,index) => {
 
-
-    return (
-      <CardItem
-        key={element.id}
-        id={element.id}
-        title={element.title}
-        series={element.series}
-        active={props.data.currentId === element.id}
-        image={element.images}
-        firstModelName={element.firstModelName}
-      />
-    );
+    if (index < 3) {
+      return (
+        <CardItem
+          key={element.id}
+          id={element.id}
+          title={element.title}
+          series={element.series}
+          active={props.data.currentId === element.id}
+          image={element.images}
+          firstModelName={element.firstModelName}
+        />
+      );
+    } else {
+      return (
+        <CardItem
+          key={element.id}
+          id={element.id}
+          title={element.title}
+          series={element.series}
+          active={props.data.currentId === element.id}
+          image={element.images}
+          firstModelName={element.firstModelName}
+        />
+      );
+    }
+    
   });
 
 
