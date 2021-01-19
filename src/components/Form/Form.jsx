@@ -65,6 +65,7 @@ class Form extends React.Component {
   Submit() {
     let FancoilsTable = this.props.tablesData.fancoils;
     let AccessoriesTable = this.props.tablesData.accessories;
+    
     let IdentificationData = this.state;
 
 
