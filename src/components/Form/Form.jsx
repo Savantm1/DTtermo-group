@@ -17,8 +17,10 @@ class Form extends React.Component {
       phone: "",
       message: "",
       submitDisable: "disabled",
-      PrivacyChecked: "false",
+      PrivacyChecked: false,
       deliveryChecked: "false",
+      nameValid: false,
+      phoneValid: false
     };
 
     this.Delivery = React.createRef();
@@ -30,11 +32,22 @@ class Form extends React.Component {
   }
 
   InputChange(event) {
+
     const name = event.target.name;
     const value = event.target.value;
+
     this.setState({ [name]: value });
     this.setState({ checked: this.PrivateValue.current.checked });
 
+    if (this.state.name.length > 1) {
+      this.state.nameValid = true;
+    }
+
+    if (this.state.phone.length > 1) {
+      this.state.phoneValid = true;
+    }
+
+    
     if ((this.state.name.length > 1) &&
         (this.state.phone.length > 1) &&
         (this.PrivateValue.current.checked == true) &&
@@ -53,6 +66,7 @@ class Form extends React.Component {
     let FancoilsTable = this.props.tablesData.fancoils;
     let AccessoriesTable = this.props.tablesData.accessories;
     let IdentificationData = this.state;
+
 
     API.PostSpecification({
       IdentificationData,
@@ -119,6 +133,7 @@ class Form extends React.Component {
               name="delivery"
               onChange={this.InputChange}
               ref={this.Delivery}
+              checked
 
             />
             <label htmlFor="pickup" className={styles.radio}>
@@ -127,7 +142,7 @@ class Form extends React.Component {
           </div>
 
           <div className={styles.row}>
-            <input
+            <input className={ this.state.nameValid? styles.current : styles.required}
               type="text"
               placeholder="Имя*"
               name="name"
@@ -155,6 +170,7 @@ class Form extends React.Component {
           </div>
           <div className={styles.row}>
             <input
+              className={ this.state.phoneValid ? styles.current : styles.required}
               type="phone"
               name="phone"
               placeholder="Телефон*"
@@ -180,8 +196,9 @@ class Form extends React.Component {
             <p className={styles.text}>Приватность:</p>
 
             <input
+             
               type="checkbox"
-              className={styles.checkbox}
+              className={this.state.PrivacyChecked ? `${styles.checkbox} ${styles.current}` : `${styles.checkbox} ${styles.required}`}
               ref={this.PrivateValue}
               name="agree_privacy"
               id="checkbox"

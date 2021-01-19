@@ -28,9 +28,12 @@ let FancoilRow = (props) => {
   }
 
   let ChangeQuantity = () => {
+    let pervValue = props.kol;
     props.ChangeQuantity(props.index, props.tableName, Input.current.value);
-    props.ChangeProduct(10,Input.current.value-10)
+    props.ChangeProduct(pervValue, Input.current.value);
+
   }
+  
 
   
 

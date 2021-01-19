@@ -44,6 +44,13 @@
       
       width:100%;
 
+      .required {
+        border: 2px solid rgb(236, 112, 112);
+      }
+      .current{
+        border: 2px solid $green;
+      }
+
       &  input , textarea {
 
         font-weight: 300;
@@ -111,7 +118,17 @@
         transform: translateY(5px);
         border-color: $green;
         cursor: pointer;
+
       }
+
+      .checkbox.required {
+        box-shadow: 0 0 10px 4px rgb(255, 67, 67);
+      }
+       .checkbox:checked{
+        box-shadow: 0 0 10px 4px $green;
+      }
+
+
 
     }
 
@@ -160,6 +177,9 @@
       
       &:hover {
         background-color:$greenhover;
+      }
+      &[disabled] {
+        background-color: rgb(170, 169, 169);
       }
 
     }

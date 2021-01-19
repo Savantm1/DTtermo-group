@@ -7,7 +7,7 @@ let MadeToOrderFancoil = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.modal_block}>
-        <p className={styles.text}>Данный тип фанкойла возможно приобрести только поз заказ. Пожалуйста, обратитесь в отдел продаж.</p>
+        <p className={styles.text}>Данный тип фанкойла возможно приобрести только под заказ. Пожалуйста, обратитесь в отдел продаж.</p>
         <NavLink to="/contacts">
           <button className={styles.btn}>Контакты</button>
         </NavLink>

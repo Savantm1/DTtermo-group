@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./CardItem.module.scss";
 
 let CardItem = (props) => {
-debugger
+
   let isActive = "";
   if (props.active) {
     isActive += styles.card_active;

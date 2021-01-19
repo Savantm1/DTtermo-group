@@ -12,7 +12,7 @@ import Form from "../Form/Form";
 import { Helmet } from "react-helmet";
 
 let Specification = (props) => {
-
+debugger
   
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (

@@ -30,8 +30,11 @@ const NavbarReducer = (state = initialState, action) => {
     case CHANGE_COUNT: {
       debugger
       let stateCopy = { ...state };
-      stateCopy.SpecificationCount = stateCopy.SpecificationCount - action.pervValue;
-      stateCopy.SpecificationCount = stateCopy.SpecificationCount + action.currValue;
+      stateCopy.SpecificationCount = stateCopy.SpecificationCount - Number(action.pervValue);
+      stateCopy.SpecificationCount = stateCopy.SpecificationCount + Number(action.currValue);
+      console.log('stateCount',typeof (stateCopy.SpecificationCount));
+      console.log('action.perv',typeof (action.pervValue));
+      console.log('action.curr',typeof(action.currValue));
       return stateCopy;
       }
 
