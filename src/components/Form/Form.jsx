@@ -27,21 +27,51 @@ class Form extends React.Component {
     this.DeliveryWithAdress = React.createRef();
     this.PrivateValue = React.createRef();
     this.InputChange = this.InputChange.bind(this);
+    this.NameChange = this.NameChange.bind(this);
+    this.PhoneChange = this.PhoneChange.bind(this);
     this.Submit = this.Submit.bind(this);
 
   }
 
-  InputChange(event) {
+  NameChange(event) {
+    this.setState({ name: event.target.value });
+    // if (event.target.value.length >= 2)
+    if(this.state.name.length >= 2)
+    {
+      this.state.nameValid = true;
+    } else {
+      this.state.nameValid = false;
+    }
+  }
 
+  PhoneChange(event) {
+    this.setState({ phone: event.target.value });
+  }
+
+  InputChange(event) {
+debugger
     const name = event.target.name;
     const value = event.target.value;
 
     this.setState({ [name]: value });
     this.setState({ checked: this.PrivateValue.current.checked });
 
-    if (this.state.name.length > 1) {
-      this.state.nameValid = true;
+    if (name === "name") {
+        if (event.target.value.length >= 2) {
+          this.state.nameValid = true;
+        } else {
+          this.state.nameValid = false;
+        }
     }
+
+    if (name === "phone") {
+      if (event.target.value.length >= 2) {
+        this.state.phoneValid = true;
+      } else {
+        this.state.phoneValid = false;
+      }
+  }
+
 
     if (this.state.phone.length > 1) {
       this.state.phoneValid = true;
@@ -57,9 +87,9 @@ class Form extends React.Component {
 
       this.setState({ submitDisable: "" });
     } else {
-
       this.setState({ submitDisable: "disabled" });
     }
+
   }
 
   Submit() {
@@ -148,7 +178,8 @@ class Form extends React.Component {
               placeholder="Имя*"
               name="name"
               value={this.state.name}
-              onChange={this.InputChange}
+              // onChange={this.InputChange}
+              onChange={this.NameChange}
             ></input>
           </div>
           <div className={styles.row}>
