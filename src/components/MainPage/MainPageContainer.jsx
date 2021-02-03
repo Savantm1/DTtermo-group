@@ -1,4 +1,4 @@
-import { setFancoilTypes, setAccessoriesTypes, changeTargetId } from "../../Redux/MainPageReducer";
+import {  getFancoilTypesThunkCreator, changeTargetId} from "../../Redux/MainPageReducer";
 import { connect } from "react-redux";
 import React from 'react';
 import { API } from "../../api/api.js";
@@ -10,20 +10,17 @@ class MainPageContainer extends React.Component {
 
   componentDidMount() {
 
-    API.getFancoilTypes().then(response => {
-
-      this.props.setFancoilTypes(response, true);
-    });
+    // API.getFancoilTypes().then(response => {
+    //   this.props.setFancoilTypes(response, true);
+    // });
     
-    API.getAccessoriesTypes().then(response => {
+    // API.getAccessoriesTypes().then(response => {
+    //   this.props.setAccessoriesTypes(response, true);
+    // });
+    this.props.getFancoilTypesThunkCreator();
 
-      this.props.setAccessoriesTypes(response, true);
-
-    });
 
     this.size = React.createRef();
-    debugger
-   
   }
     
   render() {
@@ -52,4 +49,4 @@ let mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setFancoilTypes, setAccessoriesTypes, changeTargetId })(MainPageContainer);
+export default connect(mapStateToProps, { getFancoilTypesThunkCreator, changeTargetId })(MainPageContainer);

@@ -1,28 +1,18 @@
 import React, { useState } from "react";
-// import logo_carrier from "../../assets/img/carrier_fancoil1.png";
-// import logo_dttermo_group from "../../assets/img/logo_min.png";
 import styles from "./MainPage.module.scss";
-// import Form from "../Form/Form";
-// import CardItem from "../CardItem/CardItem";
-// import AccessoryItem from "../AccessoryItem/AcessoryItem";
 import BeautySection from "./BeautySection/BeautySection";
 import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
-
 import features_5 from "../../assets/img/features_5.png";
-
 import FancoilSectionContainer from "./FancoilsSection/FancoilSectionContainer";
 import AccessoriesSectionContainer from "./AcessoriesSection/AccessoriesSectionContainer";
 import AccessoryItem from "../AccessoryItem/AcessoryItem";
 import {Helmet} from "react-helmet";
 import CardItem from "../CardItem/CardItem";
 
-
-
 let MainPage = (props) => {
 
-  
   let AccessoriesPopularElements = props.data.accessoriesTypes.map(element => {
     if (element.popular) {
       return (<AccessoryItem

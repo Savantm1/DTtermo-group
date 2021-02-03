@@ -1,3 +1,5 @@
+import { API } from "../api/api";
+
 const FANCOIL_TYPES = "FANCOIL_TYPES";
 const ACCESSORIES_TYPES = "ACCESSORIES_TYPES";
 const CHANGE_TARGET_ID = "CHANGE_TARGET_ID";
@@ -21,7 +23,7 @@ let initialState = {
 
   accessoriesTypes: [
 
-    { id: "1", title: 'Заголовок аксессуара1', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
+    {id: "1", title: 'Заголовок аксессуара1', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
     {id: "2", title: 'Заголовок аксессуара2', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
     {id: "3", title: 'Заголовок аксессуара3', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
     {id: "4", title: 'Заголовок аксессуара4', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
@@ -70,5 +72,18 @@ export const setAccessoriesTypes = (accessoriesTypes,isLoaded) => {
 export const changeTargetId = (currentId, currentLeft) => {
   return { type: CHANGE_TARGET_ID, currentId, currentLeft }
 };
+
+export const getFancoilTypesThunkCreator = () => {
+ return (dispatch) => {
+    API.getFancoilTypes().then(response => {
+      dispatch(setFancoilTypes(response, true))
+    });
+
+    API.getAccessoriesTypes().then(response => {
+      dispatch(setAccessoriesTypes(response, true))
+    });
+  }
+
+} 
 
 export default MainPageReducer;
