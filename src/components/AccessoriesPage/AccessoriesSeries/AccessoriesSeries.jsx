@@ -11,7 +11,7 @@ let AccessoriesSeries = (props) => {
 
   let AddtoSpec = () => {
 
-    props.addProduct();
+    props.AddProduct();
     cogoToast.success('Добавлено в спецификацию', {
       position: 'top-right'
     });

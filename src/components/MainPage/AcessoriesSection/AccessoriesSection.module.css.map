@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EAEnB,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,OAAO;EACpB,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "AccessoriesSection.module.scss"
+    ],
+    "names": [],
+    "file": "AccessoriesSection.module.css"
+}

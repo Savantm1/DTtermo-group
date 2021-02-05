@@ -13,22 +13,11 @@ let initialState = {
 
   fancoilTypes: [
 
-    // {id: "1", title: 'Заголовок', series: "описание" },
-    // {id: "2", title: 'Заголовок', series: "описание" },
-    // {id: "3", title: 'Заголовок', series: "описание" },
-    // {id: "4", title: 'Заголовок', series: "описание" },
-    // {id: "5", title: 'Заголовок', series: "описание" },
     
   ],
 
   accessoriesTypes: [
 
-    {id: "1", title: 'Заголовок аксессуара1', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
-    {id: "2", title: 'Заголовок аксессуара2', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
-    {id: "3", title: 'Заголовок аксессуара3', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] },
-    {id: "4", title: 'Заголовок аксессуара4', desc: 'Описание аксессуара' , "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}]},
-    {id: "5", title: 'Заголовок аксессуара5', desc: 'Описание аксессуара', "images": [{"path": "http://testcarrier.dttermo.com/storage/accessories/33TAAC01.jpg"}] }
-    
   ]
 }
 
@@ -73,7 +62,7 @@ export const changeTargetId = (currentId, currentLeft) => {
   return { type: CHANGE_TARGET_ID, currentId, currentLeft }
 };
 
-export const getFancoilTypesThunkCreator = () => {
+export const getTypesThunkCreator = () => {
  return (dispatch) => {
     API.getFancoilTypes().then(response => {
       dispatch(setFancoilTypes(response, true))

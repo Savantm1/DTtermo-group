@@ -32,61 +32,11 @@ let MainPage = (props) => {
     },
   };
 
-  const [toggler, setToggler] = useState(false);
+  // const [toggler, setToggler] = useState(false);
 
  
   return (
     <div className={styles.content}>
-      {/* <div className={styles.companies_section}>
-        <a href="https://www.dttermo.ru/ru/%d0%be-%d0%bd%d0%b0%d1%81/obscaja-informacija.htm">
-          <div className={styles.company_block}>
-            <div className={styles.img_block}>
-              <img
-                className={styles.img}
-                src={logo_dttermo_group}
-                alt="logo_dttermo_group"
-              />
-            </div>
-            <div
-              className={styles.block_text}
-              title="Переход на сайт компании DTtermo group"
-            >
-              <p className={styles.text}>
-                Компания ДТ ТЕРМО ГРУПП основана в 2001 году, на протяжении
-                всего времени она занимает лидирующие позиции, как поставщик
-                оборудования и материалов для систем ОВК и ВК на Российском
-                рынке и в странах СНГ.
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.carrier.com/commercial-refrigeration/ru/ru/about/">
-          <div
-            className={styles.company_block}
-            title="Переход на сайт компании Carrier"
-          >
-            <div className={styles.img_block}>
-              <img
-                className={styles.img}
-                src={logo_carrier}
-                alt="logo_carrier"
-              />
-            </div>
-            <div className={styles.block_text}>
-              <p className={styles.text}>
-                Компания Carrier — мировой лидер в области высокотехнологичных
-                систем отопления, кондиционирования и охлаждения. Carrier
-                основана в 1915 году изобретателем кондиционера Уиллисом
-                Керриером. В настоящее время компания — часть UTC Climate,
-                Controls & Security, подразделения United Technologies Corp.
-                (США), ведущего поставщика аэрокосмических и строительных систем
-                в мире.
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <h2 className={styles.title}></h2> */}
       <Helmet>
         <meta charSet="utf-8" />
         <title>DTtermo group</title>
@@ -106,8 +56,6 @@ let MainPage = (props) => {
       </div>
 
       <FancoilSectionContainer />
-
-      
       <h2 className={styles.title} id="accessories">Основные аксессуары для фанкойлов</h2>
       
       <div className={styles.cards_block}>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addProduct } from '../../Redux/NavbarReducer';
+import { AddProduct } from '../../Redux/NavbarReducer';
 import Header from './Header';
 
 let mapStateToProps = (state) => {
@@ -13,5 +13,5 @@ let mapStateToProps = (state) => {
 
 
 
-const HeaderContainer = connect(mapStateToProps, addProduct)(Header);
+const HeaderContainer = connect(mapStateToProps, AddProduct)(Header);
 export default HeaderContainer;

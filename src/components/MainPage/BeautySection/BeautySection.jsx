@@ -39,21 +39,19 @@ let BeautySection = (props) => {
     let list_width = slider_list.current.clientWidth;
     let step = Math.round(list_width / 5);
     let min = -(list_width - step);
-    console.log( min, step)
-    console.log("number до изменения: ", fancoilNumber);
+
     if (currentItem > min) {
       currentItem -= step;
       slider_list.current.style.left = currentItem + "px";
       fancoilNumber++;
     } else {
       currentItem = max;
-      console.log(props.current);
       slider_list.current.style.left = currentItem + "px";
       fancoilNumber = minFancoilNumber;
     }
 
     props.changeTargetId(fancoilNumber, currentItem);
-    console.log("текущий шаг: ", currentItem, "текущий айди: ", fancoilNumber);
+   
   };
 
   let leftArrowFunc = (e) => {
@@ -74,7 +72,7 @@ let BeautySection = (props) => {
       fancoilNumber = maxFancoilNumber;
     }
     props.changeTargetId(fancoilNumber, currentItem);
-    console.log("текущий шаг: ", currentItem, "текущий айди: ", fancoilNumber);
+   
   };
 
   let slideElements = props.data.map((element) => {
@@ -93,7 +91,7 @@ let BeautySection = (props) => {
   return (
     <ScrollAnimation
       animateIn="fadeIn"
-      // dely="20"
+
       animateOnce={true}
       className={styles.container}
     >
@@ -188,9 +186,7 @@ let BeautySection = (props) => {
               <img src={left} alt="arrow_left" />
             </div>
 
-            <ul className={styles.slider_list} ref={slider_list}
-              // style={{ width: '3420px' }}
-            >
+            <ul className={styles.slider_list} ref={slider_list}>
               {slideElements}
             </ul>
 
@@ -203,32 +199,6 @@ let BeautySection = (props) => {
             </div>
           </div>
 
-          {/* <div className={styles.mini_col}>
-            <ScrollAnimation
-              animateIn="flipInY"
-              animateOnce={true}
-              animateOut="flipOutY"
-            >
-              <div className={styles.mini_block}>
-                <img src={demo8} alt="" />
-                <p>Одни из самых тихих на рынке</p>
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation
-              animateIn="flipInY"
-              animateOnce={true}
-              animateOut="flipOutY"
-            >
-              <div className={styles.mini_block}>
-                <img src={demo9} alt="" />
-                <p>2х/3х</p>
-                <p>Клапаный</p>
-              </div>
-            </ScrollAnimation>
-          </div>
-           */}
-          
           <div className={styles.mini_col}>
             <ScrollAnimation
               animateIn="flipInY"
@@ -302,7 +272,6 @@ let BeautySection = (props) => {
           >
             <div className={`${styles.mini_block} ${styles.cert_block}`}>
               <img src={eurovent} alt="" />
-              {/* <p>Сертификат Евровент</p> */}
             </div>
           </ScrollAnimation>
           </div>

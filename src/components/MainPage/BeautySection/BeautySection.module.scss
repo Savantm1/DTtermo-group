@@ -1,7 +1,6 @@
 @import "../../../variables";
 
 
-
 .container {
 
   img {
@@ -157,6 +156,7 @@
 
 .mini_green {
   border: 5px solid $green;
+  cursor:pointer;
   &:hover {
     background: $green;
   }

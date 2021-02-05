@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addProduct } from "../../../Redux/NavbarReducer";
+import { AddProduct } from "../../../Redux/NavbarReducer";
 import AccessoriesSeries from './AccessoriesSeries';
 
 
@@ -11,6 +11,6 @@ let mapStateToProps = (state) => {
   })
 }
 
-const AccessoriesSeriesContainer = connect(mapStateToProps, { addProduct })(AccessoriesSeries);
+const AccessoriesSeriesContainer = connect(mapStateToProps, { AddProduct })(AccessoriesSeries);
 
 export default AccessoriesSeriesContainer;

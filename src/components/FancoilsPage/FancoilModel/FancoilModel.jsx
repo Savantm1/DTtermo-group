@@ -26,7 +26,7 @@ let FancoilModel = (props) => {
   let currentModel = props.data.currentModel;
 
   let AddtoSpec = () => {
-    props.data.addProduct();
+    props.data.AddProduct();
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });
@@ -42,7 +42,7 @@ let FancoilModel = (props) => {
   };
 
   // let AddtoSpecFromTable = (id,art,type,name,quantity,tableName) => {
-  //   props.data.addProduct();
+  //   props.data.AddProduct();
   //   cogoToast.success("Добавлено в спецификацию", {
   //     position: "top-right",
   //   });
@@ -141,7 +141,7 @@ let FancoilModel = (props) => {
         className={`${styles.btn} ${styles.param}`}
           onClick={
             () => {
-              props.data.addProduct();
+              props.data.AddProduct();
               cogoToast.success("Добавлено в спецификацию", {
                 position: "top-right",
               });

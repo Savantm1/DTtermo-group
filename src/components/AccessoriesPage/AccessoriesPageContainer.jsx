@@ -3,17 +3,13 @@ import { connect } from 'react-redux';
 import { API } from '../../api/api';
 import Preloader from '../Preloader/Preloader';
 import AccessoriesPage from './AccessoriesPage';
-import { setAccessoriesTypes } from '../../Redux/MainPageReducer';
+import { getTypesThunkCreator } from '../../Redux/MainPageReducer';
 
 class AccessoriesPageContainer extends React.Component {
   
   componentDidMount() {
 
-    API.getAccessoriesTypes().then(response => {
-
-      
-      this.props.setAccessoriesTypes(response, true);
-    });
+    this.props.getTypesThunkCreator();
   };
 
   render() {
@@ -42,4 +38,4 @@ let mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { setAccessoriesTypes })(AccessoriesPageContainer);
+export default connect(mapStateToProps, { getTypesThunkCreator })(AccessoriesPageContainer);

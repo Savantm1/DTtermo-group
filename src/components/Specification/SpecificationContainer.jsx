@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Specification from './Specification';
 import { DeletePositionFromSpec, IncrementPosition, DecrementPosition, ChangeQuantity, DeleteAll } from "../../Redux/SpecificationReducer";
-import { addProduct, DeleteProduct,ChangeProduct } from "../../Redux/NavbarReducer";
+import { AddProduct, DecrementProduct,ChangeProduct, DeletePositionFromSpecCounter } from "../../Redux/NavbarReducer";
 
 let mapStateToProps = (state) => {
 
@@ -10,6 +10,9 @@ let mapStateToProps = (state) => {
   }
 }
 
-const SpecificationContainer = connect(mapStateToProps,{DeletePositionFromSpec,IncrementPosition,DecrementPosition,ChangeQuantity,DeleteAll,addProduct,DeleteProduct,ChangeProduct})(Specification);
+const SpecificationContainer = connect(mapStateToProps,{
+  DeletePositionFromSpec,IncrementPosition,DecrementPosition,
+  ChangeQuantity,DeleteAll,AddProduct,
+  DecrementProduct,ChangeProduct,DeletePositionFromSpecCounter})(Specification);
 
 export default SpecificationContainer;

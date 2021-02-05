@@ -1,0 +1,39 @@
+.content {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.content .title {
+  width: 100%;
+  height: 54px;
+  font-size: 32px;
+  text-align: center;
+  background-image: url("../../assets/img/footer-bg.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.content .accessories_block {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=AccessoriesPage.module.css.map */

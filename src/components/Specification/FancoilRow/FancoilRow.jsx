@@ -12,18 +12,19 @@ let FancoilRow = (props) => {
 
   let DeleteFromSpec = () => {
     props.DeletePositionFromSpec(props.index,props.tableName);
+    props.DeletePositionFromSpecCounter(props.kol);
     cogoToast.success("Удалено из спецификации", {
       position: "top-right",
     });
   };
 
   let IncrementPosition = () => {
-    props.addProduct();
+    props.AddProduct();
     props.IncrementPosition(props.index, props.tableName, props.kol);
   }
 
   let DecrementPosition = () => {
-    props.DeleteProduct();
+    props.DecrementProduct(props.kol);
     props.DecrementPosition(props.index, props.tableName, props.kol);
   }
 

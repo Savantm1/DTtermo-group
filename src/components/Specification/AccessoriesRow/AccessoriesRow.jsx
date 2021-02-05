@@ -12,22 +12,27 @@ let AccessoriesRow = (props) => {
   let DeleteFromSpec = () => {
 
     props.DeletePositionFromSpec(props.index, props.tableName);
+    props.DeletePositionFromSpecCounter(props.kol);
     cogoToast.success("Удалено из спецификации", {
       position: "top-right",
     });
   };
 
   let IncrementPosition = () => {
+    props.AddProduct();
     props.IncrementPosition(props.index, props.tableName, props.kol);
   }
 
   let DecrementPosition = () => {
+    props.DecrementProduct(props.kol);
     props.DecrementPosition(props.index, props.tableName, props.kol);
   }
 
 
   let ChangeQuantity = () => {
+    let pervValue = props.kol;
     props.ChangeQuantity(props.index, props.tableName, Input.current.value);
+    props.ChangeProduct(pervValue, Input.current.value);
   }
 
   return (

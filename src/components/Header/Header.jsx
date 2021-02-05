@@ -53,16 +53,16 @@ let Header = (props) => {
 
         <li className={`${styles.item} ${styles.item_hide}`}>
           <NavLink
-            to="/specification"
+            to='/specification'
             className={styles.spec}
             alt="specification"
+            disabled={props.spec !==0 ? true : false }
           >
             <div className={styles.count_container}>
               <span className={styles.count}>{props.spec}</span>
             </div>
             <object
-              className={styles.icon}
-              type="image/svg+xml"
+              className={ props.spec !==0 ? styles.icon : styles.icon_inactive}
               data={ToDoList}
               width="30"
               height="30"

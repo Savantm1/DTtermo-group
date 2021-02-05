@@ -1,4 +1,5 @@
 
+import { API } from "../api/api";
 const SET_FANCOIL_MODELS = "SET_FANCOIL_MODELS";
 const SET_FANCOIL_MODEL = "SET_FANCOIL_MODEL";
 
@@ -43,7 +44,6 @@ const ModelReducer = (state = initialState, action) => {
           decryption : action.fancoilModel.decryption,
           isLoaded2: action.isLoaded
         };
-        console.log('currentModel',stateCopy.currentModel.id);
         return stateCopy;
       }
 
@@ -52,13 +52,25 @@ const ModelReducer = (state = initialState, action) => {
   }
 };
 export default ModelReducer;
-
 export const SetFancoilModels = (fancoilModels,isLoaded) => {
 
   return { type: SET_FANCOIL_MODELS,fancoilModels,isLoaded }
 };
-
 export const SetFancoilModel = (fancoilModel,isLoaded) => {
 
   return { type: SET_FANCOIL_MODEL,fancoilModel,isLoaded }
 };
+
+export const setFancoilModelThunkCreator = (fancoilType,fancoilModel) => {
+  return (dispatch) => {
+    debugger
+    API.getFancoilModels(fancoilType).then((response) => {
+      dispatch(SetFancoilModels(response, true))
+    });
+  
+    API.getFancoilModel(fancoilType, fancoilModel).then(response => { 
+      dispatch(SetFancoilModel(response, true))
+    });
+
+  }
+}

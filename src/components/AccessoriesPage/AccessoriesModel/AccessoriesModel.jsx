@@ -17,7 +17,7 @@ debugger
   let ModelTestData = {  quantity: '1', series: "series", tableName: 'accessoriesTable' };
   let modelData = props.data.currentModel;
   let AddtoSpec = () => {
-    props.data.addProduct();
+    props.data.AddProduct();
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });

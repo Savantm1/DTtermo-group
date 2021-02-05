@@ -1,0 +1,163 @@
+.container {
+  max-width: 1200px;
+}
+
+.title {
+  width: 100%;
+  height: 54px;
+  font-size: 32px;
+  text-align: center;
+  background-image: url("../../../assets/img/footer-bg.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 0;
+}
+
+.fancoil_block {
+  padding: 15px 0px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e2e2e2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fancoil_block .main_series {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+}
+
+.fancoil_block .main_series .block_img {
+  width: 45%;
+  margin-right: 15px;
+}
+
+.fancoil_block .main_series .block_img .img {
+  width: 100%;
+}
+
+.fancoil_block .main_series .desc_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fancoil_block .main_series .desc_block .block_title {
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.fancoil_block .main_series .desc_block .block_description {
+  margin: 0;
+  font-size: 18px;
+}
+
+.fancoil_block .table {
+  margin-top: 50px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fancoil_block .table .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #dfdfdf;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  padding: 5px 10px;
+}
+
+.fancoil_block .table .row:nth-child(1) {
+  background-color: #dfdfdf;
+}
+
+.fancoil_block .table .row:nth-child(1):hover {
+  background-color: #dfdfdf;
+}
+
+.fancoil_block .table .row:hover {
+  background-color: #f1f1f1;
+}
+
+.fancoil_block .table .row:hover .btn {
+  cursor: pointer;
+  display: block;
+}
+
+.fancoil_block .table .row .link {
+  text-decoration: none;
+  color: #53b36a;
+  font-weight: 600;
+  width: 150px;
+}
+
+.fancoil_block .table .row .param {
+  -ms-flex-preferred-size: 150px;
+      flex-basis: 150px;
+  text-align: center;
+}
+
+.fancoil_block .text_block {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.fancoil_block .text_block .advantages {
+  font-weight: 600;
+}
+
+.fancoil_block .text_block .advantages .item {
+  font-weight: 400;
+}
+
+.btn {
+  cursor: pointer;
+  bottom: -20px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  font-weight: 700;
+  background-color: #53b36a;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #1a9135;
+}
+/*# sourceMappingURL=FancoilSeries.module.css.map */
