@@ -41,7 +41,8 @@
     }
     .row {
       
-      
+      padding-top: 20px;
+      position: relative;
       width:100%;
 
       .required {
@@ -116,17 +117,10 @@
         height: 25px;
         margin-right: 8px;
         transform: translateY(5px);
-        border-color: $green;
         cursor: pointer;
 
       }
 
-      .checkbox.required {
-        box-shadow: 0 0 10px 4px rgb(255, 67, 67);
-      }
-       .checkbox:checked{
-        box-shadow: 0 0 10px 4px $green;
-      }
 
 
 
@@ -149,12 +143,11 @@
         background-color:$greyhover;
       }
       
- 
-    
 
     input {
       width:10px;
-    height: 10px;}
+    height: 10px;
+    }
   }
     
     .btn {
@@ -178,6 +171,7 @@
       &:hover {
         background-color:$greenhover;
       }
+
       &[disabled] {
         background-color: rgb(170, 169, 169);
       }
@@ -193,7 +187,9 @@ margin-bottom: 60px;
 }
 
 #delivery:checked + .radio +.show_input {
+  margin-top: 25px;
   transition: all ease 0.3s;
+  width: 204%;
   opacity: 1;
 }
 
@@ -209,3 +205,9 @@ margin-bottom: 60px;
   z-index: 2;
 }
 
+
+.error {
+  position: absolute;
+  top: 0;
+  color: red;
+}

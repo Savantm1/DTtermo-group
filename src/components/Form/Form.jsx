@@ -1,170 +1,132 @@
 import styles from "./Form.module.scss";
-import React, { createRef } from "react";
+import React, {  useState, useEffect, createRef } from "react";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
 import { API } from "../../api/api";
 
-class Form extends React.Component {
+let Form = (props)=> {
 
-  constructor(props) {
-    debugger
-    super(props);
-    this.state = {
-      adress: "",
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      message: "",
-      submitDisable: "disabled",
-      PrivacyChecked: false,
-      deliveryChecked: "false",
-      nameValid: false,
-      phoneValid: false
-    };
+//изменение value 
 
-    this.Delivery = React.createRef();
-    this.DeliveryWithAdress = React.createRef();
-    this.PrivateValue = React.createRef();
-    this.InputChange = this.InputChange.bind(this);
-    this.NameChange = this.NameChange.bind(this);
-    this.PhoneChange = this.PhoneChange.bind(this);
-    this.Submit = this.Submit.bind(this);
+  const [email, setEmail] = useState('');
+  const [name,setName] = useState('');
+  // const [delivery,setDelivery] = useState(true);
+  const [deliveryAdress,setDeliveryAdress] = useState('');
+  const [privacy, setPrivacy] = useState(false);
+//фокус на поле
 
-  }
+  const [emailDirty, setEmailDirty] = useState(false);
+  const [nameDirty, setNameDirty] = useState(false);
+  const [deliveryDirty,setDeliveryDirty] = useState(false);
 
-  NameChange(event) {
-    this.setState({ name: event.target.value });
-    // if (event.target.value.length >= 2)
-    if(this.state.name.length >= 2)
-    {
-      this.state.nameValid = true;
-    } else {
-      this.state.nameValid = false;
+// ошибки
+ 
+  const [emailError, setEmailError] = useState('Поле не может быть пустым');
+  const [nameError, setNameError] = useState('Поле не может быть пустым');
+  const [deliveryError,setDeliveryError] = useState('Введите адрес доставки');
+  const [privacyError, setPrivacyError] = useState('Необходимо дать согласие на обработку даных')
+   // валидность формы 
+
+  const [formValid,setFormValid] = useState(false);
+
+// проверка валидности  для кнопки отправки
+
+   useEffect(() => {
+    if(emailError || nameError || deliveryError || !privacy ){
+      setFormValid(false)
+    }else{
+      setFormValid(true)
+    }  
+  }, [emailError,nameError,deliveryError,privacy])
+
+
+// пользователь убрал фокус с поля
+
+  const BlurHandler = (evt) => {
+    switch (evt.target.name){
+      case 'email':
+        setEmailDirty(true)
+        break
+      case 'name': 
+        setNameDirty(true)
+        break
+      case 'adress':
+        setDeliveryDirty(true)
+    }
+  };
+
+  // функции валидации конкретного поля
+
+  const EmailHandler = (evt) => {
+    setEmail(evt.target.value)
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(String(evt.target.value).toLowerCase())){
+        setEmailError("Некорректный Email")
+    }else {
+        setEmailError("")
+    }
+  };
+
+  const NameHandler = (evt) => {
+    setName(evt.target.value)
+    if(evt.target.value.length <= 2){
+      setNameError('Введите не менее 3х символов')
+    }else {
+      setNameError('')
     }
   }
 
-  PhoneChange(event) {
-    this.setState({ phone: event.target.value });
-  }
-
-  InputChange(event) {
-debugger
-    const name = event.target.name;
-    const value = event.target.value;
-
-    this.setState({ [name]: value });
-    this.setState({ checked: this.PrivateValue.current.checked });
-
-    if (name === "name") {
-        if (event.target.value.length >= 2) {
-          this.state.nameValid = true;
-        } else {
-          this.state.nameValid = false;
-        }
+  const deliveryHandler = (evt) => {
+    setDeliveryAdress(evt.target.value);
+    if(evt.target.value.length < 5){
+      setDeliveryError('Некорректный адрес')
+    }else {
+      setDeliveryError('')
     }
+  }
 
-    if (name === "phone") {
-      if (event.target.value.length >= 2) {
-        this.state.phoneValid = true;
-      } else {
-        this.state.phoneValid = false;
-      }
+  const privacyHandler = () => {
+    setPrivacy(!privacy);
+
   }
 
 
-    if (this.state.phone.length > 1) {
-      this.state.phoneValid = true;
-    }
+  
 
-    
-    if ((this.state.name.length > 1) &&
-        (this.state.phone.length > 1) &&
-        (this.PrivateValue.current.checked == true) &&
-        (this.Delivery.current.checked == true) ||
-        (this.DeliveryWithAdress.current.checked == true && this.state.adress.length > 5)
-    ) {
-
-      this.setState({ submitDisable: "" });
-    } else {
-      this.setState({ submitDisable: "disabled" });
-    }
-
-  }
-
-  Submit() {
-    let FancoilsTable = this.props.tablesData.fancoils;
-    let AccessoriesTable = this.props.tablesData.accessories;
-    
-    let IdentificationData = this.state;
-
-
-    API.PostSpecification({
-      IdentificationData,
-      FancoilsTable,
-      AccessoriesTable,
-    });
-    console.log(
-      this.state.name,
-      this.state.email,
-      this.state.phone,
-      this.state.message,
-      this.state.adress
-    );
-    this.setState({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      message: "",
-      adress: "",
-      PrivacyChecked: false,
-    });
-    this.PrivateValue.current.checked = false;
-    this.DeliveryWithAdress.current.checked = false;
-    this.Delivery.current.checked = false;
-    // cogoToast.success("Спасибо. Ваш вопрос передан в службу поддержки.", {
-    //   position: "top-right",
-    // });
-    this.props.DeleteAll();
-  }
-
-  render() {
-    
     return (
       <div className={styles.block}>
         <h1 className={styles.title}> Оформление заказа</h1>
         <form className={styles.form} id="form">
           <div className={styles.row}>
+          
             <input
               type="radio"
               id={styles.delivery}
               name="delivery"
               value="Доставка"
-              onChange={this.InputChange}
-              ref={this.DeliveryWithAdress}
+
             />
             <label htmlFor={styles.delivery} className={styles.radio}>
               Доставка
             </label>
             <input
-              className={styles.show_input}
+              className={deliveryError.length === 0 ? {`${styles.show_input} ${styles.current}`} : styles.show_input}
               type="text"
               name="adress"
-              onChange={this.InputChange}
-              value={this.state.adress}
               placeholder="Введите адрес доставки"
+              onChange={deliveryHandler}
+              onBlur={BlurHandler}
+              value={deliveryAdress}
             />
+            {(deliveryDirty) && <div class={styles.error} >{deliveryError}</div>}
           </div>
           <div className={styles.row}>
             <input
+              
               type="radio"
               id="pickup"
               value="Самовывоз"
               name="delivery"
-              onChange={this.InputChange}
-              ref={this.Delivery}
-              checked
 
             />
             <label htmlFor="pickup" className={styles.radio}>
@@ -173,42 +135,44 @@ debugger
           </div>
 
           <div className={styles.row}>
-            <input className={ this.state.nameValid? styles.current : styles.required}
+          {(nameDirty) && <div class={styles.error} >{nameError}</div>}
+            <input 
+              className={nameError.length === 0 ? styles.current : null }
               type="text"
               placeholder="Имя*"
               name="name"
-              value={this.state.name}
-              // onChange={this.InputChange}
-              onChange={this.NameChange}
-            ></input>
+              value={name}
+              onChange={NameHandler}
+              onBlur={BlurHandler}
+            />
           </div>
           <div className={styles.row}>
             <input
               type="text"
               name="company"
               placeholder="Компания"
-              value={this.state.company}
-              onChange={this.InputChange}
+
             ></input>
           </div>
-          <div className={styles.row}>
+          <div className={emailError.length ? styles.row : `${styles.row} ${styles.current}`}>
+          {(emailDirty) && <div class={styles.error}>{emailError}</div>}
             <input
               type="email"
               name="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.InputChange}
+              placeholder="Email*"
+              className={emailError.length === 0 ? styles.current : null }
+              onBlur={ evt => BlurHandler(evt)}
+              onChange={evt => EmailHandler(evt)}
+              value={email}
             ></input>
           </div>
           <div className={styles.row}>
             <input
-              className={ this.state.phoneValid ? styles.current : styles.required}
+              
               type="phone"
               name="phone"
-              placeholder="Телефон*"
-              // pattern="[^([9]{1}[0-9]{9})?$]"
-              value={this.state.phone}
-              onChange={this.InputChange}
+              placeholder="Телефон"
+
             ></input>
           </div>
           <div className={styles.row}>
@@ -218,8 +182,6 @@ debugger
               id=""
               cols="30"
               rows="10"
-              value={this.state.message}
-              onChange={this.InputChange}
               name="message"
               placeholder="Введите Ваше сообщение"
             ></textarea>
@@ -228,13 +190,11 @@ debugger
             <p className={styles.text}>Приватность:</p>
 
             <input
-             
               type="checkbox"
-              className={this.state.PrivacyChecked ? `${styles.checkbox} ${styles.current}` : `${styles.checkbox} ${styles.required}`}
-              ref={this.PrivateValue}
+              className={ styles.checkbox }
               name="agree_privacy"
               id="checkbox"
-              onChange={this.InputChange}
+              onClick={privacyHandler}
             />
             <label for="checkbox">
               Я даю свое согласие на обработку моих персональных данных, в
@@ -246,8 +206,7 @@ debugger
           <button
             className={styles.btn}
             type="submit"
-            onClick={this.Submit}
-            disabled={this.state.submitDisable}
+            disabled={!formValid}
           >
             Отправить
           </button>
@@ -256,6 +215,6 @@ debugger
       </div>
     );
   }
-}
+
 
 export default Form;

@@ -33,6 +33,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  margin-bottom: 20px;
 
   .table_title {
     font-size: 20px;
@@ -69,9 +70,7 @@
 
         .item_img {
 
-
         }
-
 
       }
 
@@ -85,8 +84,6 @@
         width: 15px;
         margin: 0 auto;
       }
-
-      
 
       .btn {
         cursor: pointer;
@@ -287,5 +284,32 @@
       }
 
     }
+  }
+}
+
+///EMPTYSPEC
+
+.empty_spec {
+  background-color: white;
+  border: 2px solid $grey;
+  border-radius: 5px;
+  margin: 0 30px;
+}
+
+.spec_text {
+  
+font-size: 18px;
+text-align: center;
+}
+
+.link {
+  cursor:pointer;
+  font-size: 18px;
+  border-bottom: 1px dotted $green;
+  margin: 5px 10px;
+  transition: all ease .3s;
+
+  &:hover {
+    color: $green;
   }
 }
