@@ -1,8 +1,8 @@
 import styles from "./Form.module.scss";
-import React, {  useState, useEffect, createRef } from "react";
-import cogoToast from "cogo-toast";
+import React, {  useState, useEffect } from "react";
+
 import { NavLink } from "react-router-dom";
-import { API } from "../../api/api";
+
 
 let Form = (props)=> {
 
@@ -10,7 +10,7 @@ let Form = (props)=> {
 
   const [email, setEmail] = useState('');
   const [name,setName] = useState('');
-  // const [delivery,setDelivery] = useState(true);
+  const [delivery,setDelivery] = useState(true);
   const [deliveryAdress,setDeliveryAdress] = useState('');
   const [privacy, setPrivacy] = useState(false);
 //фокус на поле
@@ -24,7 +24,7 @@ let Form = (props)=> {
   const [emailError, setEmailError] = useState('Поле не может быть пустым');
   const [nameError, setNameError] = useState('Поле не может быть пустым');
   const [deliveryError,setDeliveryError] = useState('Введите адрес доставки');
-  const [privacyError, setPrivacyError] = useState('Необходимо дать согласие на обработку даных')
+  // const [privacyError, setPrivacyError] = useState('Необходимо дать согласие на обработку даных')
    // валидность формы 
 
   const [formValid,setFormValid] = useState(false);
@@ -32,7 +32,7 @@ let Form = (props)=> {
 // проверка валидности  для кнопки отправки
 
    useEffect(() => {
-    if(emailError || nameError || deliveryError || !privacy ){
+    if(emailError || nameError || (deliveryError && delivery) || !privacy ){
       setFormValid(false)
     }else{
       setFormValid(true)
@@ -87,11 +87,14 @@ let Form = (props)=> {
 
   const privacyHandler = () => {
     setPrivacy(!privacy);
-
   }
 
-
+  const deliveryCheckedHandler = () => {
+    setDelivery(!delivery);
+  }
   
+
+
 
     return (
       <div className={styles.block}>
@@ -104,13 +107,14 @@ let Form = (props)=> {
               id={styles.delivery}
               name="delivery"
               value="Доставка"
-
+              onClick={deliveryCheckedHandler}
+              checked={delivery}
             />
             <label htmlFor={styles.delivery} className={styles.radio}>
               Доставка
             </label>
             <input
-              className={deliveryError.length === 0 ? {`${styles.show_input} ${styles.current}`} : styles.show_input}
+              className={deliveryError.length === 0 ? `${styles.show_input} ${styles.current}`  : styles.show_input}
               type="text"
               name="adress"
               placeholder="Введите адрес доставки"
@@ -127,7 +131,8 @@ let Form = (props)=> {
               id="pickup"
               value="Самовывоз"
               name="delivery"
-
+              checked={!delivery}
+              onClick={deliveryCheckedHandler}
             />
             <label htmlFor="pickup" className={styles.radio}>
               Самовывоз
