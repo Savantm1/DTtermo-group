@@ -138,6 +138,11 @@ display: none;
          display: flex;
          align-items: center;
          justify-content: center;
+
+         @include tablets() {
+          background: #fff;
+          border-radius: 20px;
+         }
         }
         
         .count {
@@ -145,6 +150,12 @@ display: none;
           color: #000;
           font-size: 12px;
           font-weight: 700;
+
+          @include tablets() {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+           }
 
         }
 
@@ -174,12 +185,44 @@ display: none;
   background-color:#333;
   overflow: hidden;
   height: 100%;
+  transition: all ease 0.3s;
 
   display: none;
+
+  @include tablets(){
+    display: flex;
+    flex-direction: column;
+  }
+
+  .count_container {
+
+
+    @include tablets() {
+     background: #fff;
+     border-radius: 20px;
+    }
+   }
+   
+   .count {
+
+
+
+     @include tablets() {
+       display: block;
+       text-align: center;
+       margin: 0 auto;
+      }
+
+   }
 
 
 }
 
+.mobile_menu_hide {
+
+  height: 80px;
+  transition: all ease 0.3s;
+}
 
 
 
@@ -235,5 +278,16 @@ display: none;
     color: #fff;
     font-size: 20px;
     text-transform: uppercase;
+
+    
+    &:hover {
+          
+      color:$greenhover;
+    }
+
+    &_active {
+
+      color:$green;
+    }
   }
 }

@@ -32,6 +32,10 @@
     font-size: 13px;
   }
 
+  @include tablets() {
+    padding-top: 80px;
+  }
+
 }
 
 //colors

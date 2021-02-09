@@ -1,11 +1,11 @@
 import styles from "./Form.module.scss";
 import React, {  useState, useEffect } from "react";
-
+import { API } from '../../api/api';
 import { NavLink } from "react-router-dom";
 
 
 let Form = (props)=> {
-
+  debugger
 //изменение value 
 
   const [email, setEmail] = useState('');
@@ -13,6 +13,10 @@ let Form = (props)=> {
   const [delivery,setDelivery] = useState(true);
   const [deliveryAdress,setDeliveryAdress] = useState('');
   const [privacy, setPrivacy] = useState(false);
+  const [message, setMessage] = useState('');
+  const [phone, setPhone] = useState('');
+  const [company, setCompany] = useState('');
+
 //фокус на поле
 
   const [emailDirty, setEmailDirty] = useState(false);
@@ -92,6 +96,38 @@ let Form = (props)=> {
   const deliveryCheckedHandler = () => {
     setDelivery(!delivery);
   }
+
+  const messageHandler = (evt) => {
+    setMessage(evt.target.value);
+  }
+
+  const phoneHandler = (evt) => {
+    setPhone(evt.target.value)
+  }
+
+  const companyHandler = (evt) => {
+    setCompany(evt.target.value)
+  }
+
+
+  const submitHandler = () => {
+    let Fancoins = props.tablesData.fancoils;
+    let Accessories = props.tablesData.accessories; 
+    let personData = {
+      'delivery' : delivery,
+      'adress' : deliveryAdress,
+      'mail' : email,
+      'name' : name,
+      'company' : company,
+      'phone' : phone,
+      'privacy' : privacy,
+      'message': message,
+    }
+
+    let data = [Fancoins,Accessories,personData]
+    API.PostSpecification(data);
+    console.log(JSON.stringify(data));
+  }
   
 
 
@@ -156,7 +192,8 @@ let Form = (props)=> {
               type="text"
               name="company"
               placeholder="Компания"
-
+              onChange={companyHandler}
+              value={company}
             ></input>
           </div>
           <div className={emailError.length ? styles.row : `${styles.row} ${styles.current}`}>
@@ -177,7 +214,8 @@ let Form = (props)=> {
               type="phone"
               name="phone"
               placeholder="Телефон"
-
+              onChange={phoneHandler}
+              value={phone}
             ></input>
           </div>
           <div className={styles.row}>
@@ -189,10 +227,12 @@ let Form = (props)=> {
               rows="10"
               name="message"
               placeholder="Введите Ваше сообщение"
+              onChange={messageHandler}
+              value={message}
             ></textarea>
           </div>
           <div className={styles.row}>
-            <p className={styles.text}>Приватность:</p>
+            <p className={styles.text} onClick={submitHandler}>Приватность:</p>
 
             <input
               type="checkbox"
@@ -212,6 +252,7 @@ let Form = (props)=> {
             className={styles.btn}
             type="submit"
             disabled={!formValid}
+            onClick={submitHandler}
           >
             Отправить
           </button>

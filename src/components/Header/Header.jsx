@@ -6,7 +6,16 @@ import ToDoList from "../../assets/img/to-do-list.svg";
 import Hamburger from "hamburger-react";
 
 let Header = (props) => {
+
+  const [mobileToggle,setMobileToggle]= useState(false);
   const [isOpen, setOpen] = useState(false);
+
+  const mobileMenuHandler = () =>{
+    setMobileToggle(!mobileToggle);
+    setOpen(!isOpen);
+  }
+
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
@@ -72,12 +81,12 @@ let Header = (props) => {
         </li>
       </ul>
 
-      <div className={styles.mobile_menu}>
+      <div className={mobileToggle ? styles.mobile_menu : `${styles.mobile_menu} ${styles.mobile_menu_hide}`}>
         <nav className={styles.mobile_nav}>
           <ul className={styles.mobile_list_one}>
             <li className={styles.item}>
               <NavLink className={styles.link} to="/">
-                <img src={logo} className={styles.logo} alt="logo" />
+                <img src={logo} className={styles.logo} alt="logo"  />
               </NavLink>
             </li>
             <li className={styles.item}>
@@ -85,6 +94,7 @@ let Header = (props) => {
                 to="/specification"
                 className={styles.spec}
                 alt="specification"
+                onClick={mobileMenuHandler}
               >
                 <div className={styles.count_container}>
                   <span className={styles.count}>{props.spec}</span>
@@ -100,7 +110,8 @@ let Header = (props) => {
               </NavLink>
             </li>
             <li className={styles.item}>
-              <div className={styles.hamburger_container}>
+              <div className={styles.hamburger_container}
+                   onClick={mobileMenuHandler}>
                 <Hamburger
                   id={styles.hamburger}
                   toggled={isOpen}
@@ -115,7 +126,9 @@ let Header = (props) => {
         </nav>
         <ul className={styles.mobile_list_two}>
           <li className={`${styles.item} ${styles.item_hide}`}>
-            <NavLink className={styles.link} to="/about_us">
+            <NavLink className={styles.link} to="/about_us"
+              onClick={mobileMenuHandler}
+            >
               О компании
             </NavLink>
           </li>
@@ -124,6 +137,7 @@ let Header = (props) => {
               className={styles.link}
               activeClassName={styles.link_active}
               to="/fancoils"
+              onClick={mobileMenuHandler}
             >
               Оборудование
             </NavLink>
@@ -133,6 +147,7 @@ let Header = (props) => {
               className={styles.link}
               activeClassName={styles.link_active}
               to="/accessories"
+              onClick={mobileMenuHandler}
             >
               Аксессуары
             </NavLink>
@@ -142,6 +157,7 @@ let Header = (props) => {
               className={styles.link}
               activeClassName={styles.link_active}
               to="/contacts"
+              onClick={mobileMenuHandler}
             >
               Контакты
             </NavLink>
