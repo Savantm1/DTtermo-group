@@ -4,7 +4,7 @@ import img from '../../assets/img/accessor.jpg';
 import { NavLink } from "react-router-dom";
 
 let AccessoryItem = (props) => {
-
+debugger
   window.scrollTo(0,0);
 
   return (

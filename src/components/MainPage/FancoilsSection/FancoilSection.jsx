@@ -3,7 +3,7 @@ import CardItem from '../../CardItem/CardItem';
 import styles from "../FancoilsSection/FancoilSection.module.scss";
 
 let FancoilSection = (props) => {
-  debugger
+
   let fancoilTypesElements = props.data.fancoilTypes.map((element,index) => {
 
     if (index < 3) {
@@ -11,11 +11,12 @@ let FancoilSection = (props) => {
         <CardItem
           key={element.id}
           id={element.id}
-          title={element.title}
+          title={element.type}
           series={element.series}
           active={props.data.currentId === element.id}
           image={element.images}
           firstModelName={element.firstModelName}
+          available={"В наличии"}
         />
       );
     } else {
@@ -23,11 +24,12 @@ let FancoilSection = (props) => {
         <CardItem
           key={element.id}
           id={element.id}
-          title={element.title}
+          title={element.type}
           series={element.series}
           active={props.data.currentId === element.id}
           image={element.images}
           firstModelName={element.firstModelName}
+          available={"Под заказ"}
         />
       );
     }

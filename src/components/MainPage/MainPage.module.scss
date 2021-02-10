@@ -13,14 +13,17 @@ a {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-
+  min-height: calc(100vh - 90px);
+  
   @include desktop() {
 
     max-width: 1024px;
   }
 
   @include laptops() {
+
     max-width: 740px;
+    width: 100%;
   }
 
   .company_block {
@@ -67,6 +70,10 @@ a {
     @include laptops() {
       font-size: 26px;
     }
+
+    @include phones() {
+      font-size: 18px;
+    }
   }
 
   .subtitle {
@@ -75,6 +82,10 @@ a {
     justify-content: space-between;
     font-size: 20px;
     margin-bottom: 8px;
+
+    @include laptops() {
+      display: none;
+    }
 
     .in_stock {
       border-bottom: 3px solid $green;
@@ -93,23 +104,30 @@ a {
   }
 
 
-  .accessories_block {
+  // .accessories_block {
 
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
+  //   width: 100%;
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  //   margin-bottom: 30px;
+  // }
+
+
 }
 
 .cards_block {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   margin-bottom: 30px;
+
+  @include laptops() {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .features {
@@ -120,7 +138,9 @@ a {
   max-width: 1200px;
   flex-wrap: wrap;
   
-
+  @include tablets() {
+    display: none;
+  }
 
   .item {
     overflow: hidden;

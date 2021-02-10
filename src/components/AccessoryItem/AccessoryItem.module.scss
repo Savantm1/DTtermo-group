@@ -11,6 +11,10 @@
   max-width: 240px;
   height: 100%;
 
+  @include tablets() {
+   max-width: 250px;
+  }
+
 
   &__container {
 
@@ -67,6 +71,7 @@
   &__description {
 
  font-size: 16px;
+ text-align: center;
   }
 
 }

@@ -26,6 +26,8 @@
       width:90%;
       padding: 0px;
     }
+
+
   
     .list_left {
   
@@ -73,6 +75,10 @@
       text-transform: uppercase;
   
       max-width: 1200px;
+
+      @include phones() {
+        padding: 0;
+      }
   
       .item {
 

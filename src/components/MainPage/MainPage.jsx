@@ -12,13 +12,15 @@ import {Helmet} from "react-helmet";
 import CardItem from "../CardItem/CardItem";
 
 let MainPage = (props) => {
-
+debugger
   let AccessoriesPopularElements = props.data.accessoriesTypes.map(element => {
     if (element.popular) {
       return (<AccessoryItem
         key={element.id}
         title={element.name}
         image={element.images[0].path}
+        desc={element.decryption}
+        price={element.price}
       />)
     }
   });
@@ -32,7 +34,7 @@ let MainPage = (props) => {
     },
   };
 
-  // const [toggler, setToggler] = useState(false);
+
 
  
   return (

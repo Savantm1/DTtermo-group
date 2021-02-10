@@ -1,8 +1,9 @@
 @import "../../variables.scss";
 
 .hamburger_container {
+  
 display: none;
-
+margin-left: 15px;
 @include tablets() {
 
   display: block;
@@ -134,7 +135,8 @@ display: none;
          border: 1px solid #fff;
          background-color: #fff;
          border-radius: 50%;
-         width: 15px;
+         min-width: 15px;
+         padding: 2px;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -258,6 +260,13 @@ display: none;
   .item:nth-child(1) {
     @include tablets() {
       flex-grow: 0.6;
+
+    }
+
+    .logo {
+      @include phones() {
+        width: 60%;
+      }
     }
   }
 

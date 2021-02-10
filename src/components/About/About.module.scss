@@ -9,6 +9,8 @@
    display: flex;
   flex-direction: column;
   align-items: center;
+  width: 95%;
+  min-height: calc(100vh - 90px);
   
   .block {
 
@@ -29,6 +31,10 @@
     background-repeat: no-repeat;
     background-position: center bottom;
 
+    @include tablets() {
+      font-size: 22px;
+    }
+
   }
 
   .description {
@@ -36,11 +42,24 @@
     font-size: 20px;
     text-indent:40px;
 
+    @include tablets() {
+      font-size:16px;
+    }
+
+    @include phones() {
+     text-align: justify;
+    }
+
     .about_img {
 
-      width: 600px;
+      max-width: 600px;
+      width: 60%;
       float:right;
       margin: 5px 10px;
+
+      @include phones() {
+        width: 95%;
+      }
     }
   }
 
@@ -48,7 +67,7 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 1200px;
     flex-wrap: wrap;
   
@@ -80,6 +99,12 @@
         text-align: center;
         margin-top: 0px;
         margin-bottom: 0px;
+
+        @include tablets() {
+          font-size: 17px;
+        }
+
+
       }
   
       .hover_block {
@@ -100,6 +125,14 @@
         transition: ease all 0.4s;
         text-align: start;
         text-indent: 15px;
+
+        @include tablets() {
+          font-size: 14px;
+        }
+
+        @include phones() {
+          text-align: justify;
+         }
          p {
            margin-top: 0;
            vertical-align: center;
@@ -132,7 +165,8 @@
 
       .img {
 
-        width: 400px;
+        max-width: 400px;
+        width: 30%;
         cursor: pointer;
       }
 
@@ -156,6 +190,14 @@
           font-size:20px;
           margin-top: 0;
           padding-top: 0;
+
+          @include tablets() {
+            font-size:16px;
+          }
+
+          @include phones() {
+            text-align: justify;
+           }
         }
 
         .btn {
@@ -205,6 +247,14 @@
     .desc {
       text-indent:40px;
       font-size: 20px;
+
+      @include tablets() {
+        font-size:16px;
+      }
+
+      @include phones() {
+        text-align: justify;
+       }
     }
 
     // .arrow_block {

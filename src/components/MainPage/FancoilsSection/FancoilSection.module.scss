@@ -1,3 +1,6 @@
+
+@import "../../../variables";
+
 .cards_block {
   width: 100%;
   display: flex;
@@ -5,4 +8,9 @@
   justify-content: space-between;
   align-items: stretch;
   margin-bottom: 30px;
+
+  @include laptops() {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

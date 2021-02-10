@@ -4,11 +4,20 @@
   cursor: pointer;
   text-decoration: none;
   color: #000;
+
+  @include laptops() {
+    margin-bottom: 12px;
+  }
+
 }
 .card {
   
   max-width: 240px;
   height: 100%;
+
+  @include tablets() {
+    max-width: 280px;
+  }
 
 
   &__container {
@@ -30,12 +39,14 @@
 
     border-radius: 10px;
     border: 1px solid rgb(180, 180, 180);
+    
 
     -webkit-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
     -moz-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
     box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
   
     transition: all ease 0.2s;
+
 
     &:hover {
 
@@ -54,9 +65,9 @@
 
   &__class {
 
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 0px;
-    color: $green;
+    // color: $green;
 
   }
 
@@ -82,6 +93,25 @@
   margin-top: 10px;
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey;
+  flex-direction: row;
+
+  @include desktop() {
+    flex-direction: column;
+  }
+
+  @include tablets() {
+    flex-direction: row;
+  }
+  
+  &:last-child {
+    display: none;
+
+    @include laptops() {
+      display: flex;
+    }
+  }
 
   }
 
@@ -89,7 +119,19 @@
 
     font-weight: 700;
     margin-right: 5px;
+
+    @include tablets () {
+      text-align: start;
+    }
     
+  }
+
+
+  .feature__desc {
+
+    @include tablets () {
+      text-align: center;
+    }
   }
 
   &__btn {
