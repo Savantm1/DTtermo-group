@@ -26,6 +26,11 @@
     background-image: url("../../../assets/img/footer-bg.png");
     background-repeat: no-repeat;
     background-position: center bottom;
+
+    @include phones() {
+      height: 40px;
+      font-size: 22px;
+    }
   }
 
   .model_container {
@@ -41,8 +46,14 @@
     flex-wrap: wrap;
 
     .left_side {
+
       width: 45%;
-      // margin-left: 30px;
+
+      @include tablets() {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+      }
 
       .card_img {
         object-fit: cover;
@@ -54,6 +65,12 @@
         font-weight: 600;
   
         margin-left:30px;
+      }
+
+      .technologies_block {
+        @include tablets() {
+          display: none;
+        }
       }
 
       .list {
@@ -129,7 +146,11 @@
     }
 
     .right_side {
-      width: 45%;
+      width: 50%;
+
+      @include tablets() {
+        width: 90%;
+      }
 
       .advantages_list {
         position: relative;
@@ -157,6 +178,18 @@
           position: absolute;
           right: 0;
           top: 0;
+
+          @include laptops(){
+            padding: 12px 5px;
+            width: 145px;
+            font-size: 14px;
+          } 
+
+          @include minPhone() {
+            padding: 12px 0px;
+            width: 105px;
+            font-size: 11px;
+          }
         }
 
         .advantages_item {
@@ -165,6 +198,10 @@
           flex-direction: column;
           align-items: center;
           justify-content: space-around;
+
+          @include tablets() {
+            width: 70px;
+          }
 
           .item_img {
             border: 2px solid $green;
@@ -369,7 +406,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 30px;
   flex-wrap: wrap;
+
 }
