@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./AccessoriesModel.module.scss";
-import card_img from "../../../assets/img/series_img.PNG";
 import controller from "../../../assets/img/controller.svg";
 import temperature from "../../../assets/img/temperature-control.svg";
 import water from "../../../assets/img/water-temperature.svg";
@@ -9,11 +8,10 @@ import term from "../../../assets/img/term.svg";
 import truck from "../../../assets/img/truck.svg";
 import AccessoryItem from "../../AccessoryItem/AcessoryItem";
 import cogoToast from "cogo-toast";
-import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 let AccessoriesModel = (props) => {
-debugger
+ 
   let ModelTestData = {  quantity: '1', series: "series", tableName: 'accessoriesTable' };
   let modelData = props.data.currentModel;
   let AddtoSpec = () => {
@@ -21,7 +19,7 @@ debugger
     cogoToast.success("Добавлено в спецификацию", {
       position: "top-right",
     });
-debugger
+ 
     props.data.AddModelToSpec(modelData.id, modelData.code, ModelTestData.series, modelData.name, ModelTestData.quantity, ModelTestData.tableName);
   };
 
@@ -63,7 +61,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Управление с помощью ИК-пульта
                 </p>
@@ -75,7 +73,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Контроль температуры воды в трубопроводе
                 </p>
@@ -87,7 +85,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Контроль температуры внутри помещения
                 </p>
@@ -178,7 +176,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>
                   Бесплатная доставка до транспортной компании
                 </p>
@@ -190,7 +188,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>3 года гарантии</p>
               </li>
               <li className={styles.advantages_item}>
@@ -200,7 +198,7 @@ debugger
                   width="40px"
                   height="40px"
                   type="image/svg+xml"
-                ></object>
+                > </object>
                 <p className={styles.item_desc}>В наличии на складе</p>
               </li>
               <button className={styles.btn} onClick={AddtoSpec}>

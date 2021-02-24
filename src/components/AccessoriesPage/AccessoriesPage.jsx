@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./AccessoriesPage.module.scss";
-import Form from "../Form/Form";
-import AccessoryItem from '../AccessoryItem/AcessoryItem';
+// import Form from "../Form/Form";
+// import AccessoryItem from '../AccessoryItem/AcessoryItem';
 import AccessoriesSectionContainer from '../MainPage/AcessoriesSection/AccessoriesSectionContainer';
 import { Helmet } from 'react-helmet';
 

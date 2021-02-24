@@ -18,6 +18,7 @@ a {
           align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: calc(100vh - 90px);
 }
 
 @media screen and (max-width: 1440px) {
@@ -29,6 +30,7 @@ a {
 @media screen and (max-width: 1024px) {
   .content {
     max-width: 740px;
+    width: 100%;
   }
 }
 
@@ -85,6 +87,12 @@ a {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .content .title {
+    font-size: 18px;
+  }
+}
+
 .content .subtitle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,6 +103,12 @@ a {
           justify-content: space-between;
   font-size: 20px;
   margin-bottom: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  .content .subtitle {
+    display: none;
+  }
 }
 
 .content .subtitle .in_stock {
@@ -113,21 +127,6 @@ a {
   text-align: center;
 }
 
-.content .accessories_block {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 30px;
-}
-
 .cards_block {
   width: 100%;
   display: -webkit-box;
@@ -137,13 +136,23 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .cards_block {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .features {
@@ -160,6 +169,12 @@ a {
   max-width: 1200px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    display: none;
+  }
 }
 
 .features .item {

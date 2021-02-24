@@ -12,7 +12,7 @@ import { withRouter } from "react-router-dom";
 class FancoilModelContainer extends React.Component {
 
   componentDidMount() {
- debugger
+  
       this.props.setFancoilModelThunkCreator(this.props.match.params.type, this.props.match.params.id);
       
       this.props.getTypesThunkCreator();
@@ -30,7 +30,7 @@ class FancoilModelContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger;
+     ;
     if ((this.props.match.params.id !== prevProps.match.params.id) || (this.props.match.params.type !== prevProps.match.params.type)) {
         this.props.setFancoilModelThunkCreator(this.props.match.params.type, this.props.match.params.id)
     };
@@ -40,11 +40,11 @@ class FancoilModelContainer extends React.Component {
 
   render() {
     if (this.props.isLoaded1 && this.props.isLoaded2) {
-      debugger
+       
       return <FancoilModel data={this.props} />;
       
     } else {
-      debugger
+       
       console.log('PreloaderRender')
       return <Preloader />;
 

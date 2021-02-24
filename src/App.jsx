@@ -8,8 +8,8 @@ import Contacts from './components/Contacts/Contacts';
 import FancoilsPageContainer from './components/FancoilsPage/FancoilsPageContainer';
 import AccessoriesPageContainer from './components/AccessoriesPage/AccessoriesPageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import FancoilSeriesContainer from './components/FancoilsPage/FancoilsSeries/FancoilSeriesContainer';
-import AccessoriesSeriesContainer from './components/AccessoriesPage/AccessoriesSeries/AccessoriesSeriesContainer';
+// import FancoilSeriesContainer from './components/FancoilsPage/FancoilsSeries/FancoilSeriesContainer';
+// import AccessoriesSeriesContainer from './components/AccessoriesPage/AccessoriesSeries/AccessoriesSeriesContainer';
 import WithUrlDataContainerComponent from './components/FancoilsPage/FancoilModel/FancoilModelContainer';
 import AccessoriesModelContainer from './components/AccessoriesPage/AccessoriesModel/AccessoriesModelContainer'
 import Modal from './components/Specification/Modal/Modal';

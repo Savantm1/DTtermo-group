@@ -43,7 +43,7 @@ const NavbarReducer = (state = copyLocalStorageCount(), action) => {
       }
 
     case DELETE_ITEM_FROM_SPEC: {
-      debugger;
+       
       let stateCopy = { ...state };
       stateCopy.SpecificationCount = stateCopy.SpecificationCount - action.quantity;
       window.localStorage.setItem("counter", JSON.stringify(stateCopy));
@@ -67,7 +67,7 @@ export const ChangeProduct = (pervValue,currValue) => {
 };
 
 export const DeletePositionFromSpecCounter = (quantity) => {
-  debugger
+   
   return { type: DELETE_ITEM_FROM_SPEC, quantity}
 };
 

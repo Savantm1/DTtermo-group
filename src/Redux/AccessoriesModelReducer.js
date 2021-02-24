@@ -18,7 +18,7 @@ let initialState = {
 const AccessoriesModelReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ACCESSORIES_MODELS: {
-      debugger;
+       ;
       let stateCopy = {
         ...state,
         accessoriesModels: action.accessoriesModels,

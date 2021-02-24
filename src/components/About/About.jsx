@@ -3,9 +3,9 @@ import styles from "./About.module.scss";
 import features_1 from "../../assets/img/features_1.svg";
 import features_2 from "../../assets/img/features_2.svg";
 import features_3 from "../../assets/img/features_3.svg";
-import features_4 from "../../assets/img/features_4.svg";
+// import features_4 from "../../assets/img/features_4.svg";
 import features_5 from "../../assets/img/features_5.png";
-import features_6 from "../../assets/img/features_6.svg";
+// import features_6 from "../../assets/img/features_6.svg";
 import certificate from "../../assets/img/certificate.jpg";
 import { SRLWrapper } from "simple-react-lightbox";
 import FsLightbox from "fslightbox-react";
@@ -16,9 +16,9 @@ import slide_4 from "../../assets/img/Production/proizvodstvo-4.jpg";
 import slide_5 from "../../assets/img/Production/proizvodstvo-5.jpg";
 import slide_6 from "../../assets/img/Production/2352.PNG";
 import about from "../../assets/img/about.PNG";
-import Form from "../Form/Form";
-import MyGallery from "./Slider/Slider";
-import LightboxGallery from "../LightboxGallery/LighboxGallery";
+// import Form from "../Form/Form";
+// import MyGallery from "./Slider/Slider";
+// import LightboxGallery from "../LightboxGallery/LighboxGallery";
 import { Helmet } from "react-helmet";
 
 let About = (props) => {

@@ -7,7 +7,7 @@ import FancoilSection from '../MainPage/FancoilsSection/FancoilSection';
 import { Helmet } from 'react-helmet';
 
 let FancoilsPage = (props) => {
-debugger
+ 
   return (
     <div className={styles.content}>
       <Helmet>

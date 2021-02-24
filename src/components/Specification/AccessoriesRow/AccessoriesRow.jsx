@@ -48,6 +48,7 @@ let AccessoriesRow = (props) => {
             src={minus}
             width="20px"
             height="20px"
+            alt="decrement"
           ></img>
         </span>
         <input type="text" className={styles.number_input} onChange={ChangeQuantity} ref={Input} value={props.kol}/>
@@ -57,6 +58,7 @@ let AccessoriesRow = (props) => {
             src={plus}
             width="20px"
             height="20px"
+            alt="increment"
           ></img>
         </span>
       </div>
@@ -66,6 +68,7 @@ let AccessoriesRow = (props) => {
             className={styles.delete_img}
             src={delete_icon}
             alt="удалить"
+            
           />
         </a>
       </div>

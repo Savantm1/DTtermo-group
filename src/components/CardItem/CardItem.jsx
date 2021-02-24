@@ -11,15 +11,19 @@ let CardItem = (props) => {
 
   return (
     <NavLink className={styles.link_item}
-      // onClick={props.getModel(props.key)}
       to={ props.id <=3 ? `/fancoils/${props.series}/models/${props.firstModelName}` : `/order`}>
       <div className={styles.card}>
         <div className={`${styles.card__container} ${isActive}`}>
-          <img className={styles.card__img} src={props.image[0].path} alt="card_img" />
+          <div className={styles.block_img}>
+            <img className={styles.card__img} src={props.image[0].path} alt="card_img" />
+          </div>
           <div className={styles.desc_container}>
-            <h4 className={styles.card__class}>
-              {props.title}
-            </h4>
+            <div className={styles.block_title}>
+              <h4 className={styles.card__class}>
+                {props.title}
+              </h4>
+            </div>
+            
             <span className={styles.card__model}>{props.series}</span>
             <p className={styles.card__feature}>
               <span className={styles.feature__title}>Производительность:</span>

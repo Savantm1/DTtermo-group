@@ -457,6 +457,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 95%;
+  min-height: calc(100vh - 90px);
 }
 
 .content .block {
@@ -485,15 +487,40 @@
   background-position: center bottom;
 }
 
+@media screen and (max-width: 768px) {
+  .content .title {
+    font-size: 22px;
+  }
+}
+
 .content .description {
   font-size: 20px;
   text-indent: 40px;
 }
 
+@media screen and (max-width: 768px) {
+  .content .description {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content .description {
+    text-align: justify;
+  }
+}
+
 .content .description .about_img {
-  width: 600px;
+  max-width: 600px;
+  width: 60%;
   float: right;
   margin: 5px 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .content .description .about_img {
+    width: 95%;
+  }
 }
 
 .content .features {
@@ -504,9 +531,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   max-width: 1200px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -548,6 +574,12 @@
   margin-bottom: 0px;
 }
 
+@media screen and (max-width: 768px) {
+  .content .features .item .text {
+    font-size: 17px;
+  }
+}
+
 .content .features .item .hover_block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -575,6 +607,18 @@
   transition: ease all 0.4s;
   text-align: start;
   text-indent: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .content .features .item .hover_block {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content .features .item .hover_block {
+    text-align: justify;
+  }
 }
 
 .content .features .item .hover_block p {
@@ -622,7 +666,8 @@
 }
 
 .content .certificate .block .img {
-  width: 400px;
+  max-width: 400px;
+  width: 30%;
   cursor: pointer;
 }
 
@@ -637,6 +682,18 @@
   font-size: 20px;
   margin-top: 0;
   padding-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .content .certificate .block .desc {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content .certificate .block .desc {
+    text-align: justify;
+  }
 }
 
 .content .certificate .block .btn {
@@ -689,6 +746,18 @@
 .content .sklad .desc {
   text-indent: 40px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .content .sklad .desc {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content .sklad .desc {
+    text-align: justify;
+  }
 }
 
 .sklad_gallery {

@@ -14,9 +14,7 @@ import demo9 from "../../../assets/img/SectionDemo/demo9.png";
 import demo10 from "../../../assets/img/SectionDemo/demo10.svg";
 import demo11 from "../../../assets/img/SectionDemo/demo11.svg";
 import demo12 from "../../../assets/img/SectionDemo/demo12.svg";
-import demo13 from "../../../assets/img/SectionDemo/demo13.svg";
 import demo14 from "../../../assets/img/SectionDemo/demo14.png";
-import image4 from "../../../assets/img/SectionDemo/image4.jpg";
 import carrier from "../.././../assets/img/carrier_fancoil1.png";
 import left from "../.././../assets/img/back.svg";
 import right from "../.././../assets/img/next.svg";
@@ -24,7 +22,7 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 let BeautySection = (props) => {
-
+ 
   let left_arrow = React.createRef();
   let right_arrow = React.createRef();
   let slider_list = React.createRef();
@@ -32,12 +30,13 @@ let BeautySection = (props) => {
   let max = 0;
   let fancoilNumber = 1;
   let currentItem = 0;
-  let maxFancoilNumber = 5;
+  let maxFancoilNumber = 9;
   let minFancoilNumber = 1;
 
   let rightArrowFunc = (e) => {
     let list_width = slider_list.current.clientWidth;
-    let step = Math.round(list_width / 5);
+    let step = Math.round(list_width / maxFancoilNumber);
+    console.log(step);
     let min = -(list_width - step);
 
     if (currentItem > min) {
@@ -57,7 +56,7 @@ let BeautySection = (props) => {
   let leftArrowFunc = (e) => {
 
     let list_width = slider_list.current.clientWidth;
-    let step = Math.round(list_width / 5);
+    let step = Math.round(list_width / maxFancoilNumber);
     let min = -(list_width - step);
 
     if (currentItem < max) {
@@ -105,13 +104,13 @@ let BeautySection = (props) => {
           >
             <div className={styles.long_block}>
               <div className={styles.mini_block}>
-                <img src={demo8} alt=""  />
+                <img src={demo8} alt="img"  />
                 <p>
                   Охлаждение <br/> до <span>8 кWt</span>
                 </p>
               </div>
               <div className={styles.mini_block}>
-                <img src={demo4} alt="" />
+                <img src={demo4} alt="img" />
                 <p>
                   Нагрев <br/>дo  <span>9 кWt</span>
                 </p>
@@ -127,7 +126,7 @@ let BeautySection = (props) => {
             className={styles.animate}
           >
             <div className={styles.mini_block}>
-              <img src={demo1} alt="" />
+              <img src={demo1} alt="img" />
               <p>2х/4х <br/> трубные</p>
             </div>
           </ScrollAnimation>
@@ -138,7 +137,7 @@ let BeautySection = (props) => {
             className={styles.animate}
           >
             <div className={`${styles.mini_block}`}>
-              <img src={demo2} alt="" />
+              <img src={demo2} alt="img" />
               <p> Толщина всего <br/> <span>245 мм</span> </p>
             </div>
           </ScrollAnimation>
@@ -151,7 +150,7 @@ let BeautySection = (props) => {
           >
             <div className={styles.long_block}>
 
-                <img src={demo3} alt="" />
+                <img src={demo3} alt="img" />
                 <p>
                   Вертикальная или горизонтальная <br/> установка
                 </p>
@@ -167,7 +166,7 @@ let BeautySection = (props) => {
               <div
                 className={`${styles.mini_block} `}
               >
-                <img src={demo5} alt="" />
+                <img src={demo5} alt="img" />
                 <p>Одни из самых тихих на рынке</p>
               </div>
           </ScrollAnimation>
@@ -186,7 +185,9 @@ let BeautySection = (props) => {
               <img src={left} alt="arrow_left" />
             </div>
 
-            <ul className={styles.slider_list} ref={slider_list}>
+            <ul 
+              className={styles.slider_list} 
+              ref={slider_list}>
               {slideElements}
             </ul>
 
@@ -206,7 +207,7 @@ let BeautySection = (props) => {
               animateOut="flipOutY"
             >
               <div className={`${styles.mini_block} ${styles.mini_sklad}`}>
-                <img src={demo10} alt="" />
+                <img src={demo10} alt="img" />
                 <p>
                   В наличии <br/> на складе
                 </p>
@@ -238,7 +239,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
-              <img src={demo12} alt="" />
+              <img src={demo12} alt="img" />
               <p>Высокая надежность</p>
             </div>
           </ScrollAnimation>
@@ -249,7 +250,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
-              <img src={demo9} alt="" />
+              <img src={demo9} alt="img" />
               <p><span>ECO</span> <br/> friendly</p>
             </div>
             </ScrollAnimation>
@@ -260,7 +261,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={styles.mini_block}>
-              <img src={demo7} alt="" />
+              <img src={demo7} alt="img" />
               <p>Европейское производство</p>
             </div>
           </ScrollAnimation>
@@ -271,7 +272,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={`${styles.mini_block} ${styles.cert_block}`}>
-              <img src={eurovent} alt="" />
+              <img src={eurovent} alt="img" />
             </div>
           </ScrollAnimation>
           </div>
@@ -283,7 +284,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={`${styles.mini_block} ${styles.big_block} `}>
-              <img src={demo6} alt="" />
+              <img src={demo6} alt="img" />
               <p>Простой монтаж и сервис</p>
             </div>
           </ScrollAnimation>
@@ -294,7 +295,7 @@ let BeautySection = (props) => {
             animateOut="flipOutY"
           >
             <div className={`${styles.mini_block} ${styles.big_block} `}>
-              <img src={demo14} alt="" />
+              <img src={demo14} alt="img" />
               <p>Своевременная <br/> доставка</p>
             </div>
           </ScrollAnimation>

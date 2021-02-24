@@ -25,7 +25,10 @@ let Header = (props) => {
           </NavLink>
         </li>
         <li className={`${styles.item} ${styles.item_hide}`}>
-          <NavLink className={styles.link} to="/about_us">
+          <NavLink 
+          className={styles.link}
+          activeClassName={styles.link_active} 
+          to="/about_us">
             О компании
           </NavLink>
         </li>
@@ -75,7 +78,7 @@ let Header = (props) => {
               data={ToDoList}
               width="30"
               height="30"
-            ></object>
+            > </object>
             <div className={styles.shadow}></div>
           </NavLink>
         </li>
@@ -105,7 +108,7 @@ let Header = (props) => {
                   data={ToDoList}
                   width="30"
                   height="30"
-                ></object>
+                > </object>
                 <div className={styles.shadow}></div>
               </NavLink>
             </li>

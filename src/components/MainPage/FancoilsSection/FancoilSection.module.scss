@@ -5,12 +5,13 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 
   @include laptops() {
-    flex-wrap: wrap;
+
     justify-content: center;
   }
 }

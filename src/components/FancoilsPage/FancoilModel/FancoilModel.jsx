@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./FancoilModel.module.scss";
-import card_img from "../../../assets/img/series_img.PNG";
 import controller from "../../../assets/img/controller.svg";
 import temperature from "../../../assets/img/temperature-control.svg";
 import water from "../../../assets/img/water-temperature.svg";
@@ -11,7 +10,6 @@ import AccessoryItem from "../../AccessoryItem/AcessoryItem";
 // import Form from "../../Form/Form";
 import cogoToast from "cogo-toast";
 import { NavLink } from "react-router-dom";
-
 // import FancoilSectionContainer from "../../MainPage/FancoilsSection/FancoilSectionContainer";
 import FancoilSection from "../../MainPage/FancoilsSection/FancoilSection";
 import Slider from "../../Slider/Slider";
@@ -19,7 +17,7 @@ import { Helmet } from "react-helmet";
 
 
 let FancoilModel = (props) => {
-  debugger
+   
 
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '1' };
   let tableName = 'fancoilsTable';
@@ -129,7 +127,7 @@ let FancoilModel = (props) => {
   });
  
   let tableElements = props.data.models.map((element,index) => {
-    debugger
+     
     return(
       <div key={index} className={styles.row}>
       <NavLink className={styles.link} to={`/fancoils/${props.data.match.params.type}/models/${element.name}`}>

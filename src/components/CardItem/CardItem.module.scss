@@ -4,6 +4,7 @@
   cursor: pointer;
   text-decoration: none;
   color: #000;
+  margin-bottom: 15px;
 
   @include laptops() {
     margin-bottom: 12px;
@@ -71,9 +72,12 @@
 
   }
 
+  
+
   &__img {
 
     width: 100%;
+    max-height: 140px;
   }
 
   &__model {
@@ -113,6 +117,14 @@
     }
   }
 
+  }
+
+  .block_img {
+    height: 160px;
+  }
+
+  .block_title {
+    min-height: 50px;
   }
 
   .feature__title {

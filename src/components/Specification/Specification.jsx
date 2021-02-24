@@ -1,9 +1,5 @@
 import React from "react";
 import styles from "./Specification.module.scss";
-import cogoToast from "cogo-toast";
-import delete_icon from "../../assets/img/delete.svg";
-import minus from "../../assets/img/minus.svg";
-import plus from "../../assets/img/plus.svg";
 import { NavLink } from "react-router-dom";
 import FancoilRow from "./FancoilRow/FancoilRow";
 import AccessoriesRow from "./AccessoriesRow/AccessoriesRow";
@@ -38,7 +34,7 @@ let EmptySpec = (props) => {
 }
 
 let Specification = (props) => {
-  debugger;
+ 
   let FancoilElements = props.spec.fancoils.map((fancoilElement, index) => {
     return (
       <FancoilRow

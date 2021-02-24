@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 
 let Form = (props)=> {
-  debugger
+   
 //изменение value 
 
   const [email, setEmail] = useState('');
@@ -41,7 +41,7 @@ let Form = (props)=> {
     }else{
       setFormValid(true)
     }  
-  }, [emailError,nameError,deliveryError,privacy])
+  }, [emailError,nameError,deliveryError,delivery,privacy])
 
 
 // пользователь убрал фокус с поля
@@ -56,6 +56,8 @@ let Form = (props)=> {
         break
       case 'adress':
         setDeliveryDirty(true)
+        break
+        default: break
     }
   };
 
@@ -136,8 +138,7 @@ let Form = (props)=> {
       <div className={styles.block}>
         <h1 className={styles.title}> Оформление заказа</h1>
         <form className={styles.form} id="form">
-          <div className={styles.row}>
-          
+          <div className={styles.row}>   
             <input
               type="radio"
               id={styles.delivery}
@@ -241,7 +242,7 @@ let Form = (props)=> {
               id="checkbox"
               onClick={privacyHandler}
             />
-            <label for="checkbox">
+            <label htmlFor="checkbox">
               Я даю свое согласие на обработку моих персональных данных, в
               соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О
               персональных данных» *

@@ -63,7 +63,7 @@ export const SetFancoilModel = (fancoilModel,isLoaded) => {
 
 export const setFancoilModelThunkCreator = (fancoilType,fancoilModel) => {
   return (dispatch) => {
-    debugger
+     
     API.getFancoilModels(fancoilType).then((response) => {
       dispatch(SetFancoilModels(response, true))
     });

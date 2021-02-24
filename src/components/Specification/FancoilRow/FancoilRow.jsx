@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import styles from './FancoilRow.module.scss';
 import cogoToast from "cogo-toast";
 import delete_icon from "../../../assets/img/delete.svg";
@@ -7,7 +7,7 @@ import plus from "../../../assets/img/plus.svg";
 
 
 let FancoilRow = (props) => {
- debugger
+  
   let Input = React.createRef();
 
   let DeleteFromSpec = () => {
@@ -52,6 +52,7 @@ let FancoilRow = (props) => {
             src={minus}
             width="20px"
             height="20px"
+            alt="decrement"
           ></img>
         </span>
         <input type="text" className={styles.number_input}  value={props.kol}
@@ -62,6 +63,7 @@ let FancoilRow = (props) => {
             src={plus}
             width="20px"
             height="20px"
+            alt="increment"
           ></img>
         </span>
       </div>

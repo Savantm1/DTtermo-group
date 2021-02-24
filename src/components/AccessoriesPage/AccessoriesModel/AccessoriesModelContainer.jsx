@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { AddProduct } from "../../../Redux/NavbarReducer";
 import AccessoriesModel from "./AccessoriesModel";
 import { AddModelToSpec } from "../../../Redux/SpecificationReducer";
-import { API } from "../../../api/api";
+// import { API } from "../../../api/api";
 import { withRouter } from "react-router-dom";
 import Preloader from "../../Preloader/Preloader";
 import { setAccessoriesThunkCreator } from "../../../Redux/AccessoriesModelReducer";

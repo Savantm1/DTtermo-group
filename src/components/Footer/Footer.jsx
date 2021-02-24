@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styles from './Footer.module.scss';
 import mail from '../../assets/img/mail.svg';
 import phone from '../../assets/img/phone.svg';
@@ -29,7 +28,7 @@ let Footer = () => {
           </a>
           <a className={styles.link} href="mailto:carrier@dttermo.ru">
           <li className={styles.item}>
-            <img className={styles.icon} type="image" src={mail} width="25" height="25" >
+            <img className={styles.icon} type="image" src={mail} width="25" height="25"  alt="mail">
               </img>carrier@dttermo.ru</li>
             </a>
         </ul>
@@ -37,21 +36,21 @@ let Footer = () => {
 
           <li className={styles.item}>
             <a href="https://www.facebook.com/dttermo" className={styles.social} alt="facebook">
-              <img className={styles.icon}  src={fb} width="30" height="30" >
+              <img className={styles.icon}  src={fb} width="30" height="30" alt="facebook" >
               </img>
             </a>
           </li>
 
           <li className={styles.item}>
           <a href="https://www.youtube.com/user/dttermo" className={styles.social} alt="youtube">
-              <img className={styles.icon}  src={youtube} width="30" height="30" >
+              <img className={styles.icon}  src={youtube} width="30" height="30" alt="youtube" >
               </img>
             </a>
           </li>
 
           <li className={styles.item}>
           <a href="https://instagram.com/dttermo?igshid=1kh5wn65u0uq4" className={styles.social} alt="instagramm">
-              <img className={styles.icon}  src={inst} width="30" height="30" >
+              <img className={styles.icon}  src={inst} width="30" height="30" alt="instagram" >
               </img>
             </a>
           </li>

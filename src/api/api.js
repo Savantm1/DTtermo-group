@@ -20,7 +20,7 @@ export const API = {
   },
 
   getAccessoriesTypes() {
-debugger
+ 
     return instance.get(`/accessories`)
       .then(response => {
         return response.data.data;
@@ -32,7 +32,7 @@ debugger
     return instance.get(`fancoils/${TypeId}/models`)
       
       .then(response => {
-        debugger
+         
         return response.data.data;
        });
   },
@@ -52,7 +52,7 @@ debugger
     return instance.get(`accessories/${Type}`)
       
       .then(response => {
-        debugger
+         
         return response.data.data;
        });
   },

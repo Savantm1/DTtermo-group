@@ -11,7 +11,7 @@ class FancoilsPageContainer extends React.Component {
 
     API.getFancoilTypes().then(response => {
 
-      debugger
+       
       this.props.setFancoilTypes(response, true);
     });
   };

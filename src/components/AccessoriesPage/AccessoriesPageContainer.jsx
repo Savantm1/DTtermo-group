@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { API } from '../../api/api';
 import Preloader from '../Preloader/Preloader';
 import AccessoriesPage from './AccessoriesPage';
 import { getTypesThunkCreator } from '../../Redux/MainPageReducer';
