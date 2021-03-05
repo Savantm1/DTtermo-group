@@ -16,9 +16,7 @@ import slide_4 from "../../assets/img/Production/proizvodstvo-4.jpg";
 import slide_5 from "../../assets/img/Production/proizvodstvo-5.jpg";
 import slide_6 from "../../assets/img/Production/2352.PNG";
 import about from "../../assets/img/about.PNG";
-// import Form from "../Form/Form";
-// import MyGallery from "./Slider/Slider";
-// import LightboxGallery from "../LightboxGallery/LighboxGallery";
+
 import { Helmet } from "react-helmet";
 
 let About = (props) => {
@@ -61,7 +59,7 @@ let About = (props) => {
   //   }
   // }
 
-  const [toggler, setToggler] = useState(false);
+  // const [toggler, setToggler] = useState(false);
 
   return (
     <div className={styles.content}>
@@ -153,9 +151,9 @@ let About = (props) => {
             className={styles.img}
             src={certificate}
             alt="certificate"
-            onClick={() => setToggler(!toggler)}
+            // onClick={() => setToggler(!toggler)}
           />
-          <FsLightbox toggler={toggler} sources={[certificate]} />
+          {/* <FsLightbox toggler={toggler} sources={[certificate]} /> */}
         </div>
       </section>
 

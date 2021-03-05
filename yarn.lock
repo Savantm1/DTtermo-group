@@ -6145,7 +6145,6 @@ __metadata:
     "@testing-library/user-event": ^7.1.2
     axios: ^0.21.0
     cogo-toast: ^4.2.3
-    fslightbox-react: ^1.6.2
     google-map-react: ^2.1.9
     hamburger-react: ^2.4.0
     node-sass: ^4.14.1
@@ -6691,17 +6690,6 @@ fsevents@^1.2.7:
     node-gyp: latest
     node-pre-gyp: "*"
   checksum: fe3016d5c0cbdff2077b915311eaeefe46d0522562abaa1c10a792bb0ff936f029cc05fe44ef89ecfa9bf1785fc13003f9a1a6c17cfa20bce6e1a64f15e0e67e
-  languageName: node
-  linkType: hard
-
-"fslightbox-react@npm:^1.6.2":
-  version: 1.6.2
-  resolution: "fslightbox-react@npm:1.6.2"
-  peerDependencies:
-    prop-types: ^15.6.2
-    react: ^16.8.0
-    react-dom: ^16.8.0
-  checksum: 88a77c3fda556fd6aa7c0b5a4e2e9fd4cf64ce59d5f3bb783af8fa3f55b5cb8e04768e89df6b9685a5cdc5d6dd6858df95fd5d9a1a1d68baba0f47ec6284a0bc
   languageName: node
   linkType: hard
 
