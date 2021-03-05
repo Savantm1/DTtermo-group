@@ -1,9 +1,8 @@
 @import "../../variables";
 
 .link {
-
   text-decoration: none;
-  color: #000;  
+  color: #000;
   margin-bottom: 10px;
 }
 
@@ -12,12 +11,10 @@
   height: 100%;
 
   @include tablets() {
-   max-width: 250px;
+    max-width: 250px;
   }
 
-
   &__container {
-
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -25,7 +22,7 @@
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    padding:10px;
+    padding: 10px;
     // padding-bottom: 50px;
     margin: 5px;
     background-color: #fff;
@@ -33,14 +30,13 @@
     border-radius: 10px;
     border: 1px solid rgb(180, 180, 180);
 
-   -webkit-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
+    -webkit-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
     -moz-box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
     box-shadow: 2px 8px 48px -10px rgb(158, 158, 158);
-  
+
     transition: all ease 0.2s;
 
     &:hover {
-
       -webkit-box-shadow: 2px 8px 48px -10px rgb(130, 130, 130);
       -moz-box-shadow: 2px 8px 48px -10px rgb(130, 130, 130);
       box-shadow: 2px 8px 48px -10px rgb(129, 129, 129);
@@ -52,26 +48,21 @@
   &__img {
     width: 90%;
     max-height: 160px;
-
   }
 
   .desc_block {
-
     max-width: 250px;
-
   }
 
   &__title {
-   color: $green;
-   font-size: 18px;
-   margin: 10px 0px;
-   text-align: center;
+    color: $green;
+    font-size: 18px;
+    margin: 10px 0px;
+    text-align: center;
   }
 
   &__description {
-
- font-size: 16px;
- text-align: center;
+    font-size: 16px;
+    text-align: center;
   }
-
 }

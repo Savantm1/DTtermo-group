@@ -13,14 +13,13 @@
 }
 
 .app {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
   background-color: $grey;
-  background-image: url('./assets/img/bg.PNG');
+  background-image: url("./assets/img/bg.PNG");
   background-size: 300px;
 
   @include desktop() {
@@ -34,7 +33,6 @@
   @include tablets() {
     padding-top: 80px;
   }
-
 }
 
 //colors
