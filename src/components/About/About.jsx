@@ -8,7 +8,7 @@ import features_5 from "../../assets/img/features_5.png";
 // import features_6 from "../../assets/img/features_6.svg";
 import certificate from "../../assets/img/certificate.jpg";
 import { SRLWrapper } from "simple-react-lightbox";
-import FsLightbox from "fslightbox-react";
+// import FsLightbox from "fslightbox-react";
 import slide_1 from "../../assets/img/Production/proizvodstvo-1.jpg";
 import slide_2 from "../../assets/img/Production/proizvodstvo-2.jpg";
 import slide_3 from "../../assets/img/Production/proizvodstvo-3.jpg";
