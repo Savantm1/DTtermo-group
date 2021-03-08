@@ -68,7 +68,7 @@ let FancoilRow = (props) => {
         </span>
       </div>
       <div className={styles.param}>
-        <a className={styles.btn}
+        <button className={styles.btn}
           onClick={DeleteFromSpec}
         >
           <img
@@ -76,7 +76,7 @@ let FancoilRow = (props) => {
             src={delete_icon}
             alt="удалить"
           />
-        </a>
+        </button>
       </div>
     </div>
     

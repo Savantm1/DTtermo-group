@@ -13,8 +13,8 @@ import {Helmet} from "react-helmet";
 
 let MainPage = (props) => {
  
-  let AccessoriesPopularElements = props.data.accessoriesTypes.map(element=> {
-    if (element.popular) {
+  let AccessoriesPopularElements = props.data.accessoriesTypes.filter(element=>element.popular === true)
+    .map((element) => {
       return (<AccessoryItem
         key={element.id}
         title={element.name}
@@ -22,7 +22,6 @@ let MainPage = (props) => {
         desc={element.decryption}
         price={element.price}
       />)
-    }
   });
 
   // const options = {

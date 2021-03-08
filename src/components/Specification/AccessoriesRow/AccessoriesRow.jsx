@@ -63,14 +63,14 @@ let AccessoriesRow = (props) => {
         </span>
       </div>
       <div className={styles.param}>
-        <a className={styles.btn} onClick={DeleteFromSpec}>
+        <button className={styles.btn} onClick={DeleteFromSpec}>
           <img
             className={styles.delete_img}
             src={delete_icon}
             alt="удалить"
             
           />
-        </a>
+        </button>
       </div>
     </div>
     

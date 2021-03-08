@@ -17,7 +17,6 @@ import { Helmet } from "react-helmet";
 
 
 let FancoilModel = (props) => {
-   
 
   let ModelTestData = { id: "666", art: "666", type: "тест", model: "Тестовая", quantity: '1' };
   let tableName = 'fancoilsTable';

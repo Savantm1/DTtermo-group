@@ -37,7 +37,7 @@
     .left_side {
       width: 45%;
       // margin-left: 30px;
-      
+
       @include tablets() {
         width: 90%;
       }
@@ -67,8 +67,6 @@
         max-width: 500px;
         margin-top: 20px;
 
-
-
         &_item {
           display: flex;
           flex-direction: column;
@@ -80,7 +78,6 @@
           .item_desc {
             display: none;
             position: absolute;
-            display: box;
             border: 1px solid $grey;
             background-color: $grey;
             text-align: center;
@@ -101,7 +98,7 @@
         }
 
         .list_item:hover .item_desc {
-          display: block;
+          display: flex;
         }
       }
 
@@ -111,19 +108,17 @@
         color: $green;
 
         &_title {
+          display: flex;
           font-weight: 600;
           font-size: 20px;
           color: #000;
-
-
         }
-
 
         &_item {
           margin-left: 20px;
 
           @include tablets() {
-            font-size:18px;
+            font-size: 18px;
           }
 
           @include phones() {
@@ -160,10 +155,11 @@
 
         .btn {
           font-family: LytigaPro;
-          display: box;
+          display: flex;
+          justify-content: flex-start;
+          align-items:flex-start;
           cursor: pointer;
           box-sizing: border-box;
-
           color: #fff;
           border: none;
           border-radius: 10px;
@@ -177,11 +173,11 @@
           right: 0;
           top: 0;
 
-          @include laptops(){
+          @include laptops() {
             padding: 10px 5px;
             width: 145px;
             font-size: 14px;
-          } 
+          }
         }
 
         .advantages_item {
@@ -234,7 +230,7 @@
             font-weight: 600;
           }
 
-          .item__right_side{
+          .item__right_side {
             min-width: 75px;
             text-align: end;
           }
@@ -252,7 +248,7 @@
 
     @include tablets() {
       flex-wrap: wrap;
-      align-items:center;
+      align-items: center;
       justify-content: center;
     }
 
@@ -263,20 +259,19 @@
       border-radius: 10px;
 
       @include tablets() {
-        width:95%;
+        width: 95%;
       }
 
       .text_title {
         padding-left: 20px;
         font-size: 20px;
       }
-      
     }
 
     .left_side {
       width: 50%;
       @include tablets() {
-        width:95%;
+        width: 95%;
       }
     }
   }
@@ -426,9 +421,6 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
-
-
-
 
 ul {
   margin: 0;

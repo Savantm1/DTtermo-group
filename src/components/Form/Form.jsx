@@ -145,7 +145,7 @@ let Form = (props)=> {
               name="delivery"
               value="Доставка"
               onClick={deliveryCheckedHandler}
-              checked={delivery}
+              defaultChecked={delivery}
             />
             <label htmlFor={styles.delivery} className={styles.radio}>
               Доставка
@@ -159,7 +159,7 @@ let Form = (props)=> {
               onBlur={BlurHandler}
               value={deliveryAdress}
             />
-            {(deliveryDirty) && <div class={styles.error} >{deliveryError}</div>}
+            {(deliveryDirty) && <div className={styles.error} >{deliveryError}</div>}
           </div>
           <div className={styles.row}>
             <input
@@ -168,7 +168,7 @@ let Form = (props)=> {
               id="pickup"
               value="Самовывоз"
               name="delivery"
-              checked={!delivery}
+              defaultChecked={!delivery}
               onClick={deliveryCheckedHandler}
             />
             <label htmlFor="pickup" className={styles.radio}>
@@ -177,7 +177,7 @@ let Form = (props)=> {
           </div>
 
           <div className={styles.row}>
-          {(nameDirty) && <div class={styles.error} >{nameError}</div>}
+          {(nameDirty) && <div className={styles.error} >{nameError}</div>}
             <input 
               className={nameError.length === 0 ? styles.current : null }
               type="text"
@@ -198,7 +198,7 @@ let Form = (props)=> {
             ></input>
           </div>
           <div className={emailError.length ? styles.row : `${styles.row} ${styles.current}`}>
-          {(emailDirty) && <div class={styles.error}>{emailError}</div>}
+          {(emailDirty) && <div className={styles.error}>{emailError}</div>}
             <input
               type="email"
               name="email"
@@ -222,7 +222,6 @@ let Form = (props)=> {
           <div className={styles.row}>
             <textarea
               className={styles.textarea}
-              name=""
               id=""
               cols="30"
               rows="10"
