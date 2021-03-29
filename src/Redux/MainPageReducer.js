@@ -63,6 +63,7 @@ export const changeTargetId = (currentId, currentLeft) => {
 };
 
 export const getTypesThunkCreator = () => {
+  debugger
  return (dispatch) => {
     API.getFancoilTypes().then(response => {
       dispatch(setFancoilTypes(response, true))

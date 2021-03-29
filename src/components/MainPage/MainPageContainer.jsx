@@ -9,14 +9,6 @@ import Preloader from "../Preloader/Preloader";
 
 class MainPageContainer extends React.Component {
   componentDidMount() {
-    // API.getFancoilTypes().then(response => {
-    //   this.props.setFancoilTypes(response, true);
-    // });
-
-    // API.getAccessoriesTypes().then(response => {
-    //   this.props.setAccessoriesTypes(response, true);
-    // });
-
     this.props.getTypesThunkCreator();
     this.size = React.createRef();
   }
